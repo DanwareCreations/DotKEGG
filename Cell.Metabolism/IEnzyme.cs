@@ -3,8 +3,8 @@
     public interface IEnzyme : IProtein {
         
         ICompound[] Cofactors { get; }
-        IReaction Reaction { get; }
-        float VelocityIn(Solution solution);
+        IReaction[] Reactions { get; }
+        float VelocityIn(ISolution solution);
 
     }
 

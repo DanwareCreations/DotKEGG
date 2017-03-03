@@ -9,8 +9,9 @@
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>Cell.Metabolism</RootNamespace>
     <AssemblyName>Cell.Metabolism</AssemblyName>
-    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
+    <TargetFrameworkProfile>Unity Subset v3.5</TargetFrameworkProfile>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -40,6 +41,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Compounds.cs" />
+    <Compile Include="Compound.cs" />
     <Compile Include="Concentration.cs" />
     <Compile Include="ICompound.cs" />
     <Compile Include="IEnzyme.cs" />
@@ -48,6 +51,8 @@
     <Compile Include="Metabolism.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="IReaction.cs" />
+    <Compile Include="ISolution.cs" />
+    <Compile Include="Solution.cs" />
     <Compile Include="Temperature.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

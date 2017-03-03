@@ -2,9 +2,15 @@
 
     public interface IReaction {
 
-        ICompound[] Reactants { get; }
-        ICompound[] Catalysts { get; }
-        ICompound[] Products { get; }
+        ICompound[] GetReactants();
+        ICompound[] GetProducts();
+
+        void AddReactant(ICompound compound, uint coefficient, Concentration concentration);
+        void AddProduct(ICompound compound, uint coefficient, Concentration concentration);
+        void RemoveReactant(ICompound compound);
+        void RemoveProduct(ICompound compound);
+
+        uint StoichiometryOf(ICompound compound);
         float EquilibriumConstant(Temperature temperature);
         float GetReactionQuotient(Solution solution);
 
