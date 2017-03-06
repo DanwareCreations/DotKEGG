@@ -12,7 +12,7 @@
 
         uint StoichiometryOf(ICompound compound);
         float EquilibriumConstant(Temperature temperature);
-        float GetReactionQuotient(Solution solution);
+        float ReactionQuotient(ISolution solution);
 
     }
 

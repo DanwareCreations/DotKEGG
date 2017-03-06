@@ -4,7 +4,7 @@
         
         ICompound[] Cofactors { get; }
         IReaction[] Reactions { get; }
-        float VelocityIn(ISolution solution);
+        float RateMultiplier(ISolution solution);
 
     }
 

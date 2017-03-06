@@ -20,13 +20,18 @@ namespace Cell.Metabolism {
             _compounds = compounds;
         }
 
-        public Concentration ConcentrationOf(ICompound compound) {
-            Concentration conc;
-            bool exists = _compounds.TryGetValue(compound, out conc);
-            if (!exists)
-                conc = Concentration.Zero;
+        public Concentration this[ICompound compound] {
+            get {
+                Concentration conc;
+                bool exists = _compounds.TryGetValue(compound, out conc);
+                if (!exists)
+                    conc = Concentration.Zero;
 
-            return conc;
+                return conc;
+            }
+            set {
+                _compounds[compound] = value;
+            }
         }
         public void Add(ICompound compound, Concentration concentration) {
             if (_compounds.ContainsKey(compound))
@@ -37,20 +42,15 @@ namespace Cell.Metabolism {
         public void Remove(ICompound compound) {
             _compounds.Remove(compound);
         }
-        public bool Contains(ICompound compound) {
-            return _compounds.ContainsKey(compound);
-        }
-        public bool TryGetConcentration(ICompound compound, out Concentration concentration) {
-            return _compounds.TryGetValue(compound, out concentration);
-        }
-        public bool TryGetConcentration(ICompound compound, out float concentration) {
-            Concentration conc;
-            bool exists = _compounds.TryGetValue(compound, out conc);
-            concentration = conc.Value;
-            return exists;
-        }
         public ICollection<ICompound> ListCompounds() {
             return _compounds.Keys;
+        }
+
+        public object Clone() {
+            Solution soln = new Solution(_pH, Temperature);
+            soln._compounds = this._compounds.ToDictionary(pair => pair.Key, pair => pair.Value);
+
+            return soln;
         }
 
         public Temperature Temperature { get; set; }        

@@ -1,15 +1,13 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 
 namespace Cell.Metabolism {
 
-    public interface ISolution {
+    public interface ISolution : ICloneable {
 
         void Add(ICompound compound,  Concentration concentration);
         void Remove(ICompound compound);
-        bool Contains(ICompound compound);
-        Concentration ConcentrationOf(ICompound compound);
-        bool TryGetConcentration(ICompound compound, out Concentration concentration);
-        bool TryGetConcentration(ICompound compound, out float concentration);
+        Concentration this[ICompound compound] { get; set; }
         ICollection<ICompound> ListCompounds();
 
         Temperature Temperature { get; set; }

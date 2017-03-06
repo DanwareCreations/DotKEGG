@@ -24,15 +24,6 @@ namespace Cell.Metabolism {
                 _value = value;
             }
         }
-        public void Change(float delta) {
-            if (delta > _value)
-                throw new InvalidOperationException($"Concentrations cannot be lowered below zero!");
-
-            _value -= delta;
-        }
-        public void SetToZero() {
-            _value = 0f;
-        }
 
         #region Equality
 
