@@ -4,7 +4,7 @@ namespace Cell.Compartments {
 
     public interface IBoundary {
 
-        ICompound[] GetCompounds();
+        Compound[] GetCompounds();
 
     }
 

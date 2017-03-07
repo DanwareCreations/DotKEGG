@@ -1,6 +1,6 @@
 ﻿namespace Cell.Metabolism {
 
-    public interface IGene {
+    public class Gene {
     }
 
 }

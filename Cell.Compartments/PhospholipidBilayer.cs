@@ -7,9 +7,9 @@ namespace Cell.Compartments {
 
     class PhospholipidBilayer : IBoundary {
 
-        private HashSet<ICompound> _compounds = new HashSet<ICompound>();
+        private HashSet<Compound> _compounds = new HashSet<Compound>();
 
-        public ICompound[] GetCompounds() {
+        public Compound[] GetCompounds() {
             return _compounds.ToArray();
         }
 
