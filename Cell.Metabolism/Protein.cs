@@ -1,7 +1,11 @@
 ﻿namespace Cell.Metabolism {
 
     public class Protein : Compound {
-        Gene Gene { get; }
+
+        protected Protein() { }
+        
+        public Gene Gene { get; protected set; }
+
     }
 
 }

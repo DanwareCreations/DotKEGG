@@ -1,15 +1,39 @@
-﻿using System;
+﻿using System.Linq;
+using System.Collections.Generic;
+
+using Cell.Metabolism.Data;
 
 namespace Cell.Metabolism {
 
-    public class Compound {
+    public class Compound : Entity {
 
-        private string[] _names;
-        private Guid _id = Guid.NewGuid();
+        protected Compound() { }
 
-        public Guid Id => _id;
+        public static Compound Load(string name) {
+            CompoundData data = CompoundData.Load(name);
 
-        public string[] Names => _names;
+            Compound obj = new Compound() {
+                ID = data.ID,
+                Names = data.Names,
+                MolarMass = data.MolarMass,
+            };
+
+            return obj;
+        }
+        public static IEnumerable<Compound> LoadAll() {
+            return CompoundData.LoadAll()
+                               .Select(data =>
+                                    new Compound() {
+                                        ID = data.ID,
+                                        Names = data.Names,
+                                        MolarMass = data.MolarMass,
+                                    }
+                               );
+        }
+
+        public string[] Names { get; protected set; }
+        public double MolarMass { get; protected set; }
+
     }
 
 }
