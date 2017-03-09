@@ -11,7 +11,7 @@ namespace Cell.Metabolism.Data {
         private CompoundData() { }
 
         public string[] Names { get; protected set; }
-        public double MolarMass { get; protected set; }
+        public string[] Types { get; protected set; }
 
         public static CompoundData Load(string name) {
             CompoundData data = null;
@@ -57,7 +57,7 @@ namespace Cell.Metabolism.Data {
             return new CompoundData() {
                 ID = Convert.ToInt32(reader["ID"]),
                 Names = reader["Names"].ToString().Split('\t'),
-                MolarMass = Convert.ToDouble(reader["MolarMass"]),
+                Types = reader["Types"].ToString().Split('\t'),
             };
         }
 

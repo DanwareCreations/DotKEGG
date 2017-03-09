@@ -9,30 +9,24 @@ namespace Cell.Metabolism {
 
         protected Compound() { }
 
+        public string[] Names { get; protected set; }
+        public string[] Types { get; protected set; }
+
         public static Compound Load(string name) {
             CompoundData data = CompoundData.Load(name);
-
-            Compound obj = new Compound() {
-                ID = data.ID,
-                Names = data.Names,
-                MolarMass = data.MolarMass,
-            };
-
-            return obj;
+            return doLoad(data);
         }
         public static IEnumerable<Compound> LoadAll() {
-            return CompoundData.LoadAll()
-                               .Select(data =>
-                                    new Compound() {
-                                        ID = data.ID,
-                                        Names = data.Names,
-                                        MolarMass = data.MolarMass,
-                                    }
-                               );
+            return CompoundData.LoadAll().Select(data => doLoad(data));
         }
 
-        public string[] Names { get; protected set; }
-        public double MolarMass { get; protected set; }
+        private static Compound doLoad(CompoundData data) {
+            return new Compound() {
+                ID = data.ID,
+                Names = data.Names,
+                Types = data.Types,
+            };
+        }
 
     }
 

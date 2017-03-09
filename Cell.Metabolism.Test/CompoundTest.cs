@@ -31,7 +31,6 @@ namespace Cell.Metabolism.Test {
             Compound glucose = Compound.Load("glucose");
 
             Assert.NotNull(glucose);
-            Assert.AreEqual(180.16, glucose.MolarMass);
             Assert.Contains("dextrose", glucose.Names);
         }
 
