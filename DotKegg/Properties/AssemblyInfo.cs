@@ -5,12 +5,12 @@ using System.Runtime.InteropServices;
 // General Information about an assembly is controlled through the following 
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
-[assembly: AssemblyTitle("NetKegg")]
-[assembly: AssemblyDescription("")]
+[assembly: AssemblyTitle("DotKegg")]
+[assembly: AssemblyDescription("A .NET wrapper for the Kyoto Encyclopedia of Genes and Genomes REST API")]
 [assembly: AssemblyConfiguration("")]
-[assembly: AssemblyCompany("")]
-[assembly: AssemblyProduct("NetKegg")]
-[assembly: AssemblyCopyright("Copyright ©  2017")]
+[assembly: AssemblyCompany("Danware Creations, LLC")]
+[assembly: AssemblyProduct("DotKegg")]
+[assembly: AssemblyCopyright("Copyright ©  2017 Danware Creations, LLC")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 

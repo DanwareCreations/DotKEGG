@@ -4,11 +4,11 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{641E85CD-96FD-4BCE-8A5A-9423117FD00A}</ProjectGuid>
+    <ProjectGuid>{EE1ED93A-535A-49F6-BCE2-D7072B53C2FE}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>NetKegg.Compound</RootNamespace>
-    <AssemblyName>NetKegg.Compound</AssemblyName>
+    <RootNamespace>DotKegg</RootNamespace>
+    <AssemblyName>DotKegg</AssemblyName>
     <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>
@@ -40,14 +40,15 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="CompoundDb.cs" />
+    <Compile Include="IKeggDb.cs" />
+    <Compile Include="BrNumber.cs" />
+    <Compile Include="MNumber.cs" />
+    <Compile Include="MapNumber.cs" />
+    <Compile Include="BriteDb.cs" />
+    <Compile Include="ModuleDb.cs" />
+    <Compile Include="PathwayDb.cs" />
+    <Compile Include="KeggId.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\NetKegg\NetKegg.csproj">
-      <Project>{ee1ed93a-535a-49f6-bce2-d7072b53c2fe}</Project>
-      <Name>NetKegg</Name>
-    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
