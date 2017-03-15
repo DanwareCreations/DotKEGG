@@ -48,6 +48,15 @@
     <Compile Include="ModuleDb.cs" />
     <Compile Include="PathwayDb.cs" />
     <Compile Include="KeggId.cs" />
+    <Compile Include="KeggFind.cs" />
+    <Compile Include="KeggGet.cs" />
+    <Compile Include="KeggConv.cs" />
+    <Compile Include="KeggLink.cs" />
+    <Compile Include="KeggEnums.cs" />
+    <Compile Include="KeggStrings.cs" />
+    <Compile Include="KeggRestApi.cs" />
+    <Compile Include="KeggList.cs" />
+    <Compile Include="KeggInfo.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
