@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 
-namespace DotKegg {
+namespace DotKEGG {
 
     public sealed class PathwayDb : KeggDb {
 

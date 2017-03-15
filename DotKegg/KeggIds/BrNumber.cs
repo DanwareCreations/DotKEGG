@@ -1,4 +1,4 @@
-﻿namespace DotKegg {
+﻿namespace DotKEGG {
 
     public sealed class BrNumber : KeggId {
 

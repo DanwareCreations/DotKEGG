@@ -1,70 +1,74 @@
-﻿namespace DotKegg {
+﻿using System.Linq;
+
+namespace DotKEGG {
 
     public static class KeggList {
 
         public static string[] Pathway() {
-            return KeggRestApi.Post(OpStrings.List, DbStrings.Pathway);
+            return KeggRestApi.GetText(OpStrings.List, DbStrings.Pathway);
         }
         public static string[] Brite() {
-            return KeggRestApi.Post(OpStrings.List, DbStrings.Brite);
+            return KeggRestApi.GetText(OpStrings.List, DbStrings.Brite);
         }
         public static string[] Module() {
-            return KeggRestApi.Post(OpStrings.List, DbStrings.Module);
+            return KeggRestApi.GetText(OpStrings.List, DbStrings.Module);
         }
         public static string[] Orthology() {
-            return KeggRestApi.Post(OpStrings.List, DbStrings.Orthology);
+            return KeggRestApi.GetText(OpStrings.List, DbStrings.Orthology);
         }
         public static string[] Genome() {
-            return KeggRestApi.Post(OpStrings.List, DbStrings.Genome);
+            return KeggRestApi.GetText(OpStrings.List, DbStrings.Genome);
         }
-        public static string[] Organism(string organismId) {
-            return KeggRestApi.Post(OpStrings.List, organismId);
+        public static string[] Organism(string organismCode) {
+            return KeggRestApi.GetText(OpStrings.List, organismCode);
         }
         public static string[] Compound() {
-            return KeggRestApi.Post(OpStrings.List, DbStrings.Compound);
+            return KeggRestApi.GetText(OpStrings.List, DbStrings.Compound);
         }
         public static string[] Glycan() {
-            return KeggRestApi.Post(OpStrings.List, DbStrings.Glycan);
+            return KeggRestApi.GetText(OpStrings.List, DbStrings.Glycan);
         }
         public static string[] Reaction() {
-            return KeggRestApi.Post(OpStrings.List, DbStrings.Reaction);
+            return KeggRestApi.GetText(OpStrings.List, DbStrings.Reaction);
         }
         public static string[] ReactionClass() {
-            return KeggRestApi.Post(OpStrings.List, DbStrings.ReactionClass);
+            return KeggRestApi.GetText(OpStrings.List, DbStrings.ReactionClass);
         }
         public static string[] Enzyme() {
-            return KeggRestApi.Post(OpStrings.List, DbStrings.Enzyme);
+            return KeggRestApi.GetText(OpStrings.List, DbStrings.Enzyme);
         }
         public static string[] Disease() {
-            return KeggRestApi.Post(OpStrings.List, DbStrings.Disease);
+            return KeggRestApi.GetText(OpStrings.List, DbStrings.Disease);
         }
         public static string[] Drug() {
-            return KeggRestApi.Post(OpStrings.List, DbStrings.Drug);
+            return KeggRestApi.GetText(OpStrings.List, DbStrings.Drug);
         }
         public static string[] DrugGroup() {
-            return KeggRestApi.Post(OpStrings.List, DbStrings.DrugGroup);
+            return KeggRestApi.GetText(OpStrings.List, DbStrings.DrugGroup);
         }
         public static string[] Environ() {
-            return KeggRestApi.Post(OpStrings.List, DbStrings.Environ);
+            return KeggRestApi.GetText(OpStrings.List, DbStrings.Environ);
         }
 
         public static string[] Database(Database db) {
-            return KeggRestApi.Post(OpStrings.List, StringFrom.Enum(db));
+            return KeggRestApi.GetText(OpStrings.List, StringFrom.Enum(db));
         }
 
         public static string[] Organism() {
-            return KeggRestApi.Post(OpStrings.List, Strings.Organism);
+            return KeggRestApi.GetText(OpStrings.List, Strings.Organism);
         }
 
         public static string[] OrganismPathways(string organismCode) {
-            return KeggRestApi.Post(OpStrings.List, DbStrings.Pathway, organismCode);
+            return KeggRestApi.GetText(OpStrings.List, DbStrings.Pathway, organismCode);
         }
         public static string[] OrganismModules(string organismCode) {
-            return KeggRestApi.Post(OpStrings.List, DbStrings.Module, organismCode);
+            return KeggRestApi.GetText(OpStrings.List, DbStrings.Module, organismCode);
         }
 
-        public static string[] DbEntries(params string[] entries) {
-            return KeggRestApi.Post(OpStrings.List, string.Join("+", entries));
+        public static string[] DbEntries(params KeggId[] entries) {
+            var dbEntries = entries.Select(kid => kid.DBGETForm());
+            string joined = string.Join("+", dbEntries.ToArray());
+            return KeggRestApi.GetText(OpStrings.List, joined);
         }
 
     }

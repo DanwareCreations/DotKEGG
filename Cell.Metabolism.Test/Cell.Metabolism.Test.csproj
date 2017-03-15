@@ -58,6 +58,7 @@
     <Otherwise />
   </Choose>
   <ItemGroup>
+    <Compile Include="KeggInfoTest.cs" />
     <Compile Include="CompoundTest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -76,6 +77,10 @@
     <ProjectReference Include="..\Cell.Metabolism.Data\Cell.Metabolism.Data.csproj">
       <Project>{c0ba6c4d-4ec7-48be-aef9-ede2b2d78fc2}</Project>
       <Name>Cell.Metabolism.Data</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\DotKegg\DotKEGG.csproj">
+      <Project>{ee1ed93a-535a-49f6-bce2-d7072b53c2fe}</Project>
+      <Name>DotKEGG</Name>
     </ProjectReference>
   </ItemGroup>
   <Choose>

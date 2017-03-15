@@ -1,4 +1,4 @@
-﻿namespace DotKegg {
+﻿namespace DotKEGG {
 
     internal static class OpStrings {
         public static readonly string Info = "info";

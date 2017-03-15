@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace DotKegg {
+namespace DotKEGG {
 
     public enum Database {
         Pathway,

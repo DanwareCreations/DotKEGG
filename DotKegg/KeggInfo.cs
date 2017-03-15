@@ -1,71 +1,71 @@
-﻿namespace DotKegg {
+﻿namespace DotKEGG {
 
     public static class KeggInfo {
 
-        public static string[] Pathway() {
-            return KeggRestApi.Post(OpStrings.Info, DbStrings.Pathway);
+        public static KeggDbInfo Pathway() {
+            return KeggRestApi.GetInfo(DbStrings.Pathway);
         }
-        public static string[] Brite() {
-            return KeggRestApi.Post(OpStrings.Info, DbStrings.Brite);
+        public static KeggDbInfo Brite() {
+            return KeggRestApi.GetInfo(DbStrings.Brite);
         }
-        public static string[] Module() {
-            return KeggRestApi.Post(OpStrings.Info, DbStrings.Module);
+        public static KeggDbInfo Module() {
+            return KeggRestApi.GetInfo(DbStrings.Module);
         }
-        public static string[] Orthology() {
-            return KeggRestApi.Post(OpStrings.Info, DbStrings.Orthology);
+        public static KeggDbInfo Orthology() {
+            return KeggRestApi.GetInfo(DbStrings.Orthology);
         }
-        public static string[] Genome() {
-            return KeggRestApi.Post(OpStrings.Info, DbStrings.Genome);
+        public static KeggDbInfo Genome() {
+            return KeggRestApi.GetInfo(DbStrings.Genome);
         }
-        public static string[] Organism(string organismCode) {
-            return KeggRestApi.Post(OpStrings.Info, organismCode);
+        public static KeggDbInfo Organism(string organismCode) {
+            return KeggRestApi.GetInfo(organismCode);
         }
-        public static string[] Compound() {
-            return KeggRestApi.Post(OpStrings.Info, DbStrings.Compound);
+        public static KeggDbInfo Compound() {
+            return KeggRestApi.GetInfo(DbStrings.Compound);
         }
-        public static string[] Glycan() {
-            return KeggRestApi.Post(OpStrings.Info, DbStrings.Glycan);
+        public static KeggDbInfo Glycan() {
+            return KeggRestApi.GetInfo(DbStrings.Glycan);
         }
-        public static string[] Reaction() {
-            return KeggRestApi.Post(OpStrings.Info, DbStrings.Reaction);
+        public static KeggDbInfo Reaction() {
+            return KeggRestApi.GetInfo(DbStrings.Reaction);
         }
-        public static string[] ReactionClass() {
-            return KeggRestApi.Post(OpStrings.Info, DbStrings.ReactionClass);
+        public static KeggDbInfo ReactionClass() {
+            return KeggRestApi.GetInfo(DbStrings.ReactionClass);
         }
-        public static string[] Enzyme() {
-            return KeggRestApi.Post(OpStrings.Info, DbStrings.Enzyme);
+        public static KeggDbInfo Enzyme() {
+            return KeggRestApi.GetInfo(DbStrings.Enzyme);
         }
-        public static string[] Disease() {
-            return KeggRestApi.Post(OpStrings.Info, DbStrings.Disease);
+        public static KeggDbInfo Disease() {
+            return KeggRestApi.GetInfo(DbStrings.Disease);
         }
-        public static string[] Drug() {
-            return KeggRestApi.Post(OpStrings.Info, DbStrings.Drug);
+        public static KeggDbInfo Drug() {
+            return KeggRestApi.GetInfo(DbStrings.Drug);
         }
-        public static string[] DrugGroup() {
-            return KeggRestApi.Post(OpStrings.Info, DbStrings.DrugGroup);
+        public static KeggDbInfo DrugGroup() {
+            return KeggRestApi.GetInfo(DbStrings.DrugGroup);
         }
-        public static string[] Environ() {
-            return KeggRestApi.Post(OpStrings.Info, DbStrings.Environ);
-        }
-
-        public static string[] Genomes() {
-            return KeggRestApi.Post(OpStrings.Info, CompositeDbStrings.Genomes);
-        }
-        public static string[] Genes() {
-            return KeggRestApi.Post(OpStrings.Info, CompositeDbStrings.Genes);
-        }
-        public static string[] Ligand() {
-            return KeggRestApi.Post(OpStrings.Info, CompositeDbStrings.Ligand);
-        }
-        public static string[] Kegg() {
-            return KeggRestApi.Post(OpStrings.Info, Strings.Kegg);
+        public static KeggDbInfo Environ() {
+            return KeggRestApi.GetInfo(DbStrings.Environ);
         }
 
-        public static string[] Database(Database db) {
-            return KeggRestApi.Post(OpStrings.Info, StringFrom.Enum(db));
+        public static KeggDbInfo Genomes() {
+            return KeggRestApi.GetInfo(CompositeDbStrings.Genomes);
         }
-        public static string[] CompositeDatabase(CompositeDb db) {
-            return KeggRestApi.Post(OpStrings.Info, StringFrom.Enum(db));
+        public static KeggDbInfo Genes() {
+            return KeggRestApi.GetInfo(CompositeDbStrings.Genes);
+        }
+        public static KeggDbInfo Ligand() {
+            return KeggRestApi.GetInfo(CompositeDbStrings.Ligand);
+        }
+        public static KeggDbInfo Kegg() {
+            return KeggRestApi.GetInfo(Strings.Kegg);
+        }
+
+        public static KeggDbInfo Database(Database db) {
+            return KeggRestApi.GetInfo(StringFrom.Enum(db));
+        }
+        public static KeggDbInfo CompositeDatabase(CompositeDb db) {
+            return KeggRestApi.GetInfo(StringFrom.Enum(db));
         }
 
     }
