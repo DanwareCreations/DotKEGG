@@ -4,6 +4,7 @@
 
         public RCNumber(uint number) {
             Number = number;
+            _db = ReactionClassDb.Instance;
         }
 
         public ReactionClassDb Database => _db as ReactionClassDb;

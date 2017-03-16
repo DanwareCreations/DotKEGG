@@ -4,10 +4,10 @@
 
         public TNumber(uint number) {
             Number = number;
+            _db = GenomeDb.Instance;
         }
 
         public GenomeDb GenomeDatabase => _db as GenomeDb;
-        public MetaGenomeDb MetaGenomeDatabase => _db as MetaGenomeDb;
 
     }
 

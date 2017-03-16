@@ -61,7 +61,6 @@
     <Compile Include="KeggIds\GNumber.cs" />
     <Compile Include="KeggDatabases\CompoundDb.cs" />
     <Compile Include="KeggDatabases\GlycanDb.cs" />
-    <Compile Include="KeggDatabases\MetaGenomeDb.cs" />
     <Compile Include="KeggDatabases\KeggDb.cs" />
     <Compile Include="KeggIds\BrNumber.cs" />
     <Compile Include="KeggDatabases\GenomeDb.cs" />
@@ -73,7 +72,7 @@
     <Compile Include="KeggIds\MapNumber.cs" />
     <Compile Include="KeggDatabases\BriteDb.cs" />
     <Compile Include="KeggDatabases\OrthologyDb.cs" />
-    <Compile Include="KeggIds\ModuleDb.cs" />
+    <Compile Include="KeggDatabases\ModuleDb.cs" />
     <Compile Include="KeggDatabases\PathwayDb.cs" />
     <Compile Include="KeggIds\KeggId.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

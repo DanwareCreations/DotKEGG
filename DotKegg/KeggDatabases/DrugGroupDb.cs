@@ -2,11 +2,15 @@
     
     public sealed class DrugGroupDb : KeggDb {
 
-        public DrugGroupDb() {
+        private static DrugGroupDb _instance = new DrugGroupDb();
+
+        private DrugGroupDb() {
             Name = "dgroup";
             Abbreviation = "dg";
             Prefix = "DG";
         }
+
+        public static DrugGroupDb Instance => _instance;
 
         public static DGNumber NewDGNumber(uint number) {
             return new DGNumber(number);
