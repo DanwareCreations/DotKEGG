@@ -1,69 +1,82 @@
-﻿namespace DotKEGG {
+﻿using System;
+using System.Net;
 
+namespace DotKEGG {
+
+    /// <summary>
+    /// Provides static methods for invoking the KEGG API info operation for various KEGG databases.
+    /// </summary>
     public static class KeggInfo {
 
-        public static KeggDbInfo Pathway() {
-            return KeggRestApi.GetInfo(DbStrings.Pathway);
-        }
-        public static KeggDbInfo Brite() {
-            return KeggRestApi.GetInfo(DbStrings.Brite);
-        }
-        public static KeggDbInfo Module() {
-            return KeggRestApi.GetInfo(DbStrings.Module);
-        }
-        public static KeggDbInfo Orthology() {
-            return KeggRestApi.GetInfo(DbStrings.Orthology);
-        }
-        public static KeggDbInfo Genome() {
-            return KeggRestApi.GetInfo(DbStrings.Genome);
-        }
+        /// <summary>
+        /// Returns the current statistics of the KEGG Organism database with the given organism code.
+        /// </summary>
+        /// <param name="organismCode">The organism code of the KEGG organism</param>
+        /// <returns>Current statistics for the given KEGG Organism database.</returns>
+        /// <exception cref="ArgumentNullException">organismCode is null.</exception>
+        /// <exception cref="ArgumentException">organismCode is empty or not a valid KEGG Organism code.</exception>
         public static KeggDbInfo Organism(string organismCode) {
-            return KeggRestApi.GetInfo(organismCode);
-        }
-        public static KeggDbInfo Compound() {
-            return KeggRestApi.GetInfo(DbStrings.Compound);
-        }
-        public static KeggDbInfo Glycan() {
-            return KeggRestApi.GetInfo(DbStrings.Glycan);
-        }
-        public static KeggDbInfo Reaction() {
-            return KeggRestApi.GetInfo(DbStrings.Reaction);
-        }
-        public static KeggDbInfo ReactionClass() {
-            return KeggRestApi.GetInfo(DbStrings.ReactionClass);
-        }
-        public static KeggDbInfo Enzyme() {
-            return KeggRestApi.GetInfo(DbStrings.Enzyme);
-        }
-        public static KeggDbInfo Disease() {
-            return KeggRestApi.GetInfo(DbStrings.Disease);
-        }
-        public static KeggDbInfo Drug() {
-            return KeggRestApi.GetInfo(DbStrings.Drug);
-        }
-        public static KeggDbInfo DrugGroup() {
-            return KeggRestApi.GetInfo(DbStrings.DrugGroup);
-        }
-        public static KeggDbInfo Environ() {
-            return KeggRestApi.GetInfo(DbStrings.Environ);
+            // If the provided organism code is null or empty then throw an Exception
+            if (organismCode == null)
+                throw new ArgumentNullException(nameof(organismCode), $"Cannot invoke the KEGG info operation without a database name!");
+            if (organismCode == string.Empty)
+                throw new ArgumentException($"Cannot invoke the KEGG info operation without a database name!", nameof(organismCode));
+
+            // Try to get KEGG info
+            try {
+                return KeggRestApi.GetInfo(organismCode);
+            }
+            catch (WebException) {
+                throw new ArgumentException($"{organismCode} is not a valid organism code!", nameof(organismCode));
+            }
         }
 
-        public static KeggDbInfo Genomes() {
-            return KeggRestApi.GetInfo(CompositeDbStrings.Genomes);
+        /// <summary>
+        /// Returns the current statistics of the KEGG Organism database whose genome has the given T number.
+        /// </summary>
+        /// <param name="keggId">The T number of the KEGG Organism's genome</param>
+        /// <returns>Current statistics for the given KEGG Organism database.</returns>
+        /// <exception cref="ArgumentNullException">keggId is null.</exception>
+        public static KeggDbInfo Organism(TNumber keggId) {
+            if (keggId == null)
+                throw new ArgumentNullException(nameof(keggId), $"Cannot invoke the KEGG info operation without a database name!");
+
+            // Try to get KEGG info
+            try {
+                return KeggRestApi.GetInfo(keggId.ShortForm());
+            }
+            catch (WebException) {
+                throw new ArgumentException($"{keggId} is not a valid T number!", nameof(keggId));
+            }
         }
-        public static KeggDbInfo Genes() {
-            return KeggRestApi.GetInfo(CompositeDbStrings.Genes);
-        }
-        public static KeggDbInfo Ligand() {
-            return KeggRestApi.GetInfo(CompositeDbStrings.Ligand);
-        }
+
+        /// <summary>
+        /// Returns the current statistics of the entire KEGG database.
+        /// </summary>
+        /// <returns>Current statistics for the entire KEGG database.</returns>
         public static KeggDbInfo Kegg() {
             return KeggRestApi.GetInfo(Strings.Kegg);
         }
 
+        /// <summary>
+        /// Returns the current statistics of the given KEGG database.
+        /// </summary>
+        /// <param name="db">The KEGG database being queried.</param>
+        /// <returns>Current statistics for the given KEGG database.</returns>
         public static KeggDbInfo Database(Database db) {
             return KeggRestApi.GetInfo(StringFrom.Enum(db));
         }
+
+        /// <summary>
+        /// Returns the current statistics of the given composite KEGG database.
+        /// </summary>
+        /// <param name="db">The composite KEGG database being queried.</param>
+        /// <returns>Current statistics for the given composite KEGG database.</returns>
+        /// <remarks>
+        /// A composite database is actually a wrapper for several "auxiliary" databases.
+        /// For example, the KEGG GENOMES database is actually made up of the genome, egenome, and mgenome databases.
+        /// Getting info for a composite database like KEGG GENOMES will return info about all of its auxiliary databases.
+        /// </remarks>
         public static KeggDbInfo CompositeDatabase(CompositeDb db) {
             return KeggRestApi.GetInfo(StringFrom.Enum(db));
         }
