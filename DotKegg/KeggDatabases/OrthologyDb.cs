@@ -12,7 +12,11 @@
 
         public static OrthologyDb Instance => _instance;
 
-        public static KNumber NewKNumber(uint number) {
+        public static KNumber Orthology(uint number) {
+            return new KNumber(number);
+        }
+
+        public override KeggId Entry(uint number) {
             return new KNumber(number);
         }
 

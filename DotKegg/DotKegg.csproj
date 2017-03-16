@@ -38,9 +38,15 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="InfoResult.cs" />
+    <Compile Include="KeggDatabases\Composite\LigandDb.cs" />
+    <Compile Include="KeggDatabases\Composite\GenomesDb.cs" />
+    <Compile Include="KeggDatabases\Composite\GenesDb.cs" />
+    <Compile Include="KeggDatabases\Composite\KeggCompositeDb.cs" />
+    <Compile Include="KeggDatabases\Composite\EnzymeDb.cs" />
     <Compile Include="KeggFind.cs" />
     <Compile Include="KeggGet.cs" />
     <Compile Include="KeggConvert.cs" />
+    <Compile Include="KeggIds\ECNumber.cs" />
     <Compile Include="KeggLink.cs" />
     <Compile Include="KeggEnums.cs" />
     <Compile Include="KeggStrings.cs" />

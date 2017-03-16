@@ -12,7 +12,11 @@
 
         public static DiseaseDb Instance => _instance;
 
-        public static HNumber NewHNumber(uint number) {
+        public static HNumber Disease(uint number) {
+            return new HNumber(number);
+        }
+
+        public override KeggId Entry(uint number) {
             return new HNumber(number);
         }
 

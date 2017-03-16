@@ -7,7 +7,7 @@
             _db = ReactionClassDb.Instance;
         }
 
-        public ReactionClassDb Database => _db as ReactionClassDb;
+        public ReactionClassDb Database => (ReactionClassDb)_db;
 
     }
 

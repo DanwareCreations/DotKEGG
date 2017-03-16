@@ -12,7 +12,11 @@
 
         public static ReactionClassDb Instance => _instance;
 
-        public static RCNumber NewRCNumber(uint number) {
+        public static RCNumber ReactionClass(uint number) {
+            return new RCNumber(number);
+        }
+
+        public override KeggId Entry(uint number) {
             return new RCNumber(number);
         }
 

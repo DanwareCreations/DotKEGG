@@ -12,7 +12,11 @@
 
         public static ModuleDb Instance => _instance;
 
-        public static MNumber NewMNumber(uint number) {
+        public static MNumber Module(uint number) {
+            return new MNumber(number);
+        }
+
+        public override KeggId Entry(uint number) {
             return new MNumber(number);
         }
 

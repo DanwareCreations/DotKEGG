@@ -7,7 +7,7 @@
             _db = EnvironDb.Instance;
         }
 
-        public EnvironDb Database => _db as EnvironDb;
+        public EnvironDb Database => (EnvironDb)_db;
 
     }
 

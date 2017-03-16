@@ -7,7 +7,7 @@
             _db = ModuleDb.Instance;
         }
 
-        public ModuleDb Database => _db as ModuleDb;
+        public ModuleDb Database => (ModuleDb)_db;
 
     }
 

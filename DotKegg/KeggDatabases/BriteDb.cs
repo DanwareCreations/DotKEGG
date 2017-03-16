@@ -1,4 +1,6 @@
-﻿namespace DotKEGG {
+﻿using System;
+
+namespace DotKEGG {
 
     public sealed class BriteDb : KeggDb {
 
@@ -12,10 +14,13 @@
 
         public static BriteDb Instance => _instance;
 
-        public static BrNumber NewBrNumber(uint number) {
+        public static BrNumber BriteHierarchy(uint number) {
             return new BrNumber(number);
         }
 
+        public override KeggId Entry(uint number) {
+            return new BrNumber(number);
+        }
     }
 
 }

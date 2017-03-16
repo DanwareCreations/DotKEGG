@@ -12,7 +12,11 @@
 
         public static DrugGroupDb Instance => _instance;
 
-        public static DGNumber NewDGNumber(uint number) {
+        public static DGNumber DrugGroup(uint number) {
+            return new DGNumber(number);
+        }
+
+        public override KeggId Entry(uint number) {
             return new DGNumber(number);
         }
 

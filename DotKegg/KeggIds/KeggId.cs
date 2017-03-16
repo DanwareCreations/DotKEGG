@@ -9,10 +9,10 @@ namespace DotKEGG {
         public uint Number { get; protected set; }
         
         public string ShortForm() {
-            return $"{_db.Prefix}{Number}";
+            return $"{_db.Prefix}{Number.ToString("00000")}";
         }
         public string DBGETForm() {
-            return $"{_db.Abbreviation}:{_db.Prefix}{Number}";
+            return $"{_db.Abbreviation}:{_db.Prefix}{Number.ToString("00000")}";
         }
 
         public override bool Equals(object obj) {

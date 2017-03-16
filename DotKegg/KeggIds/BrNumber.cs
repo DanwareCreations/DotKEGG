@@ -7,7 +7,7 @@
             _db = BriteDb.Instance;
         }
 
-        public BriteDb Database => _db as BriteDb;
+        public BriteDb Database => (BriteDb)_db;
 
     }
 

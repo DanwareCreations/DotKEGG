@@ -12,7 +12,11 @@
 
         public static EnvironDb Instance => _instance;
 
-        public static ENumber NewENumber(uint number) {
+        public static ENumber Environ(uint number) {
+            return new ENumber(number);
+        }
+
+        public override KeggId Entry(uint number) {
             return new ENumber(number);
         }
 

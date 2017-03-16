@@ -14,7 +14,11 @@ namespace DotKEGG {
 
         public static PathwayDb Instance => _instance;
 
-        public static MapNumber NewMapNumber(uint number) {
+        public static MapNumber Pathway(uint number) {
+            return new MapNumber(number);
+        }
+
+        public override KeggId Entry(uint number) {
             return new MapNumber(number);
         }
 

@@ -12,7 +12,11 @@
 
         public static CompoundDb Instance => _instance;
 
-        public static CNumber NewCNumber(uint number) {
+        public static CNumber Compound(uint number) {
+            return new CNumber(number);
+        }
+
+        public override KeggId Entry(uint number) {
             return new CNumber(number);
         }
 

@@ -12,7 +12,11 @@
 
         public static DrugDb Instance = new DrugDb();
 
-        public static DNumber NewDNumber(uint number) {
+        public static DNumber Drug(uint number) {
+            return new DNumber(number);
+        }
+
+        public override KeggId Entry(uint number) {
             return new DNumber(number);
         }
 

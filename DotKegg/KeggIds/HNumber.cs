@@ -7,7 +7,7 @@
             _db = DiseaseDb.Instance;
         }
 
-        public DiseaseDb Database => _db as DiseaseDb;
+        public DiseaseDb Database => (DiseaseDb)_db;
 
     }
 

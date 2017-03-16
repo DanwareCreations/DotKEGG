@@ -1,4 +1,6 @@
-﻿namespace DotKEGG {
+﻿using System;
+
+namespace DotKEGG {
     
     public sealed class GenomeDb: KeggDb {
 
@@ -12,7 +14,11 @@
 
         public static GenomeDb Instance => _instance;
 
-        public static TNumber NewTNumber(uint number) {
+        public static TNumber Genome(uint number) {
+            return new TNumber(number);
+        }
+
+        public override KeggId Entry(uint number) {
             return new TNumber(number);
         }
 

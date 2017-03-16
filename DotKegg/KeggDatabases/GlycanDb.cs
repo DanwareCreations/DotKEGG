@@ -12,7 +12,11 @@
 
         public static GlycanDb Instance => _instance;
 
-        public static GNumber NewGNumber(uint number) {
+        public static GNumber Glycan(uint number) {
+            return new GNumber(number);
+        }
+
+        public override KeggId Entry(uint number) {
             return new GNumber(number);
         }
 

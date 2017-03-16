@@ -7,7 +7,7 @@
             _db = DrugGroupDb.Instance;
         }
 
-        public DrugGroupDb Database => _db as DrugGroupDb;
+        public DrugGroupDb Database => (DrugGroupDb)_db;
 
     }
 

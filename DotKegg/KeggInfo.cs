@@ -63,22 +63,22 @@ namespace DotKEGG {
         /// </summary>
         /// <param name="db">The KEGG database being queried.</param>
         /// <returns>Current statistics for the given KEGG database.</returns>
-        public static KeggDbInfo Database(Database db) {
-            return KeggRestApi.GetInfo(StringFrom.Enum(db));
+        public static KeggDbInfo Database(KeggDb db) {
+            return KeggRestApi.GetInfo(db.Name);
         }
 
         /// <summary>
-        /// Returns the current statistics of the given composite KEGG database.
+        /// Returns the current statistics of the given KEGG composite database.
         /// </summary>
-        /// <param name="db">The composite KEGG database being queried.</param>
-        /// <returns>Current statistics for the given composite KEGG database.</returns>
+        /// <param name="db">The KEGG composite database being queried.</param>
+        /// <returns>Current statistics for the given KEGG composite database.</returns>
         /// <remarks>
         /// A composite database is actually a wrapper for several "auxiliary" databases.
         /// For example, the KEGG GENOMES database is actually made up of the genome, egenome, and mgenome databases.
-        /// Getting info for a composite database like KEGG GENOMES will return info about all of its auxiliary databases.
+        /// Getting info for a composite database like KEGG GENOMES will return info about all of that database's auxiliary databases.
         /// </remarks>
-        public static KeggDbInfo CompositeDatabase(CompositeDb db) {
-            return KeggRestApi.GetInfo(StringFrom.Enum(db));
+        public static KeggDbInfo Database(KeggCompositeDb db) {
+            return KeggRestApi.GetInfo(db.Name);
         }
 
     }
