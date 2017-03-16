@@ -22,18 +22,28 @@ namespace DotKEGG {
             return (kid.Number == Number && kid._db == this._db);
         }
         public bool Equals(KeggId other) {
+            if (ReferenceEquals(other, null))
+                return false;
             return (other.Number == Number && other._db == this._db);
         }
         public static bool operator ==(KeggId left, KeggId right) {
-            return (left.Number == right.Number && left._db == right._db);
+            if (ReferenceEquals(left, null))
+                return ReferenceEquals(right, null);
+            return left.Equals(right);
         }
         public static bool operator !=(KeggId left, KeggId right) {
-            return (left.Number != right.Number || left._db != right._db);
+            if (ReferenceEquals(left, null))
+                return !ReferenceEquals(right, null);
+            return !left.Equals(right);
         }
+
         public override int GetHashCode() {
-            int hash = 13;
-            hash = (hash * 7) + Number.GetHashCode();
-            hash = (hash * 7) + _db.GetHashCode();
+            int hash = 17;
+
+            unchecked {
+                hash = (hash * 23) + Number.GetHashCode();
+                hash = (hash * 23) + _db.GetHashCode();
+            }
 
             return hash;
         }

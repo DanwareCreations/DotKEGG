@@ -12,17 +12,25 @@ namespace DotKEGG {
             KeggDb kdb = obj as KeggDb;
             if (kdb == null)
                 return false;
+
             return kdb.Name == this.Name;
         }
         public bool Equals(KeggDb other) {
+            if (ReferenceEquals(other, null))
+                return false;
             return other.Name == this.Name;
         }
         public static bool operator ==(KeggDb left, KeggDb right) {
+            if (ReferenceEquals(left, null))
+                return ReferenceEquals(right, null);
             return left.Name == right.Name;
         }
         public static bool operator !=(KeggDb left, KeggDb right) {
+            if (ReferenceEquals(left, null))
+                return !ReferenceEquals(right, null);
             return left.Name != right.Name;
         }
+
         public override int GetHashCode() {
             return Name.GetHashCode();
         }

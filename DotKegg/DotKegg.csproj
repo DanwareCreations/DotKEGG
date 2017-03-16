@@ -62,7 +62,7 @@
     <Compile Include="KeggDatabases\CompoundDb.cs" />
     <Compile Include="KeggDatabases\GlycanDb.cs" />
     <Compile Include="KeggDatabases\MetaGenomeDb.cs" />
-    <Compile Include="KeggDatabases\IKeggDb.cs" />
+    <Compile Include="KeggDatabases\KeggDb.cs" />
     <Compile Include="KeggIds\BrNumber.cs" />
     <Compile Include="KeggDatabases\GenomeDb.cs" />
     <Compile Include="KeggIds\CNumber.cs" />
