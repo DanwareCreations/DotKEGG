@@ -3,11 +3,11 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{78B8E471-623D-45B0-A057-1CA34D3C2840}</ProjectGuid>
+    <ProjectGuid>{64363D5F-3654-4266-8374-8561A4A14D15}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Cell.Metabolism.Test</RootNamespace>
-    <AssemblyName>Cell.Metabolism.Test</AssemblyName>
+    <RootNamespace>DotKEGG.Test</RootNamespace>
+    <AssemblyName>DotKEGG.Test</AssemblyName>
     <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <ProjectTypeGuids>{3AC096D0-A1C2-E12C-1390-A8335801FDAB};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
@@ -43,11 +43,6 @@
       <Private>True</Private>
     </Reference>
     <Reference Include="System" />
-    <Reference Include="System.Data" />
-    <Reference Include="System.Data.SQLite, Version=1.0.104.0, Culture=neutral, PublicKeyToken=db937bc2d44ff139, processorArchitecture=MSIL">
-      <HintPath>$(SolutionDir)packages\System.Data.SQLite.Core.1.0.104.0\lib\net451\System.Data.SQLite.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
   </ItemGroup>
   <Choose>
     <When Condition="('$(VisualStudioVersion)' == '10.0' or '$(VisualStudioVersion)' == '') and '$(TargetFrameworkVersion)' == 'v3.5'">
@@ -59,26 +54,13 @@
   </Choose>
   <ItemGroup>
     <Compile Include="KeggInfoTest.cs" />
-    <Compile Include="CompoundTest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Cell.Metabolism\Cell.Metabolism.csproj">
-      <Project>{196cc3cf-ac20-4089-b1ba-4c678f1e81b6}</Project>
-      <Name>Cell.Metabolism</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\Cell.Data\Cell.Data.csproj">
-      <Project>{949577cc-9693-4e87-8977-02083013c76e}</Project>
-      <Name>Cell.Data</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\Cell.Metabolism.Data\Cell.Metabolism.Data.csproj">
-      <Project>{c0ba6c4d-4ec7-48be-aef9-ede2b2d78fc2}</Project>
-      <Name>Cell.Metabolism.Data</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\DotKegg\DotKEGG.csproj">
+    <ProjectReference Include="..\DotKEGG\DotKEGG.csproj">
       <Project>{ee1ed93a-535a-49f6-bce2-d7072b53c2fe}</Project>
       <Name>DotKEGG</Name>
     </ProjectReference>
@@ -103,13 +85,6 @@
   </Choose>
   <Import Project="$(VSToolsPath)\TeamTest\Microsoft.TestTools.targets" Condition="Exists('$(VSToolsPath)\TeamTest\Microsoft.TestTools.targets')" />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
-  <Import Project="$(SolutionDir)packages\System.Data.SQLite.Core.1.0.104.0\build\net451\System.Data.SQLite.Core.targets" Condition="Exists('$(SolutionDir)packages\System.Data.SQLite.Core.1.0.104.0\build\net451\System.Data.SQLite.Core.targets')" />
-  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
-    <PropertyGroup>
-      <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
-    </PropertyGroup>
-    <Error Condition="!Exists('$(SolutionDir)packages\System.Data.SQLite.Core.1.0.104.0\build\net451\System.Data.SQLite.Core.targets')" Text="$([System.String]::Format('$(ErrorText)', '$(SolutionDir)packages\System.Data.SQLite.Core.1.0.104.0\build\net451\System.Data.SQLite.Core.targets'))" />
-  </Target>
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
   <Target Name="BeforeBuild">
