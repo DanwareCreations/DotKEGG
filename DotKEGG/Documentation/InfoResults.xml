@@ -1,0 +1,39 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<InfoResults>
+  <remarks>
+    <p>The HTTP response is expected to be in the following format:</p>
+
+    <code title="KEGG Info Response Syntax">
+      <![CDATA[
+      <name>                <Title>
+      <abbreviation>        <Version>
+                            <Organization>
+                            [<dbname1>] <num> entries
+                            [<dbname2> <num> entries]
+                            [<dbname3> <num> entries]
+                            [...]
+      ]]>
+    </code>
+
+    <p>
+      The Name (e.g., "module") and Abbreviation (e.g., "md") of the database appear in the left column, and
+      the Title, Version, and Organization appear in the right column.  These tokens are always present.  Name and Abbreviation
+      may be the same for some databases, especially composite databases like <token>LigandDb</token> or <token>GenomesDb</token>.
+      For individual KEGG databases, there is usually only one number-of-entries line, without a database name.
+      Composite databases, however, typically have multiple lines, with one line per auxiliary database.
+    </p>
+    <p>For example, here is the response returned by "<a href="http://rest.kegg.jp/info/genomes">http://rest.kegg.jp/info/genomes</a>": </p>
+
+    <code title="KEGG Info Response for GENOMES Database">
+      genomes          KEGG Genomes Database
+      gn               Release 81.0+/03-16, Mar 17
+                       Kanehisa Laboratories
+                       genome        5,038 entries
+                       egenome             entries
+                       mgenome       1,189 entries      
+    </code>
+  </remarks>
+  <examples>
+    
+  </examples>
+</InfoResults>

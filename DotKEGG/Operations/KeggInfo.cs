@@ -75,7 +75,7 @@ namespace DotKEGG {
         /// <remarks>
         /// A composite database is actually a wrapper for several "auxiliary" databases.
         /// For example, the KEGG <token>GenomesDb</token> database is actually made up of the genome, egenome, and mgenome databases.
-        /// Getting info for a composite database like KEGG <token>GenomesDb</token> will return info about 
+        /// Getting info for a composite database like <token>GenomesDb</token> will return info about 
         /// all of that database's auxiliary databases.
         /// </remarks>
         public static InfoResults Database(KeggCompositeDb db) {

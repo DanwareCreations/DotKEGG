@@ -7,39 +7,15 @@ using System.Collections.ObjectModel;
 namespace DotKEGG {
 
     /// <summary>
-    /// Represents the current statistics of a given database, as returned by the KEGG API info operation.
+    /// Represents the current statistics of a given database, as returned by the <see cref="KeggInfo"/> operation.
     /// </summary>
+    /// <include file='Documentation/InfoResults.xml' path='InfoResults/remarks'/>
     public struct InfoResults {
 
         /// <summary>
         /// Initializes a new instance of the <see cref="InfoResults"/> struct from the HTTP response returned by the KEGG API info operation.
         /// </summary>
         /// <param name="httpResponse">The HTTP response returned by the KEGG API info operation</param>
-        /// <remarks>
-        /// The HTTP response is expected to be in the following format:
-        /// 
-        ///     &lt;name&gt;          &lt;Title&gt;
-        ///     [&lt;name2&gt;]        &lt;Version&gt;
-        ///     [&lt;...&gt;]          &lt;Organization&gt;
-        ///                      [&lt;dbname1&gt;] &lt;num&gt; entries
-        ///                      [&lt;dbname2&gt; &lt;num&gt; entries]
-        ///                      [&lt;dbname3&gt; &lt;num&gt; entries]
-        ///                      [&lt;...&gt;]
-        ///                       
-        /// The number of names in the left column is variable, but usually there are 2 names (one full name like "module", and one abbreviation like "md").
-        /// Title, Version, and Organization are always present.
-        /// For individual KEGG databases, there is usually only one number-of-entries line.
-        /// Composite databases like GENES or GENOMES will typically have multiple lines, one per auxiliary database.
-        /// For example, here is the response returned by http://rest.kegg.jp/info/genomes:
-        /// 
-        ///     genomes          KEGG Genomes Database
-        ///     gn               Release 81.0+/03-16, Mar 17
-        ///                      Kanehisa Laboratories
-        ///                      genome        5,038 entries
-        ///                      egenome             entries
-        ///                      mgenome       1,189 entries
-        /// 
-        /// </remarks>
         internal InfoResults(string httpResponse) {
 
             // Initialize properties (compiler complains if we don't do this)
@@ -116,12 +92,16 @@ namespace DotKEGG {
         public string Organization { get; }
         /// <summary>
         /// Gets the number of entries in the queried KEGG database.
-        /// For composite databases like GENOMES or LIGAND, returns the number of entries in each auxiliary database.
+        /// For composite databases like <token>GenomesDb</token> or <token>LigandDb</token>, returns the number of entries in each auxiliary database.
         /// </summary>
         /// <remarks>
         /// This property is a read-only collection of key-value pairs.
-        /// For simple databases like KEGG PATHWAY, there is only one pair.  The key is set to the first Name of the database, and the value holds its number of entries.
-        /// For composite databases like GENOMES or LIGAND, there is one key-value pair per auxiliary database.  Each key holds the name of that auxiliary database, and the value holds its number of entries.  For example, querying the GENOMES composite database, there will be one key-value pair each for the genome, egenome, and mgenome auxiliary databases.
+        /// For simple databases like KEGG <token>PathwayDb</token>, there is only one pair.  
+        /// The key is set to the first Name of the database, and the value holds its number of entries.  
+        /// For composite databases like <token>GenomesDb</token> or <token>LigandDb</token>, there is one key-value pair per auxiliary database.  
+        /// Each key holds the name of that auxiliary database, and the value holds its number of entries.  
+        /// For example, querying the <token>GenomesDb</token> composite database, there will be one key-value pair each for 
+        /// the genome, egenome, and mgenome auxiliary databases.
         /// </remarks>
         public ReadOnlyCollection<KeyValuePair<string, uint>> NumEntries { get; }
 

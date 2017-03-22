@@ -9,10 +9,17 @@
     <HelpKeywords>
       <HelpKeyword index="K" term="version, history" />
     </HelpKeywords>
-    <Topic id="257afbcb-3fba-41f9-b7ea-b0ff40928339" visible="False" isMSHVRoot="true" isSelected="true" title="Version 0.1.0-alpha">
+    <Topic id="257afbcb-3fba-41f9-b7ea-b0ff40928339" visible="False" isMSHVRoot="true" title="Version 0.1.0-alpha">
       <HelpKeywords>
-        <HelpKeyword index="K" term="version, 0.1.0, alpha" />
+        <HelpKeyword index="K" term="version, 0.1.0" />
+        <HelpKeyword index="K" term="version, alpha" />
       </HelpKeywords>
     </Topic>
+  </Topic>
+  <Topic id="2f59a56f-156f-40a5-aa42-07c09ee04774" visible="True" noFile="true" isSelected="true" apiParentMode="InsertAsChild" title="API Reference">
+    <HelpKeywords>
+      <HelpKeyword index="K" term="api" />
+      <HelpKeyword index="K" term="reference" />
+    </HelpKeywords>
   </Topic>
 </Topics>
