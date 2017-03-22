@@ -18,10 +18,10 @@
     <HtmlHelpName>DotKEGG.Docs</HtmlHelpName>
     <Language>en-US</Language>
     <TransformComponentArguments>
-      <Argument Key="logoFile" Value="Help.png" />
+      <Argument Key="logoFile" Value="KEGG_database_logo.png" />
       <Argument Key="logoHeight" Value="" />
       <Argument Key="logoWidth" Value="" />
-      <Argument Key="logoAltText" Value="Danware logo" />
+      <Argument Key="logoAltText" Value="KEGG Database Logo" />
       <Argument Key="logoPlacement" Value="left" />
       <Argument Key="logoAlignment" Value="left" />
       <Argument Key="maxVersionParts" Value="" />
@@ -95,7 +95,10 @@
     <ContentLayout Include="ContentLayout.content" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="icons\Help.png" />
+    <Content Include="icons\KEGG_database_logo.png">
+      <ImageId>KEGG_database_logo</ImageId>
+      <AlternateText>KEGG database logo</AlternateText>
+    </Content>
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\DotKEGG\DotKEGG.csproj">
