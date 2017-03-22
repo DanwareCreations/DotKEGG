@@ -15,7 +15,7 @@ namespace DotKEGG {
         /// <returns>Current statistics for the given KEGG Organism database.</returns>
         /// <exception cref="ArgumentNullException">organismCode is null.</exception>
         /// <exception cref="ArgumentException">organismCode is empty or not a valid KEGG Organism code.</exception>
-        public static KeggDbInfo Organism(string organismCode) {
+        public static InfoResults Organism(string organismCode) {
             // If the provided organism code is null or empty then throw an Exception
             if (organismCode == null)
                 throw new ArgumentNullException(nameof(organismCode), $"Cannot invoke the KEGG info operation without a database name!");
@@ -37,7 +37,7 @@ namespace DotKEGG {
         /// <param name="keggId">The T number of the KEGG Organism's genome</param>
         /// <returns>Current statistics for the given KEGG Organism database.</returns>
         /// <exception cref="ArgumentNullException">keggId is null.</exception>
-        public static KeggDbInfo Organism(TNumber keggId) {
+        public static InfoResults Organism(TNumber keggId) {
             if (keggId == null)
                 throw new ArgumentNullException(nameof(keggId), $"Cannot invoke the KEGG info operation without a database name!");
 
@@ -54,7 +54,7 @@ namespace DotKEGG {
         /// Returns the current statistics of the entire KEGG database.
         /// </summary>
         /// <returns>Current statistics for the entire KEGG database.</returns>
-        public static KeggDbInfo Kegg() {
+        public static InfoResults Kegg() {
             return KeggRestApi.GetInfo(Strings.Kegg);
         }
 
@@ -63,7 +63,7 @@ namespace DotKEGG {
         /// </summary>
         /// <param name="db">The KEGG database being queried.</param>
         /// <returns>Current statistics for the given KEGG database.</returns>
-        public static KeggDbInfo Database(KeggDb db) {
+        public static InfoResults Database(KeggDb db) {
             return KeggRestApi.GetInfo(db.Name);
         }
 
@@ -74,10 +74,11 @@ namespace DotKEGG {
         /// <returns>Current statistics for the given KEGG composite database.</returns>
         /// <remarks>
         /// A composite database is actually a wrapper for several "auxiliary" databases.
-        /// For example, the KEGG GENOMES database is actually made up of the genome, egenome, and mgenome databases.
-        /// Getting info for a composite database like KEGG GENOMES will return info about all of that database's auxiliary databases.
+        /// For example, the KEGG <token>GenomesDb</token> database is actually made up of the genome, egenome, and mgenome databases.
+        /// Getting info for a composite database like KEGG <token>GenomesDb</token> will return info about 
+        /// all of that database's auxiliary databases.
         /// </remarks>
-        public static KeggDbInfo Database(KeggCompositeDb db) {
+        public static InfoResults Database(KeggCompositeDb db) {
             return KeggRestApi.GetInfo(db.Name);
         }
 

@@ -18,7 +18,7 @@ namespace Cell.Metabolism.Test {
         [TestCaseSource(nameof(SimpleDbTestCases))]
         [TestCaseSource(nameof(OrganismDbTestCases))]
         [TestCaseSource(nameof(OtherDbTestCase))]
-        public void InfoSimpleDbTest(KeggDbInfo info, string fullName, string name, string abbrev) {
+        public void InfoSimpleDbTest(InfoResults info, string fullName, string name, string abbrev) {
             baseInfoTest(info, fullName, name, abbrev);
 
             Assert.AreEqual(1, info.NumEntries.Count);
@@ -29,7 +29,7 @@ namespace Cell.Metabolism.Test {
         [Test(Author = "Dan Vicarel", TestOf = typeof(KeggInfo), Description = "Checks that correct values are returned from the info operation for composite databases")]
         [TestCaseSource(nameof(CompositeDbTestCases))]
         [TestCaseSource(nameof(KeggDbTestCase))]
-        public void InfoCompositeDbTest(KeggDbInfo info, string fullName, string name, string abbrev) {
+        public void InfoCompositeDbTest(InfoResults info, string fullName, string name, string abbrev) {
             baseInfoTest(info, fullName, name, abbrev);
 
             Assert.GreaterOrEqual(info.NumEntries.Count, 1);
@@ -156,7 +156,7 @@ namespace Cell.Metabolism.Test {
                 KeggInfo.Organism(t));
         }
 
-        private static void baseInfoTest(KeggDbInfo info, string fullName, string name, string abbrev) {
+        private static void baseInfoTest(InfoResults info, string fullName, string name, string abbrev) {
             Assert.AreEqual(info.FullName, fullName);
             Assert.AreEqual(info.Name, name);
             Assert.AreEqual(info.Abbreviation, abbrev);

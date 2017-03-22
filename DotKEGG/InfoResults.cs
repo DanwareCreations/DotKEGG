@@ -9,10 +9,10 @@ namespace DotKEGG {
     /// <summary>
     /// Represents the current statistics of a given database, as returned by the KEGG API info operation.
     /// </summary>
-    public struct KeggDbInfo {
+    public struct InfoResults {
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="KeggDbInfo"/> struct from the HTTP response returned bythe KEGG API info operation.
+        /// Initializes a new instance of the <see cref="InfoResults"/> struct from the HTTP response returned by the KEGG API info operation.
         /// </summary>
         /// <param name="httpResponse">The HTTP response returned by the KEGG API info operation</param>
         /// <remarks>
@@ -40,7 +40,7 @@ namespace DotKEGG {
         ///                      mgenome       1,189 entries
         /// 
         /// </remarks>
-        internal KeggDbInfo(string httpResponse) {
+        internal InfoResults(string httpResponse) {
 
             // Initialize properties (compiler complains if we don't do this)
             FullName = "";

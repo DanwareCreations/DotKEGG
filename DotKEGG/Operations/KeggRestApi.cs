@@ -15,10 +15,10 @@ namespace DotKEGG {
             return ids;
         }
 
-        public static KeggDbInfo GetInfo(params string[] parameters) {
+        public static InfoResults GetInfo(params string[] parameters) {
             string post = "http://rest.kegg.jp/info/" + string.Join("/", parameters);
             string response = _web.DownloadString(post);
-            return new KeggDbInfo(response);
+            return new InfoResults(response);
         }
 
         public static string[] GetDBGET(params string[] parameters) {
