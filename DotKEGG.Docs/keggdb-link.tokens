@@ -1,0 +1,20 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<content xml:space="preserve" xmlns:ddue="http://ddue.schemas.microsoft.com/authoring/2003/5" xmlns:xlink="http://www.w3.org/1999/xlink">
+  <item id="BriteDbLink"><see href="http://www.genome.jp/kegg/brite.html">BRITE</see></item>
+  <item id="CompoundDbLink"><see href="http://www.genome.jp/kegg/compound/">COMPOUND</see></item>
+  <item id="DiseaseDbLink"><see href="http://www.genome.jp/kegg/disease/">DISEASE</see></item>
+  <item id="DrugDbLink"><see href="http://www.genome.jp/kegg/drug/">DRUG</see></item>
+  <item id="DrugGroupDbLink"><see href="http://www.genome.jp/kegg/drug/">DGROUP</see></item>
+  <item id="EnvironDbLink"><see href="http://www.genome.jp/kegg/drug/environ.html">ENVIRON</see></item>
+  <item id="EnzymeDbLink"><see href="http://www.genome.jp/kegg/annotation/enzyme.html">ENZYME</see></item>
+  <item id="GenesDbLink"><see href="http://www.genome.jp/kegg/genes.html">GENES</see></item>
+  <item id="GenomeDbLink"><see href="http://www.genome.jp/kegg/genome.html">GENOME</see></item>
+  <item id="GenomesDbLink"><see href="http://www.genome.jp/kegg/genome.html">GENOMES</see></item>
+  <item id="GlycanDbLink"><see href="https://www.genome.jp/kegg/glycan/">GLYCAN</see></item>
+  <item id="LigandDbLink"><see href="http://www.genome.jp/kegg/ligand.html">LIGAND</see></item>
+  <item id="ModuleDbLink"><see href="http://www.genome.jp/kegg/module.html">MODULE</see></item>
+  <item id="OrthologyDbLink"><see href="http://www.genome.jp/kegg/ko.html">ORTHOLOGY</see></item>
+  <item id="PathwayDbLink"><see href="http://www.genome.jp/kegg/pathway.html">PATHWAY</see></item>
+  <item id="ReactionClassDbLink"><see href="http://www.genome.jp/kegg/reaction/">RCLASS</see></item>
+  <item id="ReactionDbLink"><see href="http://www.genome.jp/kegg/reaction/">REACTION</see></item>
+</content>

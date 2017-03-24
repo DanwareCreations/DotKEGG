@@ -13,8 +13,8 @@ namespace DotKEGG {
         /// </summary>
         /// <param name="organismCode">The organism code of the KEGG organism</param>
         /// <returns>Current statistics for the given KEGG Organism database.</returns>
-        /// <exception cref="ArgumentNullException">organismCode is null.</exception>
-        /// <exception cref="ArgumentException">organismCode is empty or not a valid KEGG Organism code.</exception>
+        /// <exception cref="ArgumentNullException"><paramref name="organismCode"/> is <see langword="null"/>.</exception>
+        /// <exception cref="ArgumentException"><paramref name="organismCode"/> is empty or not a valid KEGG Organism code.</exception>
         public static InfoResults Organism(string organismCode) {
             // If the provided organism code is null or empty then throw an Exception
             if (organismCode == null)
@@ -36,7 +36,7 @@ namespace DotKEGG {
         /// </summary>
         /// <param name="keggId">The T number of the KEGG Organism's genome</param>
         /// <returns>Current statistics for the given KEGG Organism database.</returns>
-        /// <exception cref="ArgumentNullException">keggId is null.</exception>
+        /// <exception cref="ArgumentNullException"><paramref name="keggId"/> is <see langword="null"/>.</exception>
         public static InfoResults Organism(TNumber keggId) {
             if (keggId == null)
                 throw new ArgumentNullException(nameof(keggId), $"Cannot invoke the KEGG info operation without a database name!");
@@ -74,8 +74,8 @@ namespace DotKEGG {
         /// <returns>Current statistics for the given KEGG composite database.</returns>
         /// <remarks>
         /// A composite database is actually a wrapper for several "auxiliary" databases.
-        /// For example, the KEGG <token>GenomesDb</token> database is actually made up of the genome, egenome, and mgenome databases.
-        /// Getting info for a composite database like <token>GenomesDb</token> will return info about 
+        /// For example, the KEGG <token>GenomesDbLink</token> database is actually made up of the genome, egenome, and mgenome databases.
+        /// Getting info for a composite database like <token>GenomesDbLink</token> will return info about 
         /// all of that database's auxiliary databases.
         /// </remarks>
         public static InfoResults Database(KeggCompositeDb db) {

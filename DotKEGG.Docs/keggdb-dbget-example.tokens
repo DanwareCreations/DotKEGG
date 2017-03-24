@@ -1,0 +1,20 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<content xml:space="preserve" xmlns:ddue="http://ddue.schemas.microsoft.com/authoring/2003/5" xmlns:xlink="http://www.w3.org/1999/xlink">
+  <item id="PathwayDbDbgetExample"><see href="http://www.kegg.jp/entry/path:map00010">path:map00010</see></item>
+  <item id="ModuleDbDbgetExample"><see href="http://www.kegg.jp/module/md:M00010">md:M00010</see></item>
+  <item id="BriteDbDbgetExample"><see href="http://www.kegg.jp/brite/br:br08303">br:BR08303</see></item>
+  <item id="OrthologyDbDbgetExample"><see href="http://www.kegg.jp/entry/ko:K00873">ko:K00873</see></item>
+  <item id="GenomeDbDbgetExample"><see href="http://www.kegg.jp/entry/genome:T01001">genome:T01001</see></item>
+  <item id="GenomesDbDbgetExample"><see href="http://www.kegg.jp/entry/gn:T01001">gn:T01001</see></item>
+  <item id="GenesDbDbgetExample">-</item>
+  <item id="LigandDbDbgetExample">-</item>
+  <item id="CompoundDbDbgetExample"><see href="http://www.kegg.jp/entry/cpd:C00031">cpd:C00031</see></item>
+  <item id="GlycanDbDbgetExample"><see href="http://www.kegg.jp/entry/gl:G00197">gl:G00197</see></item>
+  <item id="ReactionDbDbgetExample"><see href="http://www.kegg.jp/entry/rn:R00259">rn:R00259</see></item>
+  <item id="ReactionClassDbDbgetExample"><see href="http://www.kegg.jp/entry/rc:RC00064">rc:RC00064</see></item>
+  <item id="EnzymeDbDbgetExample"><see href="http://www.kegg.jp/entry/ec:3.4.11.4">ec:3.4.11.4</see></item>
+  <item id="DiseaseDbDbgetExample"><see href="http://www.kegg.jp/entry/ds:H00118">ds:H00118</see></item>
+  <item id="DrugDbDbgetExample"><see href="http://www.kegg.jp/entry/dr:D01441">dr:D01441</see></item>
+  <item id="DrugGroupDbDbgetExample"><see href="http://www.kegg.jp/entry/dg:DG01918">dg:DG01918</see></item>
+  <item id="EnvironDbDbgetExample"><see href="http://www.kegg.jp/entry/ev:E00270">ev:E00270</see></item>
+</content>
