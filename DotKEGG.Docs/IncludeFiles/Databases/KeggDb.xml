@@ -1,0 +1,24 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<content>
+  
+  <item name="DbEntryComparison">
+    <para>
+      The <see cref="KeggId"/> returned by this method boxes a more specific, derived class returned by classes that implement <see cref="KeggDb"/>.  
+      For example, <see cref="ModuleDb"/>'s <see cref="ModuleDb.Entry(uint)"/> method actually returns a <see cref="MNumber"/> boxed as a <see cref="KeggId"/>,
+      while <see cref="DiseaseDb"/>'s <see cref="DiseaseDb.Entry(uint)"/> method returns a <see cref="HNumber"/> boxed as a <see cref="KeggId"/>.
+    </para>
+    <para>
+      In addition, most derived database classes also expose a method for fetching strongly typed database entries.
+      For example, <see cref="ModuleDb"/> has a <see cref="ModuleDb.Module(uint)"/> method for fetching <see cref="MNumber"/> entries,
+      while <see cref="DiseaseDb"/> has a <see cref="DiseaseDb.Disease(uint)"/> method for fetching <see cref="HNumber"/> entries.
+      Thus, the following two method calls return an identical object; the latter is simply more specific (and more readable) than the former.
+    </para>
+    <code language="cs" title="Comparison of Database Entry Query Methods" source="Databases/DbEntryComparison.cs" region="Inline Code"></code>
+    <para>
+      The strongly typed methods should always be preferred for fetching database entries; its use is both more readable and less error prone.  
+      This <see langword="abstract"/> method should only be used in rare situations where you need to look up a specific database entry by ID number, 
+      but do not have access to the strongly typed database instance.
+    </para>
+  </item>
+
+</content>

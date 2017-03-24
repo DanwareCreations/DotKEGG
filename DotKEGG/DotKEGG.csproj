@@ -89,18 +89,11 @@
     <None Include="DotKEGG.nuspec">
       <SubType>Designer</SubType>
     </None>
-    <Content Include="Documentation\InfoResults.xml">
-      <SubType>Designer</SubType>
-    </Content>
   </ItemGroup>
   <ItemGroup>
     <Content Include="README.txt" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Documentation\Databases\" />
-    <Folder Include="Documentation\Ids\" />
-    <Folder Include="Documentation\Operations\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>
     <PostBuildEvent Condition="$(ConfigurationName) == Release">

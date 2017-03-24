@@ -9,15 +9,35 @@ namespace DotKEGG {
     public abstract class KeggDb : IEquatable<KeggDb> {
 
         /// <summary>
-        /// The name of the database
+        /// The name of the database.
         /// </summary>
         /// <remarks>
-        /// <include file='Documentation/InfoResults.xml' path='InfoResults/remarks[@id="KeggDbNames"]'/>
+        /// <include file='../../DotKEGG.Docs/IncludeFiles/Operations/Info.xml' path='content/item[@name="KeggDbTable"]'/>
         /// </remarks>
         public string Name { get; protected set; }
+        /// <summary>
+        /// The abbreviation for the database.
+        /// </summary>
+        /// <remarks>
+        /// <include file='../../DotKEGG.Docs/IncludeFiles/Operations/Info.xml' path='content/item[@name="KeggDbTable"]'/>
+        /// </remarks>
         public string Abbreviation { get; protected set; }
+        /// <summary>
+        /// The prefix on KEGG IDs in this database.
+        /// </summary>
+        /// <remarks>
+        /// <include file='../../DotKEGG.Docs/IncludeFiles/Operations/Info.xml' path='content/item[@name="KeggDbTable"]'/>
+        /// </remarks>
         public string Prefix { get; protected set; }
 
+        /// <summary>
+        /// Returns a <see cref="KeggId"/> wrapping the entry in the database with the provided KEGG ID number.
+        /// </summary>
+        /// <param name="number">The unique number in the entry's KEGG ID.</param>
+        /// <returns>A lightweight object representing the entry in the database with the provided KEGG ID number.</returns>
+        /// <remarks>
+        /// <include file='../../DotKEGG.Docs/IncludeFiles/Databases/KeggDb.xml' path='content/item[@name="DbEntryComparison"]'/>
+        /// </remarks>
         public abstract KeggId Entry(uint number);
 
         /// <summary>

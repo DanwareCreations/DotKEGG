@@ -1,11 +1,11 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<Comments>
-  <remark name="InfoResponseSyntax">
-    <para>The HTTP response is expected to be in the following format:</para>
+<content>
+  <item name="InfoResponseSyntax">
+    <para>The HTTP response returned by the KEGG API info operation is expected to be in the following format:</para>
 
     <code title="KEGG Info Response Syntax">
       <![CDATA[
-      <name>                <Title>
+      <name>                <FullName>
       <abbreviation>        <Version>
                             <Organization>
                             [<dbname1>] <num> entries
@@ -17,7 +17,7 @@
 
     <para>
       The Name (e.g., "module") and Abbreviation (e.g., "<token>ModuleDbAbbrev</token>") of the database appear in the left column, and
-      the Title, Version, and Organization appear in the right column.  These tokens are always present.  Name and Abbreviation
+      the FullName, Version, and Organization appear in the right column.  These tokens are always present.  Name and Abbreviation
       may be the same for some databases, especially composite databases like <token>LigandDbLink</token> and <token>GenomesDbLink</token>.
       For individual KEGG databases, there is usually only one number-of-entries line, without a database name.
       Composite databases, however, typically have multiple lines, with one line per auxiliary database.
@@ -33,8 +33,8 @@
                        mgenome       1,189 entries      
     </code>
   
-  </remark>
-  <remark name="KeggDbTable">
+  </item>
+  <item name="KeggDbTable">
     <para>
       The table below lists all KEGG databases with their corresponding Name, Abbreviation, KEGG ID Prefix,
       and an example KEGG ID in short and DBGET form.
@@ -195,5 +195,12 @@
         <term><token>EnvironDbDbgetExample</token></term>
       </item>
     </list>
-  </remark>
-</Comments>
+  </item>
+  <item name="InfoExamples">
+    <token>InfoDbExample</token>
+    <token>InfoCompositeDbExample</token>
+    <token>InfoHumanDbExample</token>
+    <token>InfoKeggDbExample</token>
+  </item>
+
+</content>

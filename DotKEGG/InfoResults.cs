@@ -10,8 +10,11 @@ namespace DotKEGG {
     /// Represents the current statistics of a given database, as returned by the <see cref="KeggInfo"/> operation.
     /// </summary>
     /// <remarks>
-    /// <include file='Documentation/InfoResults.xml' path='Comments/remark[@name="InfoResponseSyntax"]/*'/>
+    /// <include file='../DotKEGG.Docs/IncludeFiles/Operations/Info.xml' path='content/item[@name="InfoResponseSyntax"]/*'/>
     /// </remarks>
+    /// <example>
+    /// <include file='../DotKEGG.Docs/IncludeFiles/Operations/Info.xml' path='content/item[@name="InfoExamples"]/*'/>
+    /// </example>
     public struct InfoResults {
 
         /// <summary>
@@ -19,7 +22,7 @@ namespace DotKEGG {
         /// </summary>
         /// <param name="httpResponse">The HTTP response returned by the KEGG API info operation</param>
         /// <remarks>
-        /// <include file='Documentation/InfoResults.xml' path='Comments/remark[@name="InfoResponseSyntax"]/*'/>
+        /// <include file='../DotKEGG.Docs/IncludeFiles/Operations/Info.xml' path='content/item[@name="InfoResponseSyntax"]/*'/>
         /// </remarks>
         internal InfoResults(string httpResponse) {
 
@@ -76,7 +79,7 @@ namespace DotKEGG {
         /// Gets the name of the queried KEGG database.
         /// </summary>
         /// <remarks>
-        /// <include file='Documentation/InfoResults.xml' path='Comments/remark[@name="KeggDbTable"]/*'/>
+        /// <include file='../DotKEGG.Docs/IncludeFiles/Operations/Info.xml' path='content/item[@name="KeggDbTable"]/*'/>
         /// </remarks>
         public string Name { get; }
         /// <summary>
@@ -84,7 +87,7 @@ namespace DotKEGG {
         /// </summary>
         /// <remarks>
         /// <note type="note">This property is returned by the KEGG Info operation, but is never used within the API, nor within DotKEGG.</note>
-        /// <include file='Documentation/InfoResults.xml' path='Comments/remark[@name="KeggDbTable"]/*'/>
+        /// <include file='../DotKEGG.Docs/IncludeFiles/Operations/Info.xml' path='content/item[@name="KeggDbTable"]/*'/>
         /// </remarks>
         public string FullName { get; }
         /// <summary>
@@ -92,21 +95,21 @@ namespace DotKEGG {
         /// </summary>
         /// <remarks>
         /// <para>For some databases, this property will have the same value as <see cref="Name"/>.</para>
-        /// <include file='Documentation/InfoResults.xml' path='Comments/remark[@name="KeggDbTable"]/*'/>
+        /// <include file='../DotKEGG.Docs/IncludeFiles/Operations/Info.xml' path='content/item[@name="KeggDbTable"]/*'/>
         /// </remarks>
         public string Abbreviation { get; }
         /// <summary>
         /// Gets the version of the queried KEGG database.
         /// </summary>
         /// <remarks>
-        /// <include file='Documentation/InfoResults.xml' path='Comments/remark[@name="KeggDbTable"]/*'/>
+        /// <include file='../DotKEGG.Docs/IncludeFiles/Operations/Info.xml' path='content/item[@name="KeggDbTable"]/*'/>
         /// </remarks>
         public string Version { get; }
         /// <summary>
         /// Gets the name of the organization that maintains the queried KEGG database.
         /// </summary>
         /// <remarks>
-        /// <include file='Documentation/InfoResults.xml' path='Comments/remark[@name="KeggDbTable"]/*'/>
+        /// <include file='../DotKEGG.Docs/IncludeFiles/Operations/Info.xml' path='content/item[@name="KeggDbTable"]/*'/>
         /// </remarks>
         public string Organization { get; }
         /// <summary>
@@ -123,7 +126,7 @@ namespace DotKEGG {
         /// For example, when fetching info for the <token>GenomesDbLink</token> composite database, there will be one key-value pair each for 
         /// its genome, egenome, and mgenome auxiliary databases.
         /// </para>
-        /// <include file='Documentation/InfoResults.xml' path='Comments/remark[@name="KeggDbTable"]/*'/>
+        /// <include file='../DotKEGG.Docs/IncludeFiles/Operations/Info.xml' path='content/item[@name="KeggDbTable"]/*'/>
         /// </remarks>
         public ReadOnlyCollection<KeyValuePair<string, uint>> NumEntries { get; }
 
