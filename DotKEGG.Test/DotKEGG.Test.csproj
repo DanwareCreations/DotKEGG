@@ -53,6 +53,8 @@
     <Otherwise />
   </Choose>
   <ItemGroup>
+    <Compile Include="CompositeDbTest.cs" />
+    <Compile Include="DbTest.cs" />
     <Compile Include="KeggInfoTest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

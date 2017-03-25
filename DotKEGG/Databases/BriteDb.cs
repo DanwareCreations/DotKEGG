@@ -9,7 +9,7 @@ namespace DotKEGG {
         private BriteDb() {
             Name = "brite";
             Abbreviation = "br";
-            Prefix = "br";
+            Prefix = "BR";
         }
 
         public static BriteDb Instance => _instance;
