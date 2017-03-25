@@ -97,7 +97,7 @@
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>
     <PostBuildEvent Condition="$(ConfigurationName) == Release">
-      del $(TargetDir)*.nupkg
+      del $(TargetDir)*.nupkg 2&gt; NUL
       nuget pack $(ProjectPath) -properties Configuration=Release
     </PostBuildEvent>
   </PropertyGroup>
