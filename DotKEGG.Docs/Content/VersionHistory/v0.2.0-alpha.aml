@@ -1,0 +1,22 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<topic id="c139f603-c943-4b15-871c-8e951bb4a4b0" revisionNumber="1">
+  <developerConceptualDocument xmlns="http://ddue.schemas.microsoft.com/authoring/2003/5" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <introduction>
+      <para>
+        Version 0.2.0-alpha was released on 3/25/2017.
+      </para>
+    </introduction>
+
+    <section>
+      <title>Changes in This Release</title>
+      <content>
+        <para>This release added unit tests, and complete API reference documentation, for the KeggInfo operation and all database classes.</para>
+      </content>
+    </section>
+
+    <relatedTopics>
+      <link xlink:href="bff6fc53-a0cb-4309-bca0-da8d3998f6ee" />
+    </relatedTopics>
+
+  </developerConceptualDocument>
+</topic>
