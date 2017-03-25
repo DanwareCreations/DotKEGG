@@ -1,15 +1,16 @@
 ﻿using System.Reflection;
+using System.Runtime.CompilerServices;
 using System.Runtime.InteropServices;
 
 // General Information about an assembly is controlled through the following 
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
-[assembly: AssemblyTitle("DotKEGG")]
-[assembly: AssemblyDescription("A .NET wrapper for the Kyoto Encyclopedia of Genes and Genomes REST API")]
+[assembly: AssemblyTitle("DotKEGG.Examples")]
+[assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
-[assembly: AssemblyCompany("Danware Creations, LLC")]
-[assembly: AssemblyProduct("DotKEGG")]
-[assembly: AssemblyCopyright("Copyright © 2017 Danware Creations, LLC")]
+[assembly: AssemblyCompany("")]
+[assembly: AssemblyProduct("DotKEGG.Examples")]
+[assembly: AssemblyCopyright("Copyright ©  2017")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 
@@ -19,7 +20,7 @@ using System.Runtime.InteropServices;
 [assembly: ComVisible(false)]
 
 // The following GUID is for the ID of the typelib if this project is exposed to COM
-[assembly: Guid("ee1ed93a-535a-49f6-bce2-d7072b53c2fe")]
+[assembly: Guid("28fdf2f6-81fa-459b-81bc-4f94a130951c")]
 
 // Version information for an assembly consists of the following four values:
 //
@@ -31,6 +32,5 @@ using System.Runtime.InteropServices;
 // You can specify all the values or you can default the Build and Revision Numbers 
 // by using the '*' as shown below:
 // [assembly: AssemblyVersion("1.0.*")]
-[assembly: AssemblyVersion("0.2.0.0")]
-[assembly: AssemblyInformationalVersion("0.2.0-alpha")]
-[assembly: AssemblyFileVersion("1.1.0.0")]
+[assembly: AssemblyVersion("1.0.0.0")]
+[assembly: AssemblyFileVersion("1.0.0.0")]

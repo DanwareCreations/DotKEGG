@@ -9,6 +9,8 @@ Project("{7CF6DF6D-3B04-46F8-A40B-537D21BCA0B4}") = "DotKEGG.Docs", "DotKEGG.Doc
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DotKEGG", "DotKEGG\DotKEGG.csproj", "{EE1ED93A-535A-49F6-BCE2-D7072B53C2FE}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DotKEGG.Examples", "DotKEGG.Examples\DotKEGG.Examples.csproj", "{28FDF2F6-81FA-459B-81BC-4F94A130951C}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -30,6 +32,10 @@ Global
 		{EE1ED93A-535A-49F6-BCE2-D7072B53C2FE}.Release|Any CPU.Build.0 = Release|Any CPU
 		{EE1ED93A-535A-49F6-BCE2-D7072B53C2FE}.Test|Any CPU.ActiveCfg = Debug|Any CPU
 		{EE1ED93A-535A-49F6-BCE2-D7072B53C2FE}.Test|Any CPU.Build.0 = Debug|Any CPU
+		{28FDF2F6-81FA-459B-81BC-4F94A130951C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{28FDF2F6-81FA-459B-81BC-4F94A130951C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{28FDF2F6-81FA-459B-81BC-4F94A130951C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{28FDF2F6-81FA-459B-81BC-4F94A130951C}.Test|Any CPU.ActiveCfg = Debug|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

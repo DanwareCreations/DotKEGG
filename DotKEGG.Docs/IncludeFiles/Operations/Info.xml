@@ -1,0 +1,211 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<content>
+  <item name="InfoResponseSyntax">
+    <para>The HTTP response returned by the KEGG API info operation is expected to be in the following format:</para>
+
+    <code title="KEGG Info Response Syntax">
+      <![CDATA[
+      <name>                <FullName>
+      <abbreviation>        <Version>
+                            <Organization>
+                            [<dbname1>] <num> entries
+                            [<dbname2> <num> entries]
+                            [<dbname3> <num> entries]
+                            [...]
+      ]]>
+    </code>
+
+    <para>
+      The Name (e.g., "module") and Abbreviation (e.g., "<token>ModuleDbAbbrev</token>") of the database appear in the left column, and
+      the FullName, Version, and Organization appear in the right column.  These tokens are always present.  Name and Abbreviation
+      may be the same for some databases, especially composite databases like <token>LigandDbLink</token> and <token>GenomesDbLink</token>.
+      For individual KEGG databases, there is usually only one number-of-entries line, without a database name.
+      Composite databases, however, typically have multiple lines, with one line per auxiliary database.
+    </para>
+    <para>For example, here is the response returned by "<see href="http://rest.kegg.jp/info/genomes">http://rest.kegg.jp/info/genomes</see>": </para>
+
+    <code title="KEGG Info Response for GENOMES Database">
+      genomes          KEGG Genomes Database
+      gn               Release 81.0+/03-16, Mar 17
+                       Kanehisa Laboratories
+                       genome        5,038 entries
+                       egenome             entries
+                       mgenome       1,189 entries      
+    </code>
+  
+  </item>
+  <item name="KeggDbTable">
+    <para>
+      The table below lists all KEGG databases with their corresponding Name, Abbreviation, KEGG ID Prefix,
+      and an example KEGG ID in short and DBGET form.
+      The Prefix represents the letter(s) before the entry number in a KEGG ID.
+      So, for example, the prefix for the <token>CompoundDbLink</token> database is "<token>CompoundDbPrefix</token>", and therefore a KEGG ID 
+      in that database will look similar to <token>CompoundDbKIDExample</token>.
+    </para>
+    <para>
+      The KEGG IDs for specific databases are sometimes nicknamed after their prefix.  
+      For example, KEGG IDs in the <token>CompoundDbLink</token> database are also called "<token>CompoundDbPrefix</token> numbers",
+      KEGG IDs in the <token>DiseaseDbLink</token> are also called "<token>DiseaseDbPrefix</token> numbers",
+      and KEGG IDs in the <token>PathwayDbLink</token> are also called "<token>PathwayDbPrefix</token> numbers".
+    </para>
+    <note>
+      These are the values returned by the corresponding properties of the various KEGG database classes.
+      The actual databases, according to the <see href="http://www.kegg.jp/kegg/kegg3.html">KEGG API documentation</see>, may list additional prefixes, or none at all.
+      DotKEGG was designed so that the values of the Name and Abbreviation properties of the database classes would always match those returned by the KEGG API Info operation.
+    </note>
+
+    <list type="table">
+      <listheader>
+        <term>Database</term>
+        <term>Name</term>
+        <term>Abbreviation</term>
+        <term>Prefix</term>
+        <term>Example KEGG ID (short form)</term>
+        <term>Example KEGG ID (DBGET form)</term>
+      </listheader>
+      <item>
+        <term><token>PathwayDbLink</token></term>
+        <term>pathway</term>
+        <term><token>PathwayDbAbbrev</token></term>
+        <term><token>PathwayDbPrefix</token></term>
+        <term><token>PathwayDbKIDExample</token></term>
+        <term><token>PathwayDbDbgetExample</token></term>
+      </item>
+      <item>
+        <term><token>BriteDbLink</token></term>
+        <term>brite</term>
+        <term><token>BriteDbAbbrev</token></term>
+        <term><token>BriteDbPrefix</token></term>
+        <term><token>BriteDbKIDExample</token></term>
+        <term><token>BriteDbDbgetExample</token></term>
+      </item>
+      <item>
+        <term><token>ModuleDbLink</token></term>
+        <term>module</term>
+        <term><token>ModuleDbAbbrev</token></term>
+        <term><token>ModuleDbPrefix</token></term>
+        <term><token>ModuleDbKIDExample</token></term>
+        <term><token>ModuleDbDbgetExample</token></term>
+      </item>
+      <item>
+        <term><token>OrthologyDbLink</token></term>
+        <term>orthology</term>
+        <term><token>OrthologyDbAbbrev</token></term>
+        <term><token>OrthologyDbPrefix</token></term>
+        <term><token>OrthologyDbKIDExample</token></term>
+        <term><token>OrthologyDbDbgetExample</token></term>
+      </item>
+      <item>
+        <term><token>GenomeDbLink</token></term>
+        <term>genome</term>
+        <term><token>GenomeDbAbbrev</token></term>
+        <term><token>GenomeDbPrefix</token></term>
+        <term><token>GenomeDbKIDExample</token></term>
+        <term><token>GenomeDbDbgetExample</token></term>
+      </item>
+      <item>
+        <term><token>GenomesDbLink</token></term>
+        <term>genomes</term>
+        <term><token>GenomesDbAbbrev</token></term>
+        <term><token>GenomesDbPrefix</token></term>
+        <term><token>GenomesDbKIDExample</token></term>
+        <term><token>GenomesDbDbgetExample</token></term>
+      </item>
+      <item>
+        <term><token>GenesDbLink</token></term>
+        <term>genes</term>
+        <term><token>GenesDbAbbrev</token></term>
+        <term><token>GenesDbPrefix</token></term>
+        <term><token>GenesDbKIDExample</token></term>
+        <term><token>GenesDbDbgetExample</token></term>
+      </item>
+      <item>
+        <term><token>LigandDbLink</token></term>
+        <term>ligand</term>
+        <term><token>LigandDbAbbrev</token></term>
+        <term><token>LigandDbPrefix</token></term>
+        <term><token>LigandDbKIDExample</token></term>
+        <term><token>LigandDbDbgetExample</token></term>
+      </item>
+      <item>
+        <term><token>CompoundDbLink</token></term>
+        <term>compound</term>
+        <term><token>CompoundDbAbbrev</token></term>
+        <term><token>CompoundDbPrefix</token></term>
+        <term><token>CompoundDbKIDExample</token></term>
+        <term><token>CompoundDbDbgetExample</token></term>
+      </item>
+      <item>
+        <term><token>GlycanDbLink</token></term>
+        <term>glycan</term>
+        <term><token>GlycanDbAbbrev</token></term>
+        <term><token>GlycanDbPrefix</token></term>
+        <term><token>GlycanDbKIDExample</token></term>
+        <term><token>GlycanDbDbgetExample</token></term>
+      </item>
+      <item>
+        <term><token>ReactionDbLink</token></term>
+        <term>reaction</term>
+        <term><token>ReactionDbAbbrev</token></term>
+        <term><token>ReactionDbPrefix</token></term>
+        <term><token>ReactionDbKIDExample</token></term>
+        <term><token>ReactionDbDbgetExample</token></term>
+      </item>
+      <item>
+        <term><token>ReactionClassDbLink</token></term>
+        <term>rclass</term>
+        <term><token>ReactionClassDbAbbrev</token></term>
+        <term><token>ReactionClassDbPrefix</token></term>
+        <term><token>ReactionClassDbKIDExample</token></term>
+        <term><token>ReactionClassDbDbgetExample</token></term>
+      </item>
+      <item>
+        <term><token>EnzymeDbLink</token></term>
+        <term>enzyme</term>
+        <term><token>EnzymeDbAbbrev</token></term>
+        <term><token>EnzymeDbPrefix</token></term>
+        <term><token>EnzymeDbKIDExample</token></term>
+        <term><token>EnzymeDbDbgetExample</token></term>
+      </item>
+      <item>
+        <term><token>DiseaseDbLink</token></term>
+        <term>disease</term>
+        <term><token>DiseaseDbAbbrev</token></term>
+        <term><token>DiseaseDbPrefix</token></term>
+        <term><token>DiseaseDbKIDExample</token></term>
+        <term><token>DiseaseDbDbgetExample</token></term>
+      </item>
+      <item>
+        <term><token>DrugDbLink</token></term>
+        <term>drug</term>
+        <term><token>DrugDbAbbrev</token></term>
+        <term><token>DrugDbPrefix</token></term>
+        <term><token>DrugDbKIDExample</token></term>
+        <term><token>DrugDbDbgetExample</token></term>
+      </item>
+      <item>
+        <term><token>DrugGroupDbLink</token></term>
+        <term>dgroup</term>
+        <term><token>DrugGroupDbAbbrev</token></term>
+        <term><token>DrugGroupDbPrefix</token></term>
+        <term><token>DrugGroupDbKIDExample</token></term>
+        <term><token>DrugGroupDbDbgetExample</token></term>
+      </item>
+      <item>
+        <term><token>EnvironDbLink</token></term>
+        <term>environ</term>
+        <term><token>EnvironDbAbbrev</token></term>
+        <term><token>EnvironDbPrefix</token></term>
+        <term><token>EnvironDbKIDExample</token></term>
+        <term><token>EnvironDbDbgetExample</token></term>
+      </item>
+    </list>
+  </item>
+  <item name="InfoExamples">
+    <token>InfoDbExample</token>
+    <token>InfoCompositeDbExample</token>
+    <token>InfoHumanDbExample</token>
+    <token>InfoKeggDbExample</token>
+  </item>
+
+</content>

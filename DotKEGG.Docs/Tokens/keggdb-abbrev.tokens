@@ -1,0 +1,20 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<content xml:space="preserve" xmlns:ddue="http://ddue.schemas.microsoft.com/authoring/2003/5" xmlns:xlink="http://www.w3.org/1999/xlink">
+  <item id="BriteDbAbbrev">br, jp, ko, (org)</item>
+  <item id="CompoundDbAbbrev">cpd</item>
+  <item id="DiseaseDbAbbrev">ds</item>
+  <item id="DrugDbAbbrev">dr</item>
+  <item id="DrugGroupDbAbbrev">dg</item>
+  <item id="EnvironDbAbbrev">ev</item>
+  <item id="EnzymeDbAbbrev">ec</item>
+  <item id="GenesDbAbbrev">genes</item>
+  <item id="GenomeDbAbbrev">genome</item>
+  <item id="GenomesDbAbbrev">gn</item>
+  <item id="GlycanDbAbbrev">gl</item>
+  <item id="LigandDbAbbrev">ligand</item>
+  <item id="ModuleDbAbbrev">md</item>
+  <item id="OrthologyDbAbbrev">ko</item>
+  <item id="PathwayDbAbbrev">path</item>
+  <item id="ReactionClassDbAbbrev">rc</item>
+  <item id="ReactionDbAbbrev">rn</item>
+</content>

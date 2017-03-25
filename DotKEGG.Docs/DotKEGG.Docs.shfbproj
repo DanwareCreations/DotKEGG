@@ -18,10 +18,10 @@
     <HtmlHelpName>DotKEGG.Docs</HtmlHelpName>
     <Language>en-US</Language>
     <TransformComponentArguments>
-      <Argument Key="logoFile" Value="Help.png" />
+      <Argument Key="logoFile" Value="KEGG_database_logo.png" />
       <Argument Key="logoHeight" Value="" />
       <Argument Key="logoWidth" Value="" />
-      <Argument Key="logoAltText" Value="Danware logo" />
+      <Argument Key="logoAltText" Value="KEGG Database Logo" />
       <Argument Key="logoPlacement" Value="left" />
       <Argument Key="logoAlignment" Value="left" />
       <Argument Key="maxVersionParts" Value="" />
@@ -57,10 +57,40 @@
       <NamespaceSummaryItem name="(global)" isDocumented="False" xmlns="" />
       <NamespaceSummaryItem name="DotKEGG" isDocumented="True" xmlns="">The DotKEGG namespace contains all types needed to interact with the KEGG database.  This includes types representing the various databases, entries within those databases, and operations on those entries.</NamespaceSummaryItem>
     </NamespaceSummaries>
-    <CopyrightHref>
-    </CopyrightHref>
+    <CopyrightHref>https://www.danwarecreations.com/products/dotkegg</CopyrightHref>
     <WarnOnMissingSourceContext>False</WarnOnMissingSourceContext>
     <SourceCodeBasePath>..\DotKEGG\</SourceCodeBasePath>
+    <WebsiteSdkLinkType>Msdn</WebsiteSdkLinkType>
+    <HtmlSdkLinkType>Msdn</HtmlSdkLinkType>
+    <IncludeFavorites>False</IncludeFavorites>
+    <BinaryTOC>True</BinaryTOC>
+    <VisibleItems>InheritedMembers, InheritedFrameworkMembers, Protected, ProtectedInternalAsProtected</VisibleItems>
+    <CopyrightText>[v0.2.0-alpha] Copyright &amp;#169%3b 2017, Danware Creations, LLC, All rights reserved</CopyrightText>
+    <ComponentConfigurations>
+      <ComponentConfig id="API Token Resolution" enabled="True">
+        <component id="API Token Resolution">{@TokenFiles}
+<replace elements="/*//token" item="string(.)" /></component>
+      </ComponentConfig>
+      <ComponentConfig id="IntelliSense Component" enabled="True">
+        <component id="IntelliSense Component">
+          <!-- Output options (optional)
+  Attributes:
+    Include namespaces (false by default)
+    Namespaces comments filename ("Namespaces" if not specified or empty)
+    Output folder (current folder if not specified or empty) -->
+          <output includeNamespaces="false" namespacesFile="Namespaces" folder="{@OutputFolder}" boundedCapacity="100" />
+        </component>
+      </ComponentConfig>
+      <ComponentConfig id="Code Block Component" enabled="True">
+        <component id="Code Block Component">
+          <basePath value="{@HtmlEncProjectFolder}..\DotKEGG.Examples\" />
+          <outputPaths>{@HelpFormatOutputPaths}</outputPaths>
+          <allowMissingSource value="false" />
+          <removeRegionMarkers value="false" />
+          <colorizer syntaxFile="{@SHFBFolder}PresentationStyles\Colorizer\highlight.xml" styleFile="{@SHFBFolder}PresentationStyles\Colorizer\highlight.xsl" stylesheet="{@SHFBFolder}PresentationStyles\Colorizer\highlight.css" scriptFile="{@SHFBFolder}PresentationStyles\Colorizer\highlight.js" disabled="{@DisableCodeBlockComponent}" language="cs" tabSize="0" numberLines="false" outlining="false" keepSeeTags="false" defaultTitle="true" />
+        </component>
+      </ComponentConfig>
+    </ComponentConfigurations>
   </PropertyGroup>
   <!-- There are no properties for these groups.  AnyCPU needs to appear in order for Visual Studio to perform
 			 the build.  The others are optional common platform types that may appear. -->
@@ -83,26 +113,41 @@
   <ItemGroup>
     <Folder Include="Content" />
     <Folder Include="Content\VersionHistory" />
+    <Folder Include="IncludeFiles" />
+    <Folder Include="IncludeFiles\Databases" />
+    <Folder Include="IncludeFiles\Ids" />
+    <Folder Include="IncludeFiles\Operations" />
     <Folder Include="icons" />
     <Folder Include="media" />
+    <Folder Include="Tokens" />
+    <Folder Include="Tokens\Examples" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Content\VersionHistory\v0.1.0-alpha.aml" />
+    <None Include="Content\VersionHistory\v0.2.0-alpha.aml" />
     <None Include="Content\VersionHistory\VersionHistory.aml" />
     <None Include="Content\Welcome.aml" />
+    <None Include="IncludeFiles\Databases\KeggDb.xml" />
+    <None Include="IncludeFiles\Operations\Info.xml" />
   </ItemGroup>
   <ItemGroup>
     <ContentLayout Include="ContentLayout.content" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="icons\Help.png" />
+    <Content Include="icons\KEGG_database_logo.png">
+      <ImageId>KEGG_database_logo</ImageId>
+      <AlternateText>KEGG database logo</AlternateText>
+    </Content>
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\DotKEGG\DotKEGG.csproj">
-      <Name>DotKEGG</Name>
-      <Project>{ee1ed93a-535a-49f6-bce2-d7072b53c2fe}</Project>
-      <Private>True</Private>
-    </ProjectReference>
+    <Tokens Include="Tokens\Examples\info-example-txt.tokens" />
+    <Tokens Include="Tokens\keggdb-abbrev.tokens" />
+    <Tokens Include="Tokens\keggdb-dbget-example.tokens" />
+    <Tokens Include="Tokens\keggdb-kid-example.tokens" />
+    <Tokens Include="Tokens\keggdb-link.tokens" />
+    <Tokens Include="Tokens\keggdb-prefix.tokens" />
+    <Tokens Include="Tokens\organism-codes.tokens" />
+    <Tokens Include="Tokens\other.tokens" />
   </ItemGroup>
   <!-- Import the SHFB build targets -->
   <Import Project="$(SHFBROOT)\SandcastleHelpFileBuilder.targets" />

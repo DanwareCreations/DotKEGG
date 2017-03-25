@@ -1,0 +1,121 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<content>
+  
+  <item name="DbEntryComparison">
+    <para>
+      The <see cref="KeggId"/> returned by this method boxes a more specific, derived class returned by classes that implement <see cref="KeggDb"/>.  
+      For example, <see cref="ModuleDb"/>'s <see cref="ModuleDb.Entry(uint)"/> method actually returns a <see cref="MNumber"/> boxed as a <see cref="KeggId"/>,
+      while <see cref="DiseaseDb"/>'s <see cref="DiseaseDb.Entry(uint)"/> method returns a <see cref="HNumber"/> boxed as a <see cref="KeggId"/>.
+    </para>
+    <para>
+      In addition, most derived database classes also expose a method for fetching strongly typed database entries.
+      For example, <see cref="ModuleDb"/> has a <see cref="ModuleDb.Module(uint)"/> method for fetching <see cref="MNumber"/> entries,
+      while <see cref="DiseaseDb"/> has a <see cref="DiseaseDb.Disease(uint)"/> method for fetching <see cref="HNumber"/> entries.
+      Thus, the following two method calls return an identical object; the latter is simply more specific (and more readable) than the former.
+    </para>
+    <code language="cs" title="Comparison of Database Entry Query Methods" source="Databases/DbEntryComparison.cs" region="Inline Code"></code>
+    <para>
+      The strongly typed methods should always be preferred for fetching database entries; its use is both more readable and less error prone.  
+      This <see langword="abstract"/> method should only be used in rare situations where you need to look up a specific database entry by ID number, 
+      but do not have access to the strongly typed database instance.
+    </para>
+  </item>
+  <item name="CompoundVsComposite">
+    <note type="caution">Do not confuse a KEGG "composite" database with the <token>CompoundDbLink</token> database.  
+    A composite database is a database that is "composed of" several "simple" KEGG databases.  For example, the <token>LigandDbLink</token> 
+    composite database includes data from the <token>ReactionDbLink</token>, <token>ReactionClassDbLink</token>, and <token>GlycanDbLink</token> databases, among others.  
+    The <token>CompoundDbLink</token> database, on the other hand, is a particular simple database, which contains data on chemical compounds.
+  </note>
+  </item>
+
+  <item name="GenomeDbEntryComments">
+    <summary>
+      Returns the <token>GenomeDbLink</token> database entry with the given <token>GenomeDbPrefix</token> number.
+    </summary>
+    <param name="number">
+      The <token>GenomeDbPrefix</token> number of the <token>GenomeDbLink</token> database entry.
+    </param>
+    <returns>
+      A lightweight object representing the <token>GenomeDbLink</token> database entry with the given <token>GenomeDbPrefix</token> number.
+    </returns>
+  </item>
+  <item name="ReactionDbEntryComments">
+    <summary>
+      Returns the <token>ReactionDbLink</token> database entry with the given <token>ReactionDbPrefix</token> number.
+    </summary>
+    <param name="number">
+      The <token>ReactionDbPrefix</token> number of the <token>ReactionDbLink</token> database entry.
+    </param>
+    <returns>
+      A lightweight object representing the <token>ReactionDbLink</token> database entry with the given <token>ReactionDbPrefix</token> number.
+    </returns>
+  </item>
+  <item name="ReactionClassDbEntryComments">
+    <summary>
+      Returns the <token>ReactionClassDbLink</token> database entry with the given <token>ReactionClassDbPrefix</token> number.
+    </summary>
+    <param name="number">
+      The <token>ReactionClassDbPrefix</token> number of the <token>ReactionClassDbLink</token> database entry.
+    </param>
+    <returns>
+      A lightweight object representing the <token>ReactionClassDbLink</token> database entry with the given <token>ReactionClassDbPrefix</token> number.
+    </returns>
+  </item>
+  <item name="GlycanDbEntryComments">
+    <summary>
+      Returns the <token>GlycanDbLink</token> database entry with the given <token>GlycanDbPrefix</token> number.
+    </summary>
+    <param name="number">
+      The <token>GlycanDbPrefix</token> number of the <token>GlycanDbLink</token> database entry.
+    </param>
+    <returns>
+      A lightweight object representing the <token>GlycanDbLink</token> database entry with the given <token>GlycanDbPrefix</token> number.
+    </returns>
+  </item>
+  <item name="CompoundDbEntryComments">
+    <summary>
+      Returns the <token>CompoundDbLink</token> database entry with the given <token>CompoundDbPrefix</token> number.
+    </summary>
+    <param name="number">
+      The <token>CompoundDbPrefix</token> number of the <token>CompoundDbLink</token> database entry.
+    </param>
+    <returns>
+      A lightweight object representing the <token>CompoundDbLink</token> database entry with the given <token>CompoundDbPrefix</token> number.
+    </returns>
+  </item>
+  <item name="OrthologyDbEntryComments">
+    <summary>
+      Returns the <token>OrthologyDbLink</token> database entry with the given <token>OrthologyDbPrefix</token> number.
+    </summary>
+    <param name="number">
+      The <token>OrthologyDbPrefix</token> number of the <token>OrthologyDbLink</token> database entry.
+    </param>
+    <returns>
+      A lightweight object representing the <token>OrthologyDbLink</token> database entry with the given <token>OrthologyDbPrefix</token> number.
+    </returns>
+  </item>
+  <item name="EnzymeDbEntryComments">
+    <summary>
+      Returns the <token>EnzymeDbLink</token> database entry with the given EC number.
+    </summary>
+    <param name="ecClass">
+      The first part of the <token>EnzymeDbLink</token> database entry's EC number, which identifies the enzyme's general catalytic role.
+    </param>
+    <param name="id2">
+      The second part of the <token>EnzymeDbLink</token> database entry's EC number.
+    </param>
+    <param name="id3">
+      The third part of the <token>EnzymeDbLink</token> database entry's EC number.
+    </param>
+    <param name="serialId">
+      The fourth part of the <token>EnzymeDbLink</token> database entry's EC number, which uniquely identifies the enzyme.
+    </param>
+    <returns>
+      A lightweight object representing the <token>EnzymeDbLink</token> database entry with the given EC number.
+    </returns>
+    <remarks>
+      <token>ECNumberRemarks</token>
+    </remarks>
+  </item>
+
+</content>
