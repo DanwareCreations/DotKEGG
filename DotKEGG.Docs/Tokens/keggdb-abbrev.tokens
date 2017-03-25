@@ -7,7 +7,7 @@
   <item id="DrugGroupDbAbbrev">dg</item>
   <item id="EnvironDbAbbrev">ev</item>
   <item id="EnzymeDbAbbrev">ec</item>
-  <item id="GenesDbAbbrev">-</item>
+  <item id="GenesDbAbbrev">genes</item>
   <item id="GenomeDbAbbrev">genome</item>
   <item id="GenomesDbAbbrev">gn</item>
   <item id="GlycanDbAbbrev">gl</item>

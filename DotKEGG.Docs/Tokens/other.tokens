@@ -1,0 +1,11 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<content xml:space="preserve" xmlns:ddue="http://ddue.schemas.microsoft.com/authoring/2003/5" xmlns:xlink="http://www.w3.org/1999/xlink">
+  <item id="CompositeDbInstanceSummary">Gets the singleton instance of this composite database.</item>
+  <item id="DbInstanceSummary">Gets the singleton instance of this database.</item>
+  <item id="ECNumberRemarks"><para>
+    EC numbers were not developed by KEGG.  EC stands for <see href="https://en.wikipedia.org/wiki/Enzyme_Commission_number">Enzyme Commission</see>, 
+    which is a numerical classification scheme for enzymes, based on the chemical reactions that they catalyze.  Since 2003, KEGG has used 
+    <token>OrthologyDbPrefix</token> numbers to identify enzymes by their gene in the <token>OrthologyDbLink</token> database, 
+    rather than the relatively imprecise EC numbers; however, the KEGG API still permits EC numbers to be used when querying for enzyme data.
+</para></item>
+</content>

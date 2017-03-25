@@ -48,6 +48,11 @@
       KEGG IDs in the <token>DiseaseDbLink</token> are also called "<token>DiseaseDbPrefix</token> numbers",
       and KEGG IDs in the <token>PathwayDbLink</token> are also called "<token>PathwayDbPrefix</token> numbers".
     </para>
+    <note>
+      These are the values returned by the corresponding properties of the various KEGG database classes.
+      The actual databases, according to the <see href="http://www.kegg.jp/kegg/kegg3.html">KEGG API documentation</see>, may list additional prefixes, or none at all.
+      DotKEGG was designed so that the values of the Name and Abbreviation properties of the database classes would always match those returned by the KEGG API Info operation.
+    </note>
 
     <list type="table">
       <listheader>

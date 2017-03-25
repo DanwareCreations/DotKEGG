@@ -2,6 +2,10 @@
 
 namespace DotKEGG {
 
+    /// <summary>
+    /// Represents the <token>PathwayDbLink</token> database.
+    /// </summary>
+    /// <inheritdoc/>
     public sealed class PathwayDb : KeggDb {
 
         private static PathwayDb _instance = new PathwayDb();
@@ -12,12 +16,21 @@ namespace DotKEGG {
             Prefix = "map";
         }
 
+        /// <summary>
+        /// <token>DbInstanceSummary</token>
+        /// </summary>
         public static PathwayDb Instance => _instance;
 
+        /// <summary>
+        /// Returns the <token>PathwayDbLink</token> database entry with the given <token>PathwayDbPrefix</token> number.
+        /// </summary>
+        /// <param name="number">The <token>PathwayDbPrefix</token> number of the <token>PathwayDbLink</token> database entry.</param>
+        /// <returns>A lightweight object representing the <token>PathwayDbLink</token> database entry with the given <token>PathwayDbPrefix</token> number.</returns>
         public static MapNumber Pathway(uint number) {
             return new MapNumber(number);
         }
 
+        /// <inheritdoc/>
         public override KeggId Entry(uint number) {
             return new MapNumber(number);
         }
