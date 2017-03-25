@@ -37,6 +37,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="IDs\BRNumber.cs" />
     <Compile Include="InfoResults.cs" />
     <Compile Include="Databases\Composite\LigandDb.cs" />
     <Compile Include="Databases\Composite\GenomesDb.cs" />
@@ -69,7 +70,6 @@
     <Compile Include="Databases\CompoundDb.cs" />
     <Compile Include="Databases\GlycanDb.cs" />
     <Compile Include="Databases\KeggDb.cs" />
-    <Compile Include="IDs\BrNumber.cs" />
     <Compile Include="Databases\GenomeDb.cs" />
     <Compile Include="IDs\CNumber.cs" />
     <Compile Include="Pathway.cs" />

@@ -15,8 +15,14 @@
         <HelpKeyword index="K" term="version, alpha" />
       </HelpKeywords>
     </Topic>
+    <Topic id="c139f603-c943-4b15-871c-8e951bb4a4b0" visible="True" isSelected="true" title="Version v0.2.0-alpha">
+      <HelpKeywords>
+        <HelpKeyword index="K" term="version, 0.2.0" />
+        <HelpKeyword index="K" term="version, alpha" />
+      </HelpKeywords>
+    </Topic>
   </Topic>
-  <Topic id="2f59a56f-156f-40a5-aa42-07c09ee04774" visible="True" noFile="true" isSelected="true" apiParentMode="InsertAsChild" title="API Reference">
+  <Topic id="2f59a56f-156f-40a5-aa42-07c09ee04774" visible="True" noFile="true" apiParentMode="InsertAsChild" title="API Reference">
     <HelpKeywords>
       <HelpKeyword index="K" term="api" />
       <HelpKeyword index="K" term="reference" />
