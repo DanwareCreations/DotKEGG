@@ -1,8 +1,8 @@
 ﻿namespace DotKEGG {
 
-    public sealed class BrNumber : KeggId {
+    public sealed class BRNumber : KeggId {
 
-        public BrNumber(uint number) {
+        public BRNumber(uint number) {
             Number = number;
             _db = BriteDb.Instance;
         }

@@ -42,7 +42,7 @@ namespace DotKEGG.Test {
         [Test(Author = "Dan Vicarel", TestOf = typeof(KeggDb), Description = "Checks that all databases can return strongly typed KEGG ID objects")]
         public void DbGetStrongTypedEntriesTest() {
             MapNumber map = PathwayDb.Pathway(00010u);
-            BrNumber br = BriteDb.BriteHierarchy(08303u);
+            BRNumber br = BriteDb.BriteHierarchy(08303u);
             MNumber m = ModuleDb.Module(00010u);
             KNumber k = OrthologyDb.Orthology(00873u);
             TNumber t = GenomeDb.Genome(01001u);
