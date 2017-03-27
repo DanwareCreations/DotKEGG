@@ -1,7 +1,9 @@
+![KEGG Logo](https://kegg.wustl.edu/images/KEGG_database_logo.gif)
+
 # DotKEGG
 
 Grab the latest version off NuGet!  
-Latest stable release: **N/A** (we're still in alpha, yo!)  
+Latest stable release: **N/A** (we're still in alpha, yo!)<br/>
 Latest pre-release: [v0.2.0-alpha](https://www.nuget.org/packages/DotKEGG/)
 
 ## About
