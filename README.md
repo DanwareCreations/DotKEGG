@@ -19,10 +19,12 @@ We're not perfect; bugs happen.  If you experience any issues with DotKEGG, plea
 
 ## Building
 We'll assume you know how to clone this repository and open the solution in Visual Studio.  Here are some additional requirements/suggestions:
-- Visual Studio 2015 or later is required.
-- The solution has Debug, Release, and Test build configurations.  The unit-test project (DotKEGG.Test) is only built in the Test configuration.  The examples (DotKEGG.Examples) and documentation (DotKEGG.Docs) projects are only built in the Release configuration.
-- The NuGet package (.nupkg) will only be generated in the Release configuration.  You will need to install the latest [NuGet](https://dist.nuget.org/index.html) command-line client and add it to your path for this build step to succeed.  If you don't care about the NuGet package, you should build in Debug or delete this build step from Release.
-- If you want to build the documentation project, make sure that you install the SandCastle Help File Builder (latest release available [here](https://github.com/EWSoftware/SHFB/releases)).  If not, you can just delete that project from your solution so that Visual Studio doesn't complain about the .shfbproj project type.
+- Visual Studio 2015 or later is required.  VS 2017 is recommended so you can make use of the .editorconfig file.
+- The solution has Debug, Release, and Test build configurations.
+  - The unit-test project (DotKEGG.Test) is only built in the Test configuration.  We rely on the NUnit library for unit testing.  You _must_ run these tests and make sure they all pass before submitting a pull request.  Otherwise, if you don't care about running the tests, you should build in Debug or just delete this project from your solution.
+  - The examples project (DotKEGG.Examples) is only built in the Release configuration.  It simply makes sure that all examples referenced in the documentation will actually compile.  If you don't care about building the Examples, you should build in Debug or just delete this project from your solution.
+  - The documentation project (DotKEGG.Docs) is only built in the Release configuration.  If you want to build the documentation project, make sure that you install the SandCastle Help File Builder (latest release available [here](https://github.com/EWSoftware/SHFB/releases)).  If not, you should build in Debug or just delete this project from your solution so that Visual Studio doesn't complain about the .shfbproj project type.
+  - The NuGet package (.nupkg) is only built in the Release configuration.  You will need to install the latest [NuGet](https://dist.nuget.org/index.html) command-line client and add it to your path for this build step to succeed.  If you don't care about building the NuGet package, you should build in Debug or just delete this build step from DotKEGG.csproj.
 
 ## License
 DotKEGG is distributed under the terms of the [MIT License](https://opensource.org/licenses/MIT).  That means you can do pretty much anything you want with it, as long as you give Danware some credit and don't blame us when you fork the repo and break everything!
