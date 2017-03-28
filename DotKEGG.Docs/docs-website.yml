@@ -1,0 +1,29 @@
+AWSTemplateFormatVersion: 2010-09-09
+
+Description: Creates a new S3 bucket in the same region as this stack, configured to host the static DotKEGG documentation.
+
+Metadata:
+  AWS::CloudFormation::Interface:
+    ParameterGroups:
+    - Parameters:
+      - HostedZone
+
+Parameters:
+  HostedZone:
+    Type: AWS::Route53::HostedZone::Id
+    Description: The hosted zone in which the new bastion host's CNAME record will be stored.
+  
+Resources:
+  # Give it a public DNS hostname
+  CnameRecordSet:
+    Type: AWS::Route53::RecordSet
+    Properties:
+      HostedZoneId: !Ref HostedZone
+      Name: docs.dotkegg.com
+      Type: CNAME
+      ResourceRecords: [ !GetAtt Bastion.PublicDnsName ]
+      TTL: 60
+      Comment: String
+      # HealthCheckId: String
+          
+Outputs:
