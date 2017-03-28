@@ -1,29 +1,179 @@
 AWSTemplateFormatVersion: 2010-09-09
 
-Description: Creates a new S3 bucket in the same region as this stack, configured to host the static DotKEGG documentation.
-
-Metadata:
-  AWS::CloudFormation::Interface:
-    ParameterGroups:
-    - Parameters:
-      - HostedZone
-
-Parameters:
-  HostedZone:
-    Type: AWS::Route53::HostedZone::Id
-    Description: The hosted zone in which the new bastion host's CNAME record will be stored.
+Description: Creates a new S3 bucket in the same region as this stack, configured to host the static DotKEGG documentation, as well as several buckets/DNS record sets for redirecting web requests to the DotKEGG domain names.
   
 Resources:
-  # Give it a public DNS hostname
-  CnameRecordSet:
-    Type: AWS::Route53::RecordSet
+  # S3 bucket for hosting the static documentation
+  ComDocsBucket:
+    Type: AWS::S3::Bucket
     Properties:
-      HostedZoneId: !Ref HostedZone
-      Name: docs.dotkegg.com
-      Type: CNAME
-      ResourceRecords: [ !GetAtt Bastion.PublicDnsName ]
-      TTL: 60
-      Comment: String
-      # HealthCheckId: String
+      AccessControl: PublicRead
+      BucketName: docs.dotkegg.com
+      LoggingConfiguration:
+        DestinationBucketName: danware-us-east-2-logs
+        LogFilePrefix: docs/dotkegg/
+      WebsiteConfiguration:
+        #ErrorDocument: 
+        IndexDocument: index.html
+        
+  # S3 buckets for web redirects
+  NetBucket:
+    Type: AWS::S3::Bucket
+    Properties:
+      AccessControl: PublicRead
+      BucketName: dotkegg.net
+      LoggingConfiguration:
+        DestinationBucketName: danware-us-east-2-logs
+        LogFilePrefix: redirect/dotkegg.net/
+      WebsiteConfiguration:
+        RedirectAllRequestsTo:
+          HostName: www.danwarecreations.com/products/dotkegg/
+          Protocol: https
+  NetWwwBucket:
+    Type: AWS::S3::Bucket
+    Properties:
+      AccessControl: PublicRead
+      BucketName: www.dotkegg.net
+      LoggingConfiguration:
+        DestinationBucketName: danware-us-east-2-logs
+        LogFilePrefix: redirect/www.dotkegg.net/
+      WebsiteConfiguration:
+        RedirectAllRequestsTo:
+          HostName: www.danwarecreations.com/products/dotkegg/
+          Protocol: https
+          
+  OrgBucket:
+    Type: AWS::S3::Bucket
+    Properties:
+      AccessControl: PublicRead
+      BucketName: dotkegg.org
+      LoggingConfiguration:
+        DestinationBucketName: danware-us-east-2-logs
+        LogFilePrefix: redirect/dotkegg.org/
+      WebsiteConfiguration:
+        RedirectAllRequestsTo:
+          HostName: www.danwarecreations.com/products/dotkegg/
+          Protocol: https
+  OrgWwwBucket:
+    Type: AWS::S3::Bucket
+    Properties:
+      AccessControl: PublicRead
+      BucketName: www.dotkegg.org
+      LoggingConfiguration:
+        DestinationBucketName: danware-us-east-2-logs
+        LogFilePrefix: redirect/www.dotkegg.org/
+      WebsiteConfiguration:
+        RedirectAllRequestsTo:
+          HostName: www.danwarecreations.com/products/dotkegg/
+          Protocol: https
+          
+  ComBucket:
+    Type: AWS::S3::Bucket
+    Properties:
+      AccessControl: PublicRead
+      BucketName: dotkegg.com
+      LoggingConfiguration:
+        DestinationBucketName: danware-us-east-2-logs
+        LogFilePrefix: redirect/dotkegg.com/
+      WebsiteConfiguration:
+        RedirectAllRequestsTo:
+          HostName: www.danwarecreations.com/products/dotkegg/
+          Protocol: https
+  ComWwwBucket:
+    Type: AWS::S3::Bucket
+    Properties:
+      AccessControl: PublicRead
+      BucketName: www.dotkegg.com
+      LoggingConfiguration:
+        DestinationBucketName: danware-us-east-2-logs
+        LogFilePrefix: redirect/www.dotkegg.com/
+      WebsiteConfiguration:
+        RedirectAllRequestsTo:
+          HostName: www.danwarecreations.com/products/dotkegg/
+          Protocol: https
+      
+  # Route 53 Record Set Groups
+  NetDnsRecords:
+    Type: AWS::Route53::RecordSetGroup
+    Properties:
+      HostedZoneName: dotkegg.net
+      Comment: redirect rules for the DotKEGG .net domain
+      RecordSets:
+      -
+        Name: docs.dotkegg.net
+        Type: CNAME
+        ResourceRecords: [ docs.dotkegg.com ]
+        TTL: 60
+        # HealthCheckId: String
+      -
+        Name: dotkegg.net
+        AliasTarget:
+          DNSName: s3-website.us-east-2.amazonaws.com
+          HostedZoneId: Z2O1EMRO9K5GLX
+        Type: A   # Actually means S3 since this is an Alias record set
+        # HealthCheckId: String
+      -
+        Name: www.dotkegg.net
+        AliasTarget:
+          DNSName: s3-website.us-east-2.amazonaws.com
+          HostedZoneId: Z2O1EMRO9K5GLX
+        Type: A   # Actually means S3 since this is an Alias record set
+        # HealthCheckId: String
+  OrgDnsRecords:
+    Type: AWS::Route53::RecordSetGroup
+    Properties:
+      HostedZoneName: dotkegg.org
+      Comment: redirect rules for the DotKEGG .org domain
+      RecordSets:
+      -
+        Name: docs.dotkegg.org
+        Type: CNAME
+        ResourceRecords: [ docs.dotkegg.com ]
+        TTL: 60
+        # HealthCheckId: String
+      -
+        Name: dotkegg.org
+        AliasTarget:
+          DNSName: s3-website.us-east-2.amazonaws.com
+          HostedZoneId: Z2O1EMRO9K5GLX
+        Type: A   # Actually means S3 since this is an Alias record set
+        # HealthCheckId: String
+      -
+        Name: www.dotkegg.org
+        AliasTarget:
+          DNSName: s3-website.us-east-2.amazonaws.com
+          HostedZoneId: Z2O1EMRO9K5GLX
+        Type: A   # Actually means S3 since this is an Alias record set
+        # HealthCheckId: String
+  ComDnsRecords:
+    Type: AWS::Route53::RecordSetGroup
+    Properties:
+      HostedZoneName: dotkegg.com
+      Comment: redirect rules for the DotKEGG .com domain
+      RecordSets:
+      -
+        Name: dotkegg.com
+        AliasTarget:
+          DNSName: s3-website.us-east-2.amazonaws.com
+          HostedZoneId: Z2O1EMRO9K5GLX
+        Type: A   # Actually means S3 since this is an Alias record set
+        # HealthCheckId: String
+      -
+        Name: dotkegg.com
+        AliasTarget:
+          DNSName: s3-website.us-east-2.amazonaws.com
+          HostedZoneId: Z2O1EMRO9K5GLX
+        Type: A   # Actually means S3 since this is an Alias record set
+        # HealthCheckId: String
+      -
+        Name: www.dotkegg.com
+        AliasTarget:
+          DNSName: s3-website.us-east-2.amazonaws.com
+          HostedZoneId: Z2O1EMRO9K5GLX
+        Type: A   # Actually means S3 since this is an Alias record set
+        # HealthCheckId: String
           
 Outputs:
+  DocsHostBucket:
+    Value: !Ref ComDocsBucket
+    Description: Name of the new AWS S3 bucket that will host the static documentation.
