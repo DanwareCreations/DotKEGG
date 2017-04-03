@@ -195,20 +195,21 @@ Resources:
       HostedZoneName: dotkegg.net.
       Comment: redirect rules for the DotKEGG .net domain
       RecordSets:
-      - # Redirect docs subdomain to docs subdomain of .com domain
+      - # Redirect docs subdomain to DotKEGG website (ALIAS lets us not get charged!)
         Name: docs.dotkegg.net
-        Type: CNAME
-        ResourceRecords: [ docs.dotkegg.com ]
-        TTL: 60
+        AliasTarget:
+          DNSName: !GetAtt DocsDistribution.DomainName
+          HostedZoneId: Z2FDTNDATAQYW2
+        Type: A   # Actually means CloudFront since this is an Alias record set
         # HealthCheckId: String
-      - # Redirect zone apex to DotKEGG website (can't use CNAME for zone apex, nor for when the target URL contains a path)
+      - # Redirect zone apex to DotKEGG website (ALIAS lets us use zone apex, and not get charged!)
         Name: dotkegg.net
         AliasTarget:
           DNSName: s3-website.us-east-2.amazonaws.com
           HostedZoneId: Z2O1EMRO9K5GLX
         Type: A   # Actually means S3 since this is an Alias record set
         # HealthCheckId: String
-      - # Redirect www subdomain to DotKEGG website (can't use CNAME since the target URL contains a path)
+      - # Redirect www subdomain to DotKEGG website (can't use CNAME since the target URL contains a path, and ALIAS adds no charge!)
         Name: www.dotkegg.net
         AliasTarget:
           DNSName: s3-website.us-east-2.amazonaws.com
@@ -221,20 +222,21 @@ Resources:
       HostedZoneName: dotkegg.org.
       Comment: redirect rules for the DotKEGG .org domain
       RecordSets:
-      - # Redirect docs subdomain to docs subdomain of .com domain
+      - # Redirect docs subdomain to DotKEGG website (ALIAS lets us not get charged!)
         Name: docs.dotkegg.org
-        Type: CNAME
-        ResourceRecords: [ docs.dotkegg.com ]
-        TTL: 60
+        AliasTarget:
+          DNSName: !GetAtt DocsDistribution.DomainName
+          HostedZoneId: Z2FDTNDATAQYW2
+        Type: A   # Actually means CloudFront since this is an Alias record set
         # HealthCheckId: String
-      - # Redirect zone apex to DotKEGG website (can't use CNAME for zone apex, nor for when the target URL contains a path)
+      - # Redirect zone apex to DotKEGG website (ALIAS lets us use zone apex, and not get charged!)
         Name: dotkegg.org
         AliasTarget:
           DNSName: s3-website.us-east-2.amazonaws.com
           HostedZoneId: Z2O1EMRO9K5GLX
         Type: A   # Actually means S3 since this is an Alias record set
         # HealthCheckId: String
-      - # Redirect www subdomain to DotKEGG website (can't use CNAME since the target URL contains a path)
+      - # Redirect www subdomain to DotKEGG website (can't use CNAME since the target URL contains a path, and ALIAS adds no charge!)
         Name: www.dotkegg.org
         AliasTarget:
           DNSName: s3-website.us-east-2.amazonaws.com
@@ -247,21 +249,21 @@ Resources:
       HostedZoneName: dotkegg.com.
       Comment: redirect rules for the DotKEGG .com domain
       RecordSets:
-      - # Redirect docs subdomain to DotKEGG documentation hosted in S3 bucket
+      - # Redirect docs subdomain to DotKEGG website (ALIAS lets us not get charged!)
         Name: docs.dotkegg.com
         AliasTarget:
-          DNSName: s3-website.us-east-2.amazonaws.com
-          HostedZoneId: Z2O1EMRO9K5GLX
-        Type: A   # Actually means S3 since this is an Alias record set
+          DNSName: !GetAtt DocsDistribution.DomainName
+          HostedZoneId: Z2FDTNDATAQYW2
+        Type: A   # Actually means CloudFront since this is an Alias record set
         # HealthCheckId: String
-      - # Redirect zone apex to DotKEGG website (can't use CNAME for zone apex, nor for when the target URL contains a path)
+      - # Redirect zone apex to DotKEGG website (ALIAS lets us use zone apex, and not get charged!)
         Name: dotkegg.com
         AliasTarget:
           DNSName: s3-website.us-east-2.amazonaws.com
           HostedZoneId: Z2O1EMRO9K5GLX
         Type: A   # Actually means S3 since this is an Alias record set
         # HealthCheckId: String
-      - # Redirect www subdomain to DotKEGG website (can't use CNAME since the target URL contains a path)
+      - # Redirect www subdomain to DotKEGG website (can't use CNAME since the target URL contains a path, and ALIAS adds no charge!)
         Name: www.dotkegg.com
         AliasTarget:
           DNSName: s3-website.us-east-2.amazonaws.com
