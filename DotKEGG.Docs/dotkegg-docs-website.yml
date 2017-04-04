@@ -187,23 +187,6 @@ Resources:
         RedirectAllRequestsTo:
           HostName: www.danwarecreations.com/products/dotkegg/
           Protocol: https
-
-  # IAM Group with permissions to manage the documentation-hosting S3 bucket
-  UploadDocsGroup:
-    Type: AWS::IAM::Group
-    Properties:
-      GroupName: dotkegg-docs-admins
-      Path: /dotkegg-docs-admins/
-      Policies:
-        - PolicyName: ManageDotKeggDocsBucket
-          PolicyDocument:
-            Version: 2012-10-17
-            Statement:
-            - # Allow managing of the DotKEGG documentation bucket ONLY
-              Sid: 1
-              Effect: Allow
-              Action: s3:*
-              Resource: !Join [ "", [ "arn:aws:s3:::", !Ref ComDocsBucket ] ]
       
   # Route 53 Record Set Groups
   NetDnsRecords:
