@@ -93,6 +93,7 @@ Resources:
         -
           DomainName: !GetAtt ComDocsBucket.DomainName
           Id: dotkegg-docs-bucket
+          OriginPath: /Help
           S3OriginConfig:
             OriginAccessIdentity: !Join [ "", [ "origin-access-identity/cloudfront/", !Ref OriginAccessIdentityId ] ]
         PriceClass: PriceClass_All
