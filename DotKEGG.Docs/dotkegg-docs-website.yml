@@ -30,7 +30,7 @@ Resources:
     Type: AWS::S3::Bucket
     Properties:
       AccessControl: PublicRead
-      BucketName: docs.dotkegg.com
+      BucketName: dotkegg-docs
       LoggingConfiguration:
         DestinationBucketName: danware-us-east-2-logs
         LogFilePrefix: docs/dotkegg/
