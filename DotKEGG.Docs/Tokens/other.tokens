@@ -8,4 +8,5 @@
     <token>OrthologyDbPrefix</token> numbers to identify enzymes by their gene in the <token>OrthologyDbLink</token> database, 
     rather than the relatively imprecise EC numbers; however, the KEGG API still permits EC numbers to be used when querying for enzyme data.
 </para></item>
+  <item id="DbgetLink"><see href="http://www.genome.jp/kegg/kegg3.html">DBGET</see></item>
 </content>
