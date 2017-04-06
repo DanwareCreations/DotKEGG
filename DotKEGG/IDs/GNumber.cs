@@ -7,8 +7,6 @@
             _db = GlycanDb.Instance;
         }
 
-        public GlycanDb Database => (GlycanDb)_db;
-
     }
 
 }

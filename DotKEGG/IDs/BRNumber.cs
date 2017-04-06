@@ -7,8 +7,6 @@
             _db = BriteDb.Instance;
         }
 
-        public BriteDb Database => (BriteDb)_db;
-
     }
 
 }

@@ -7,8 +7,6 @@
             _db = OrthologyDb.Instance;
         }
 
-        public OrthologyDb Database => (OrthologyDb)_db;
-
     }
 
 }

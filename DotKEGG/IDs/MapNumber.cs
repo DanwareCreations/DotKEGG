@@ -7,8 +7,6 @@
             _db = PathwayDb.Instance;
         }
 
-        public PathwayDb Database => (PathwayDb)_db;
-
     }
 
 }

@@ -20,6 +20,17 @@ namespace DotKEGG {
         /// The 5-digit number of the KEGG ID.
         /// </summary>
         public uint Number { get; protected set; }
+        /// <summary>
+        /// The KEGG database to which this identifier belongs.
+        /// </summary>
+        /// <remarks>
+        /// <para>
+        /// </para>
+        /// The <see cref="KeggDb"/> returned by this property in derived classes actually boxes a more specific, derived <see cref= "KeggDb" />.
+        /// For example, the <see cref="MNumber"/> class's <see cref="Database"/> property actually returns a <see cref="ModuleDb"/> boxed as a <see cref="KeggDb"/>,
+        /// while the <see cref="HNumber"/> class's <see cref="Database"/> property actually returns a <see cref="DiseaseDb"/> boxed as a <see cref="KeggDb"/>.
+        /// </remarks>
+        public KeggDb Database => _db;
 
         /// <summary>
         /// Returns a short string representation of the KEGG ID.

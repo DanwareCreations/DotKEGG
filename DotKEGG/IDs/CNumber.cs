@@ -7,8 +7,6 @@
             _db = CompoundDb.Instance;
         }
 
-        public CompoundDb Database => (CompoundDb)_db;
-
     }
 
 }

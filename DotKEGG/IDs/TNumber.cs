@@ -7,8 +7,6 @@
             _db = GenomeDb.Instance;
         }
 
-        public GenomeDb GenomeDatabase => (GenomeDb)_db;
-
     }
 
 }
