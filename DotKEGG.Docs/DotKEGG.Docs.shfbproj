@@ -129,6 +129,7 @@
     <None Include="Content\Welcome.aml" />
     <None Include="dotkegg-docs-website.yml" />
     <None Include="IncludeFiles\Databases\KeggDb.xml" />
+    <None Include="IncludeFiles\Ids\KeggId.xml" />
     <None Include="IncludeFiles\Operations\Info.xml" />
   </ItemGroup>
   <ItemGroup>
