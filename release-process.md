@@ -13,7 +13,7 @@ also be performed in their own commits.
 in their own commits.
 2. Update the DotKEGG assembly version and informational version in `AssemblyInfo.cs`.  The informational version is the one used 
 by the .nuspec file, so any pre-release information (such as `-alpha` or `-beta`) should be appended to _that_ version number.
-3. Update release notes in the .nuspec file.
+3. Update release notes in the .nuspec file.  The only changes listed here should be things that the _end user_ sees, i.e. API and documentation changes, not changes in the GitHub repository or the infrastructure hosting the websites.
 4. Update any other information in the .nuspec file (such as description or tags) as necessary.
 5. Update the copyright message and release notes in the NuGet package readme.txt (release notes should match those in the .nuspec).
 4. Add a topic for the new version to the documentation project, including release notes.  This topic must be visible in the 
@@ -24,4 +24,4 @@ at the top.  Release notes should match those in the .nuspec (but possibly forma
 (this step won't have a commit, obviously).
 7. Create the NuGet package and upload it to [nuget.org](https://www.nuget.org/packages/manage/upload) 
 (this step won't have a commit either).
-8. Merge the release branch into master (no fast-forward) and tag that commit on master.  In the GitHub release page for that tag, add some release notes that match those in .nuspec.  Also merge the release branch into dev.
+8. Merge the release branch into master (no fast-forward) and tag that commit on master.  Also merge the release branch into dev.  In the GitHub release page for that tag, add some release notes; these can include _all_ changes made since the last release, not just changes that affect the end user like in the .nuspec and Version History topic.
