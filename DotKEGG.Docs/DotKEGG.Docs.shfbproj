@@ -65,7 +65,7 @@
     <IncludeFavorites>False</IncludeFavorites>
     <BinaryTOC>True</BinaryTOC>
     <VisibleItems>InheritedMembers, InheritedFrameworkMembers, Protected, ProtectedInternalAsProtected</VisibleItems>
-    <CopyrightText>[v0.2.0-alpha] Copyright &amp;#169%3b 2017, Danware Creations, LLC, All rights reserved</CopyrightText>
+    <CopyrightText>[v0.3.0-alpha] Copyright &amp;#169%3b 2017, Danware Creations, LLC, All rights reserved</CopyrightText>
     <ComponentConfigurations>
       <ComponentConfig id="API Token Resolution" enabled="True">
         <component id="API Token Resolution">{@TokenFiles}
@@ -123,6 +123,7 @@
     <Folder Include="Tokens\Examples" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Content\VersionHistory\v0.3.0-alpha.aml" />
     <None Include="Content\VersionHistory\v0.1.0-alpha.aml" />
     <None Include="Content\VersionHistory\v0.2.0-alpha.aml" />
     <None Include="Content\VersionHistory\VersionHistory.aml" />

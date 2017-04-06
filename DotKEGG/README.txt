@@ -8,8 +8,14 @@
 | $$    $$ \$$    $$   \$$  $$| $$  \$$\| $$     \ \$$    $$ \$$    $$
  \$$$$$$$   \$$$$$$     \$$$$  \$$   \$$ \$$$$$$$$  \$$$$$$   \$$$$$$ 
 
+Copyright © 2017 Danware Creations, LLC
 
 
-Thank you for installing the DotKEGG package!
 
-This package is currently in development, as is its documentation.  We hope to have a full API Reference available soon!
+Thank you for installing the DotKEGG package!  You have installed version 0.3.0-alpha.  Check out the links below for more information.
+
+- Information about the DotKEGG project: http://www.dotkegg.com
+- Full documentation and API reference: https://docs.dotkegg.com
+- KEGG database: http://www.genome.jp/kegg/
+- DotKEGG source code: https://github.com/DanwareCreations/DotKEGG
+
