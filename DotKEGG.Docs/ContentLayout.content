@@ -9,15 +9,21 @@
     <HelpKeywords>
       <HelpKeyword index="K" term="version, history" />
     </HelpKeywords>
-    <Topic id="257afbcb-3fba-41f9-b7ea-b0ff40928339" visible="False" isMSHVRoot="true" title="Version 0.1.0-alpha">
+    <Topic id="78d5843f-dec8-4441-b0a4-647be77d9a90" visible="True" isSelected="true" title="Version 0.3.0-alpha">
       <HelpKeywords>
-        <HelpKeyword index="K" term="version, 0.1.0" />
+        <HelpKeyword index="K" term="version, 0.3.0" />
         <HelpKeyword index="K" term="version, alpha" />
       </HelpKeywords>
     </Topic>
-    <Topic id="c139f603-c943-4b15-871c-8e951bb4a4b0" visible="True" isSelected="true" title="Version v0.2.0-alpha">
+    <Topic id="c139f603-c943-4b15-871c-8e951bb4a4b0" visible="True" title="Version 0.2.0-alpha">
       <HelpKeywords>
         <HelpKeyword index="K" term="version, 0.2.0" />
+        <HelpKeyword index="K" term="version, alpha" />
+      </HelpKeywords>
+    </Topic>
+    <Topic id="257afbcb-3fba-41f9-b7ea-b0ff40928339" visible="True" title="Version 0.1.0-alpha">
+      <HelpKeywords>
+        <HelpKeyword index="K" term="version, 0.1.0" />
         <HelpKeyword index="K" term="version, alpha" />
       </HelpKeywords>
     </Topic>

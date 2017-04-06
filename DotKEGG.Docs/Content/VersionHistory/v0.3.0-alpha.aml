@@ -1,0 +1,36 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<topic id="78d5843f-dec8-4441-b0a4-647be77d9a90" revisionNumber="1">
+  <developerConceptualDocument xmlns="http://ddue.schemas.microsoft.com/authoring/2003/5" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <introduction>
+      <para>
+        Version 0.3.0-alpha was released on 4/6/2017.
+      </para>
+    </introduction>
+
+    <section>
+      <title>Changes in This Release</title>
+      <content>
+        <list class="bullet">
+          <listItem>
+            <para>Added API reference documentation for the <codeEntityReference>T:DotKEGG.KeggId</codeEntityReference> class and its derived classes.</para>
+          </listItem>
+          <listItem>
+            <para>This documentation is now fully up and running on the Internet, hosted with Amazon Web Services!</para>
+          </listItem>
+          <listItem>
+            <para>
+              Classes derived from <codeEntityReference>T:DotKEGG.KeggId</codeEntityReference> no longer have their own Database properties, 
+              there is just a single one on the <codeEntityReference>T:DotKEGG.KeggId</codeEntityReference> base class that 
+              returns a <codeEntityReference>T:DotKEGG.KeggDb</codeEntityReference>.
+            </para>
+          </listItem>
+        </list>
+      </content>
+    </section>
+
+    <relatedTopics>
+      <link xlink:href="bff6fc53-a0cb-4309-bca0-da8d3998f6ee" />
+    </relatedTopics>
+
+  </developerConceptualDocument>
+</topic>
