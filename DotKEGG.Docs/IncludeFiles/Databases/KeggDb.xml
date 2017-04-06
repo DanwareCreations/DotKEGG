@@ -3,8 +3,8 @@
   
   <item name="DbEntryComparison">
     <para>
-      The <see cref="KeggId"/> returned by this method boxes a more specific, derived class returned by classes that implement <see cref="KeggDb"/>.  
-      For example, <see cref="ModuleDb"/>'s <see cref="ModuleDb.Entry(uint)"/> method actually returns a <see cref="MNumber"/> boxed as a <see cref="KeggId"/>,
+      The <see cref="KeggId"/> returned by this method in derived classes actually boxes a more specific, derived <see cref="KeggId"/>.  
+      For example, <see cref="ModuleDb"/>'s <see cref="ModuleDb.Entry(uint)"/> method returns a <see cref="MNumber"/> boxed as a <see cref="KeggId"/>,
       while <see cref="DiseaseDb"/>'s <see cref="DiseaseDb.Entry(uint)"/> method returns a <see cref="HNumber"/> boxed as a <see cref="KeggId"/>.
     </para>
     <para>
