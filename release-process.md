@@ -1,10 +1,8 @@
 # Steps to Take During a DotKEGG Release
 
 These steps are only meant to be conducted by an administrator on a Release branch. 
-In keeping with the [GitFlow](http://nvie.com/posts/a-successful-git-branching-model/) branching model, releases branches 
+In keeping with the [GitFlow](http://nvie.com/posts/a-successful-git-branching-model/) branching model, release branches 
 should only be branched off of dev when all issues/features intended for that release have been completed and merged in. 
-Once the following steps have been completed in the release branch, then that branch is ready to be merged into master and tagged 
-as a new release (and merged back into dev).
 
 Each of the following steps should be completed in a separate commit.  Any additional tweaks or last minute bug-fixes should 
 also be performed in their own commits.
@@ -26,3 +24,4 @@ at the top.  Release notes should match those in the .nuspec (but possibly forma
 (this step won't have a commit, obviously).
 7. Create the NuGet package and upload it to [nuget.org](https://www.nuget.org/packages/manage/upload) 
 (this step won't have a commit either).
+8. Merge the release branch into master (no fast-forward) and tag that commit on master.  In the GitHub release page for that tag, add some release notes that match those in .nuspec.  Also merge the release branch into dev.
