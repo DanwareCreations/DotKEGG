@@ -1,0 +1,27 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<content>
+  
+  <item name="KeggIdTerminology">
+    <para>
+      The KEGG terminology can be a little bit confusing.  A record/entry in a KEGG database is called a "KEGG object" or a "KEGG entry".
+      KEGG objects can be identified by a database prefix and a 5-digit number, such as <token>CompoundDbKIDExample</token>.
+      These "short" identifiers are usually referred to as C numbers, K numbers, D numbers, etc., after the database prefix that they use.
+      The short identifiers may also be prefixed by a database abbreviation and a colon, such as <token>CompoundDbDbgetExample</token>.
+      This latter format is called DBGET format, because it is used by the <token>DbgetLink</token> database retrieval system.
+      The short format identifiers are still unique across all KEGG databases, so either format may be used to query for a KEGG object.
+    </para>
+    <note type="warning">
+      KEGG objects and KEGG IDs are not the same thing.  A KEGG ID is just an identifier.  A KEGG object is the actual
+      database entry to which that identifier refers.  A <see cref="KeggId"/> object is just an instance of the <see cref="KeggId"/> class, which
+      represents a KEGG ID.
+    </note>
+    <para>
+      <see cref="KeggId"/> and its derived classes are lightweight representations of KEGG IDs, not KEGG objects.  
+      You can therefore create <see cref="KeggId"/> objects without worrying about Internet connectivity or database retrieval times.  
+      When you need the actual data on a KEGG entry, you call the <see cref="KeggId"/> object's Get() method, which performs the actual KEGG API call 
+      and queries the database.  This is important to know when using operations like <see cref="KeggList"/>, which returns a list of KEGG IDs in a given database, 
+      but does not waste time looking up all the data associated with each of those IDs.
+    </para>
+  </item>
+
+</content>

@@ -1,0 +1,281 @@
+AWSTemplateFormatVersion: 2010-09-09
+
+Description: Creates a CloudFront distribution for the static documentation website, hosted in an S3 bucket, with several domain name aliases.
+  
+Metadata:
+  AWS::CloudFormation::Interface:
+    ParameterGroups:
+      - 
+        Parameters:
+        - AcmCertificateId
+        - OriginAccessCanonicalUserId
+        
+Parameters:
+  AcmCertificateId:
+    Type: String
+    Default: 11111111-1111-1111-1111-111111111111
+    AllowedPattern: ^[0-9a-z]{8}-[0-9a-z]{4}-[0-9a-z]{4}-[0-9a-z]{4}-[0-9a-z]{12}$
+    Description: Id of the Certificate Manager certificate (not the whole ARN) that will be used by CloudFront to sign URLs.
+    ConstraintDescription: must contain only lowercase hexadecimal digits in groups of 8, 4, 4, 4, then 12, separated by dashes ("-").
+  OriginAccessIdentityId:
+    Type: String
+    Default: 1A1A1A1A1A1A1A
+    AllowedPattern: ^[0-9A-Z]{14}$
+    Description: Id of the origin access identity that will be used by CloudFront to access the hosting S3 bucket.  This is the SHORT Id in the CloudFront console...
+    ConstraintDescription: must contain exactly 14 numbers and/or uppercase letters.
+        
+Resources:
+  # S3 bucket for hosting the static documentation
+  ComDocsBucket:
+    Type: AWS::S3::Bucket
+    Properties:
+      AccessControl: PublicRead
+      BucketName: dotkegg-docs
+      LoggingConfiguration:
+        DestinationBucketName: danware-us-east-2-logs
+        LogFilePrefix: docs/dotkegg/
+      WebsiteConfiguration:
+        #ErrorDocument: 
+        IndexDocument: index.html
+  DocsOriginAccessPolicy:
+    Type: AWS::S3::BucketPolicy
+    Properties:
+      Bucket: !Ref ComDocsBucket
+      PolicyDocument:
+        Version: 2012-10-17
+        Statement:
+        - # Only allow the CloudFront origin access identity to get objects in the host bucket 
+          Sid: 1
+          Effect: Allow
+          Principal:
+            AWS: !Join [ "", [ "arn:aws:iam::cloudfront:user/CloudFront Origin Access Identity ", !Ref OriginAccessIdentityId ] ]
+          Action: s3:GetObject
+          Resource: !Join [ "", [ "arn:aws:s3:::", !Ref ComDocsBucket, "/*" ] ]
+        - # Only allow the CloudFront origin access identity to view the host bucket.  This way, we get 404 (not found) error instead of 403 (access denied) when users try to get non-existent objects in host bucket.
+          Sid: 2
+          Effect: Allow
+          Principal:
+            AWS: !Join [ "", [ "arn:aws:iam::cloudfront:user/CloudFront Origin Access Identity ", !Ref OriginAccessIdentityId ] ]
+          Action: s3:ListBucket
+          Resource: !Join [ "", [ "arn:aws:s3:::", !Ref ComDocsBucket ] ]
+
+  # CloudFront Distribution for the documentation site
+  DocsDistribution:
+    Type: AWS::CloudFront::Distribution
+    Properties:
+      DistributionConfig:
+        Aliases:
+        - docs.dotkegg.net
+        - docs.dotkegg.org
+        - docs.dotkegg.com
+        Comment: CloudFront Distribution for the DotKEGG documentation website.
+        # CustomErrorResponses:
+        DefaultCacheBehavior:
+          AllowedMethods: [ HEAD, GET ] # , Options?
+          CachedMethods: [ HEAD, GET ]
+          Compress: true    # Only if user adds "Accept-Encoding: gzip" header to their request
+          DefaultTTL: 86400    # seconds, default, 1 day
+          ForwardedValues:
+            Cookies: { Forward: none }
+            QueryString: false
+          MaxTTL: 2592000      # seconds, ~1 month
+          MinTTL: 0            # seconds, default
+          SmoothStreaming: false
+          TargetOriginId: dotkegg-docs-bucket
+          ViewerProtocolPolicy: allow-all   # Allow HTTP or HTTPS
+        DefaultRootObject: index.html
+        Enabled: true
+        Logging:
+          Bucket: danware-us-east-2-logs.s3.amazonaws.com
+          IncludeCookies: true
+          Prefix: cloudfront/docs/dotkegg/
+        Origins:
+        -
+          DomainName: !GetAtt ComDocsBucket.DomainName
+          Id: dotkegg-docs-bucket
+          OriginPath: /Help
+          S3OriginConfig:
+            OriginAccessIdentity: !Join [ "", [ "origin-access-identity/cloudfront/", !Ref OriginAccessIdentityId ] ]
+        PriceClass: PriceClass_All
+        Restrictions:
+          GeoRestriction:
+            RestrictionType: none
+        ViewerCertificate:
+          AcmCertificateArn: !Join [ "", [ "arn:aws:acm:us-east-1:", !Ref "AWS::AccountId", ":certificate/", !Ref AcmCertificateId ] ]
+          SslSupportMethod: sni-only
+        WebACLId: !Ref WebAcl
+  WebAcl:
+    Type: AWS::WAF::WebACL
+    Properties:
+      Name: DotKeggDocsWebAcl
+      DefaultAction: { Type: ALLOW }
+      MetricName: DotKeggDocsDistribution
+      Rules: []
+
+        
+  # S3 buckets for web redirects
+  NetBucket:
+    Type: AWS::S3::Bucket
+    Properties:
+      AccessControl: PublicRead
+      BucketName: dotkegg.net
+      LoggingConfiguration:
+        DestinationBucketName: danware-us-east-2-logs
+        LogFilePrefix: redirect/dotkegg.net/
+      WebsiteConfiguration:
+        RedirectAllRequestsTo:
+          HostName: www.danwarecreations.com/products/dotkegg/
+          Protocol: https
+  NetWwwBucket:
+    Type: AWS::S3::Bucket
+    Properties:
+      AccessControl: PublicRead
+      BucketName: www.dotkegg.net
+      LoggingConfiguration:
+        DestinationBucketName: danware-us-east-2-logs
+        LogFilePrefix: redirect/www.dotkegg.net/
+      WebsiteConfiguration:
+        RedirectAllRequestsTo:
+          HostName: www.danwarecreations.com/products/dotkegg/
+          Protocol: https
+          
+  OrgBucket:
+    Type: AWS::S3::Bucket
+    Properties:
+      AccessControl: PublicRead
+      BucketName: dotkegg.org
+      LoggingConfiguration:
+        DestinationBucketName: danware-us-east-2-logs
+        LogFilePrefix: redirect/dotkegg.org/
+      WebsiteConfiguration:
+        RedirectAllRequestsTo:
+          HostName: www.danwarecreations.com/products/dotkegg/
+          Protocol: https
+  OrgWwwBucket:
+    Type: AWS::S3::Bucket
+    Properties:
+      AccessControl: PublicRead
+      BucketName: www.dotkegg.org
+      LoggingConfiguration:
+        DestinationBucketName: danware-us-east-2-logs
+        LogFilePrefix: redirect/www.dotkegg.org/
+      WebsiteConfiguration:
+        RedirectAllRequestsTo:
+          HostName: www.danwarecreations.com/products/dotkegg/
+          Protocol: https
+          
+  ComBucket:
+    Type: AWS::S3::Bucket
+    Properties:
+      AccessControl: PublicRead
+      BucketName: dotkegg.com
+      LoggingConfiguration:
+        DestinationBucketName: danware-us-east-2-logs
+        LogFilePrefix: redirect/dotkegg.com/
+      WebsiteConfiguration:
+        RedirectAllRequestsTo:
+          HostName: www.danwarecreations.com/products/dotkegg/
+          Protocol: https
+  ComWwwBucket:
+    Type: AWS::S3::Bucket
+    Properties:
+      AccessControl: PublicRead
+      BucketName: www.dotkegg.com
+      LoggingConfiguration:
+        DestinationBucketName: danware-us-east-2-logs
+        LogFilePrefix: redirect/www.dotkegg.com/
+      WebsiteConfiguration:
+        RedirectAllRequestsTo:
+          HostName: www.danwarecreations.com/products/dotkegg/
+          Protocol: https
+      
+  # Route 53 Record Set Groups
+  NetDnsRecords:
+    Type: AWS::Route53::RecordSetGroup
+    Properties:
+      HostedZoneName: dotkegg.net.
+      Comment: redirect rules for the DotKEGG .net domain
+      RecordSets:
+      - # Redirect docs subdomain to DotKEGG website (ALIAS lets us not get charged!)
+        Name: docs.dotkegg.net
+        AliasTarget:
+          DNSName: !GetAtt DocsDistribution.DomainName
+          HostedZoneId: Z2FDTNDATAQYW2
+        Type: A   # Actually means CloudFront since this is an Alias record set
+        # HealthCheckId: String
+      - # Redirect zone apex to DotKEGG website (ALIAS lets us use zone apex, and not get charged!)
+        Name: dotkegg.net
+        AliasTarget:
+          DNSName: s3-website.us-east-2.amazonaws.com
+          HostedZoneId: Z2O1EMRO9K5GLX
+        Type: A   # Actually means S3 since this is an Alias record set
+        # HealthCheckId: String
+      - # Redirect www subdomain to DotKEGG website (can't use CNAME since the target URL contains a path, and ALIAS adds no charge!)
+        Name: www.dotkegg.net
+        AliasTarget:
+          DNSName: s3-website.us-east-2.amazonaws.com
+          HostedZoneId: Z2O1EMRO9K5GLX
+        Type: A   # Actually means S3 since this is an Alias record set
+        # HealthCheckId: String
+  OrgDnsRecords:
+    Type: AWS::Route53::RecordSetGroup
+    Properties:
+      HostedZoneName: dotkegg.org.
+      Comment: redirect rules for the DotKEGG .org domain
+      RecordSets:
+      - # Redirect docs subdomain to DotKEGG website (ALIAS lets us not get charged!)
+        Name: docs.dotkegg.org
+        AliasTarget:
+          DNSName: !GetAtt DocsDistribution.DomainName
+          HostedZoneId: Z2FDTNDATAQYW2
+        Type: A   # Actually means CloudFront since this is an Alias record set
+        # HealthCheckId: String
+      - # Redirect zone apex to DotKEGG website (ALIAS lets us use zone apex, and not get charged!)
+        Name: dotkegg.org
+        AliasTarget:
+          DNSName: s3-website.us-east-2.amazonaws.com
+          HostedZoneId: Z2O1EMRO9K5GLX
+        Type: A   # Actually means S3 since this is an Alias record set
+        # HealthCheckId: String
+      - # Redirect www subdomain to DotKEGG website (can't use CNAME since the target URL contains a path, and ALIAS adds no charge!)
+        Name: www.dotkegg.org
+        AliasTarget:
+          DNSName: s3-website.us-east-2.amazonaws.com
+          HostedZoneId: Z2O1EMRO9K5GLX
+        Type: A   # Actually means S3 since this is an Alias record set
+        # HealthCheckId: String
+  ComDnsRecords:
+    Type: AWS::Route53::RecordSetGroup
+    Properties:
+      HostedZoneName: dotkegg.com.
+      Comment: redirect rules for the DotKEGG .com domain
+      RecordSets:
+      - # Redirect docs subdomain to DotKEGG website (ALIAS lets us not get charged!)
+        Name: docs.dotkegg.com
+        AliasTarget:
+          DNSName: !GetAtt DocsDistribution.DomainName
+          HostedZoneId: Z2FDTNDATAQYW2
+        Type: A   # Actually means CloudFront since this is an Alias record set
+        # HealthCheckId: String
+      - # Redirect zone apex to DotKEGG website (ALIAS lets us use zone apex, and not get charged!)
+        Name: dotkegg.com
+        AliasTarget:
+          DNSName: s3-website.us-east-2.amazonaws.com
+          HostedZoneId: Z2O1EMRO9K5GLX
+        Type: A   # Actually means S3 since this is an Alias record set
+        # HealthCheckId: String
+      - # Redirect www subdomain to DotKEGG website (can't use CNAME since the target URL contains a path, and ALIAS adds no charge!)
+        Name: www.dotkegg.com
+        AliasTarget:
+          DNSName: s3-website.us-east-2.amazonaws.com
+          HostedZoneId: Z2O1EMRO9K5GLX
+        Type: A   # Actually means S3 since this is an Alias record set
+        # HealthCheckId: String
+          
+Outputs:
+  DocsHostBucket:
+    Value: !Ref ComDocsBucket
+    Description: Name of the new AWS S3 bucket that will host the static documentation.
+  DocsDistribution:
+    Value: !Ref DocsDistribution
+    Description: ID of the new AWS CloudFront distribution that will cache the documentation at edge locations.

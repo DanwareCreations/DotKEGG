@@ -13,9 +13,11 @@
     <!-- Short summary -->
     <summary>$description$</summary>
     <!-- Long description -->
-    <description>Developed for those proud few who develop bioinformatics software using the .NET Framework!  DotKEGG provides types and methods for safely querying the KEGG database, without having to build HTTP headers and URIs for its REST API yourself.  Full documentation will be available soon!</description>
+    <description>Developed for those proud few who develop bioinformatics software using the .NET Framework!  DotKEGG provides types and methods for safely querying the KEGG database, without having to build HTTP headers and URIs for its REST API yourself.</description>
     <releaseNotes>
-      Added unit tests, and complete API reference documentation, for the KeggInfo operation and all database classes.
+      - Added API reference documentation for the KeggId class and its derived classes
+      - A documentation website is now fully up and running at https://docs.dotkegg.com, hosted with Amazon Web Services!
+      - Classes derived from KeggId no longer have their own Database properties, there is just a single one on the KeggId base class that returns a KeggDb.
     </releaseNotes>
     <copyright>$copyright$</copyright>
     <tags>database rest api wrapper open science KEGG bioinformatics kyoto encyclopedia genes genomes pathway brite compound reaction enzyme disease drug</tags>

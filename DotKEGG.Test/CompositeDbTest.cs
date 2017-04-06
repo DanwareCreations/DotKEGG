@@ -39,9 +39,9 @@ namespace DotKEGG.Test {
             GNumber g = LigandDb.Glycan(00197u);
             RNumber r1 = LigandDb.Reaction(00259u);
             RCNumber rc = LigandDb.ReactionClass(00064u);
-            ECNumber ec1 = LigandDb.Enzyme(3u, 4u, 11u, 4u);
+            ECNumber ec1 = LigandDb.Enzyme(ECNumber.Class.Hydrolase, 4u, 11u, 4u);
 
-            ECNumber ec2 = EnzymeDb.Enzyme(3u, 4u, 11u, 4u);
+            ECNumber ec2 = EnzymeDb.Enzyme(ECNumber.Class.Hydrolase, 4u, 11u, 4u);
             RNumber r2 = EnzymeDb.Reaction(00259u);
             KNumber k = EnzymeDb.Orthology(00873u);
 
