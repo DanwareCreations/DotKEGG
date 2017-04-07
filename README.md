@@ -19,7 +19,7 @@ We're not perfect; bugs happen.  If you experience any issues with DotKEGG, plea
 
 ## Building
 We'll assume you know how to clone this repository and open the solution in Visual Studio.  Here are some additional requirements/suggestions:
-- Visual Studio 2015 or later is required.  VS 2017 is recommended so you can make use of the .editorconfig file.
+- Visual Studio 2017 or later is required.
 - The solution has Debug, Release, and Test build configurations.
   - The unit-test project (DotKEGG.Test) is only built in the Test configuration.  We rely on the NUnit library for unit testing.  You _must_ run these tests and make sure they all pass before submitting a pull request.  Otherwise, if you don't care about running the tests, you should build in Debug or just delete this project from your solution.
   - The examples project (DotKEGG.Examples) is only built in the Release configuration.  It simply makes sure that all examples referenced in the documentation will actually compile.  If you don't care about building the Examples, you should build in Debug or just delete this project from your solution.
