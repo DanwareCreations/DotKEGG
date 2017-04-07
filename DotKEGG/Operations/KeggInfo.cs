@@ -19,7 +19,7 @@ namespace DotKEGG {
         /// <example>
         /// <token>InfoDbExample</token>
         /// </example>
-        public static InfoResults Database(KeggDb db) {
+        public static InfoResults ForDatabase(KeggDb db) {
             return KeggRestApi.GetInfo(db.Name);
         }
 
@@ -37,7 +37,7 @@ namespace DotKEGG {
         /// <example>
         /// <token>InfoCompositeDbExample</token>
         /// </example>
-        public static InfoResults Database(KeggCompositeDb db) {
+        public static InfoResults ForDatabase(KeggCompositeDb db) {
             return KeggRestApi.GetInfo(db.Name);
         }
 
@@ -51,7 +51,7 @@ namespace DotKEGG {
         /// <example>
         /// <token>InfoHumanDbExample</token>
         /// </example>
-        public static InfoResults Organism(string organismCode) {
+        public static InfoResults ForOrganism(string organismCode) {
             // If the provided organism code is null or empty then throw an Exception
             if (organismCode == null)
                 throw new ArgumentNullException(nameof(organismCode), $"Cannot invoke the KEGG info operation without a database name!");
@@ -76,7 +76,7 @@ namespace DotKEGG {
         /// <example>
         /// <token>InfoHumanDbExample</token>
         /// </example>
-        public static InfoResults Organism(TNumber keggId) {
+        public static InfoResults ForOrganism(TNumber keggId) {
             if (keggId == null)
                 throw new ArgumentNullException(nameof(keggId), $"Cannot invoke the KEGG info operation without a database name!");
 
@@ -96,7 +96,7 @@ namespace DotKEGG {
         /// <example>
         /// <token>InfoKeggDbExample</token>
         /// </example>
-        public static InfoResults Kegg() {
+        public static InfoResults ForKegg() {
             return KeggRestApi.GetInfo(Strings.Kegg);
         }
 

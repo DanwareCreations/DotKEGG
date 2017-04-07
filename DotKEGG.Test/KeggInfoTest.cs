@@ -39,76 +39,76 @@ namespace DotKEGG.Test {
 
         public static IEnumerable CompositeDbTestCases() {
             yield return new TestCaseData(
-                KeggInfo.Database(GenomesDb.Instance), "KEGG Genomes Database", "genomes", "gn");
+                KeggInfo.ForDatabase(GenomesDb.Instance), "KEGG Genomes Database", "genomes", "gn");
 
             yield return new TestCaseData(
-                KeggInfo.Database(LigandDb.Instance), "KEGG Ligand Database", "ligand", "ligand");
+                KeggInfo.ForDatabase(LigandDb.Instance), "KEGG Ligand Database", "ligand", "ligand");
         }
         public static IEnumerable SimpleDbTestCases() {
             yield return new TestCaseData(
-                KeggInfo.Database(PathwayDb.Instance), "KEGG Pathway Database", "pathway", "path");
+                KeggInfo.ForDatabase(PathwayDb.Instance), "KEGG Pathway Database", "pathway", "path");
 
             yield return new TestCaseData(
-                KeggInfo.Database(BriteDb.Instance), "KEGG Brite Database", "brite", "br");
+                KeggInfo.ForDatabase(BriteDb.Instance), "KEGG Brite Database", "brite", "br");
 
             yield return new TestCaseData(
-                KeggInfo.Database(ModuleDb.Instance), "KEGG Module Database", "module", "md");
+                KeggInfo.ForDatabase(ModuleDb.Instance), "KEGG Module Database", "module", "md");
 
             yield return new TestCaseData(
-                KeggInfo.Database(OrthologyDb.Instance), "KEGG Orthology Database", "orthology", "ko");
+                KeggInfo.ForDatabase(OrthologyDb.Instance), "KEGG Orthology Database", "orthology", "ko");
 
             yield return new TestCaseData(
-                KeggInfo.Database(GenomeDb.Instance), "KEGG Genome Database", "genome", "genome");
+                KeggInfo.ForDatabase(GenomeDb.Instance), "KEGG Genome Database", "genome", "genome");
 
             yield return new TestCaseData(
-                KeggInfo.Database(CompoundDb.Instance), "KEGG Compound Database", "compound", "cpd");
+                KeggInfo.ForDatabase(CompoundDb.Instance), "KEGG Compound Database", "compound", "cpd");
 
             yield return new TestCaseData(
-                KeggInfo.Database(GlycanDb.Instance), "KEGG Glycan Database", "glycan", "gl");
+                KeggInfo.ForDatabase(GlycanDb.Instance), "KEGG Glycan Database", "glycan", "gl");
 
             yield return new TestCaseData(
-                KeggInfo.Database(ReactionDb.Instance), "KEGG Reaction Database", "reaction", "rn");
+                KeggInfo.ForDatabase(ReactionDb.Instance), "KEGG Reaction Database", "reaction", "rn");
 
             yield return new TestCaseData(
-                KeggInfo.Database(ReactionClassDb.Instance), "KEGG Reaction Class Database", "rclass", "rc");
+                KeggInfo.ForDatabase(ReactionClassDb.Instance), "KEGG Reaction Class Database", "rclass", "rc");
 
             yield return new TestCaseData(
-                KeggInfo.Database(DiseaseDb.Instance), "KEGG Disease Database", "disease", "ds");
+                KeggInfo.ForDatabase(DiseaseDb.Instance), "KEGG Disease Database", "disease", "ds");
 
             yield return new TestCaseData(
-                KeggInfo.Database(DrugDb.Instance), "KEGG Drug Database", "drug", "dr");
+                KeggInfo.ForDatabase(DrugDb.Instance), "KEGG Drug Database", "drug", "dr");
 
             yield return new TestCaseData(
-                KeggInfo.Database(DrugGroupDb.Instance), "KEGG Drug Group Database", "dgroup", "dg");
+                KeggInfo.ForDatabase(DrugGroupDb.Instance), "KEGG Drug Group Database", "dgroup", "dg");
 
             yield return new TestCaseData(
-                KeggInfo.Database(EnvironDb.Instance), "KEGG Environ Database", "environ", "ev");
+                KeggInfo.ForDatabase(EnvironDb.Instance), "KEGG Environ Database", "environ", "ev");
         }
         public static IEnumerable OrganismDbTestCases() {
             yield return new TestCaseData(
-                KeggInfo.Organism("hsa"), "Homo sapiens (human) KEGG Genes Database", "T01001", "hsa");
+                KeggInfo.ForOrganism("hsa"), "Homo sapiens (human) KEGG Genes Database", "T01001", "hsa");
 
             yield return new TestCaseData(
-                KeggInfo.Organism("eco"), "Escherichia coli K-12 MG1655 KEGG Genes Database", "T00007", "eco");
+                KeggInfo.ForOrganism("eco"), "Escherichia coli K-12 MG1655 KEGG Genes Database", "T00007", "eco");
 
             yield return new TestCaseData(
-                KeggInfo.Organism(new TNumber(01001)), "Homo sapiens (human) KEGG Genes Database", "T01001", "hsa");
+                KeggInfo.ForOrganism(new TNumber(01001)), "Homo sapiens (human) KEGG Genes Database", "T01001", "hsa");
 
             yield return new TestCaseData(
-                KeggInfo.Organism(new TNumber(00007)), "Escherichia coli K-12 MG1655 KEGG Genes Database", "T00007", "eco");
+                KeggInfo.ForOrganism(new TNumber(00007)), "Escherichia coli K-12 MG1655 KEGG Genes Database", "T00007", "eco");
         }
         public static IEnumerable KeggDbTestCase() {
             var herp = new[] { new string('h', 'i') };
             yield return new TestCaseData(
-                KeggInfo.Kegg(), "Kyoto Encyclopedia of Genes and Genomes", "kegg", "kegg" );
+                KeggInfo.ForKegg(), "Kyoto Encyclopedia of Genes and Genomes", "kegg", "kegg" );
         }
         public static IEnumerable OtherDbTestCase() {
             var herp = new[] { new string('h', 'i') };
             yield return new TestCaseData(
-                KeggInfo.Database(GenesDb.Instance), "KEGG Genes Database", "genes", "genes");
+                KeggInfo.ForDatabase(GenesDb.Instance), "KEGG Genes Database", "genes", "genes");
 
             yield return new TestCaseData(
-                KeggInfo.Database(EnzymeDb.Instance), "KEGG Enzyme Database", "enzyme", "ec");
+                KeggInfo.ForDatabase(EnzymeDb.Instance), "KEGG Enzyme Database", "enzyme", "ec");
         }
 
         [Test(Author = "Dan Vicarel", TestOf = typeof(KeggInfo), Description = "Checks that the info operation fails for null/empty organism codes")]
@@ -116,31 +116,31 @@ namespace DotKEGG.Test {
             // Null strings should throw an Exception
             string nullStr = null;
             Assert.Throws<ArgumentNullException>(() =>
-                KeggInfo.Organism(nullStr));
+                KeggInfo.ForOrganism(nullStr));
 
             // Empty strings should throw an Exception also
             Assert.Throws<ArgumentException>(() =>
-                KeggInfo.Organism(string.Empty));
+                KeggInfo.ForOrganism(string.Empty));
         }
 
         [Test(Author = "Dan Vicarel", TestOf = typeof(KeggInfo), Description = "Checks that the info operation fails for an invalid organism code")]
         public void InfoInvalidOrganismCodeTest() {
             Assert.Throws<ArgumentException>(() =>
-                KeggInfo.Organism("derp"));
+                KeggInfo.ForOrganism("derp"));
         }
 
         [Test(Author = "Dan Vicarel", TestOf = typeof(KeggInfo), Description = "Checks that the info operation fails for null T numbers")]
         public void InfoNoTNumberTest() {
             TNumber nullT = null;
             Assert.Throws<ArgumentNullException>(() =>
-                KeggInfo.Organism(nullT));
+                KeggInfo.ForOrganism(nullT));
         }
 
         [Test(Author = "Dan Vicarel", TestOf = typeof(KeggInfo), Description = "Checks that the info operation fails for an invalid T number")]
         public void InfoInvalidTNumberTest() {
             TNumber t = new TNumber(uint.MaxValue);
             Assert.Throws<ArgumentException>(() =>
-                KeggInfo.Organism(t));
+                KeggInfo.ForOrganism(t));
         }
 
         private static void baseInfoTest(InfoResults info, string fullName, string name, string abbrev) {

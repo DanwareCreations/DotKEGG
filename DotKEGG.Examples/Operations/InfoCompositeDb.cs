@@ -3,7 +3,7 @@ using DotKEGG;
 
 public class InfoCompositeDb {
     public void GetLigandInfo() {
-        InfoResults info = KeggInfo.Database(LigandDb.Instance);    // Get KEGG LIGAND info
+        InfoResults info = KeggInfo.ForDatabase(LigandDb.Instance);    // Get KEGG LIGAND info
 
         Console.WriteLine("KEGG LIGAND Info:");
         Console.WriteLine("\tName: {0}", info.Name);
