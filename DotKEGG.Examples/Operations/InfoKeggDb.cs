@@ -3,7 +3,7 @@ using DotKEGG;
 
 public class InfoKeggDb {
     public void GetKeggInfo() {
-        InfoResults info = KeggInfo.Kegg();     // Get KEGG info
+        InfoResults info = KeggInfo.ForKegg();     // Get KEGG info
 
         Console.WriteLine("KEGG Info:");
         Console.WriteLine("\tName: {0}", info.Name);
