@@ -38,6 +38,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="IDs\BRNumber.cs" />
+    <Compile Include="IDs\OrganismCode.cs" />
     <Compile Include="InfoResults.cs" />
     <Compile Include="Databases\Composite\LigandDb.cs" />
     <Compile Include="Databases\Composite\GenomesDb.cs" />
