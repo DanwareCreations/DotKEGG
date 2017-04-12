@@ -1,7 +1,7 @@
 ﻿namespace DotKEGG {
 
     /// <summary>
-    /// Represents an identifier in the <token>EnvironDbLink</token> database.
+    /// Represents an identifier in the ENVIRON database.
     /// </summary>
     /// <inheritdoc/>
     public sealed class ENumber : KeggId {

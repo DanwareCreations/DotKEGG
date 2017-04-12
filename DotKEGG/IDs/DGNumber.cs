@@ -1,7 +1,7 @@
 ﻿namespace DotKEGG {
 
     /// <summary>
-    /// Represents an identifier in the <token>DrugGroupDbLink</token> database.
+    /// Represents an identifier in the DGROUP database.
     /// </summary>
     /// <inheritdoc/>
     public sealed class DGNumber : KeggId {

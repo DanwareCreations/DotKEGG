@@ -1,7 +1,7 @@
 ﻿namespace DotKEGG {
 
     /// <summary>
-    /// Represents an identifier in the <token>ModuleDbLink</token> database.
+    /// Represents an identifier in the MODULE database.
     /// </summary>
     /// <inheritdoc/>
     public sealed class MNumber : KeggId {

@@ -1,7 +1,7 @@
 ﻿namespace DotKEGG {
 
     /// <summary>
-    /// Represents an identifier in the <token>OrthologyDbLink</token> database.
+    /// Represents an identifier in the ORTHOLOGY database.
     /// </summary>
     /// <inheritdoc/>
     public sealed class KNumber : KeggId {

@@ -1,7 +1,7 @@
 ﻿namespace DotKEGG {
 
     /// <summary>
-    /// Represents an identifier in the <token>PathwayDbLink</token> database.
+    /// Represents an identifier in the PATHWAY database.
     /// </summary>
     /// <inheritdoc/>
     public sealed class MapNumber : KeggId {

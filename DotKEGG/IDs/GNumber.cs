@@ -1,7 +1,7 @@
 ﻿namespace DotKEGG {
 
     /// <summary>
-    /// Represents an identifier in the <token>GlycanDbLink</token> database.
+    /// Represents an identifier in the GLYCAN database.
     /// </summary>
     /// <inheritdoc/>
     public sealed class GNumber : KeggId {

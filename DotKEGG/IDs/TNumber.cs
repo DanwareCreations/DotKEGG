@@ -3,7 +3,7 @@
 namespace DotKEGG {
 
     /// <summary>
-    /// Represents an identifier in the <token>GenomeDbLink</token> database.
+    /// Represents an identifier in the GENOME database.
     /// </summary>
     /// <inheritdoc/>
     public sealed class TNumber : KeggId {

@@ -1,7 +1,7 @@
 ﻿namespace DotKEGG {
 
     /// <summary>
-    /// Represents an identifier in the <token>ReactionClassDbLink</token> database.
+    /// Represents an identifier in the RCLASS database.
     /// </summary>
     /// <inheritdoc/>
     public sealed class RCNumber : KeggId {
