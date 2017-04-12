@@ -19,9 +19,7 @@ namespace DotKEGG {
         /// <example>
         /// <token>InfoDbExample</token>
         /// </example>
-        public static InfoResults ForDatabase(KeggDb db) {
-            return KeggRestApi.GetInfo(db.Name);
-        }
+        public static InfoResults ForDatabase(KeggDb db) => KeggRestApi.GetInfo(db.Name);
 
         /// <summary>
         /// Returns the current info for the given KEGG composite database.
@@ -37,9 +35,7 @@ namespace DotKEGG {
         /// <example>
         /// <token>InfoCompositeDbExample</token>
         /// </example>
-        public static InfoResults ForDatabase(KeggCompositeDb db) {
-            return KeggRestApi.GetInfo(db.Name);
-        }
+        public static InfoResults ForDatabase(KeggCompositeDb db) => KeggRestApi.GetInfo(db.Name);
 
         /// <summary>
         /// Returns the current info for the KEGG genes database with the given organism code.
@@ -96,9 +92,7 @@ namespace DotKEGG {
         /// <example>
         /// <token>InfoKeggDbExample</token>
         /// </example>
-        public static InfoResults ForKegg() {
-            return KeggRestApi.GetInfo(Strings.Kegg);
-        }
+        public static InfoResults ForKegg() => KeggRestApi.GetInfo(Strings.Kegg);
 
     }
 

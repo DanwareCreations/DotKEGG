@@ -36,16 +36,12 @@ namespace DotKEGG {
         /// Returns a short string representation of the KEGG ID.
         /// </summary>
         /// <returns>A string representation of the KEGG ID in the form of a prefix followed by a five-digit number.  For example, "C00031".</returns>
-        public string ShortForm() {
-            return $"{_db.Prefix}{Number.ToString("00000")}";
-        }
+        public string ShortForm() => $"{_db.Prefix}{Number.ToString("00000")}";
         /// <summary>
         /// Returns a string representation of the KEGG ID in DBGET format.
         /// </summary>
         /// <returns>A DBGET string representation of the KEGG ID, which takes the form &lt;db&gt;:&lt;prefix&gt;&lt;number&gt;.  For example, "cpd:C00031".</returns>
-        public string DBGETForm() {
-            return $"{_db.Abbreviation}:{_db.Prefix}{Number.ToString("00000")}";
-        }
+        public string DBGETForm() => $"{_db.Abbreviation}:{_db.Prefix}{Number.ToString("00000")}";
         
         /// <inheritdoc/>
         public override bool Equals(object obj) {
@@ -106,9 +102,7 @@ namespace DotKEGG {
             return hash;
         }
         /// <inheritdoc/>
-        public override string ToString() {
-            return DBGETForm();
-        }
+        public override string ToString() => DBGETForm();
 
     }
 

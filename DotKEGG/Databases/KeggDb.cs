@@ -89,13 +89,9 @@ namespace DotKEGG {
         }
         
         /// <inheritdoc/>
-        public override int GetHashCode() {
-            return Name.GetHashCode();
-        }
+        public override int GetHashCode() => Name.GetHashCode();
         /// <inheritdoc/>
-        public override string ToString() {
-            return Name;
-        }
+        public override string ToString() => Name;
 
     }
 
