@@ -49,7 +49,7 @@ namespace DotKEGG {
         
         /// <inheritdoc/>
         public override bool Equals(object obj) {
-            KeggId kid = obj as KeggId;
+            var kid = obj as KeggId;
             if (kid == null)
                 return false;
             return (kid.Number == Number && kid._db == this._db);

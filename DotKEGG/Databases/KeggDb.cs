@@ -42,7 +42,7 @@ namespace DotKEGG {
         
         /// <inheritdoc/>
         public override bool Equals(object obj) {
-            KeggDb kdb = obj as KeggDb;
+            var kdb = obj as KeggDb;
             if (kdb == null)
                 return false;
 
