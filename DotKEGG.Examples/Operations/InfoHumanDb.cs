@@ -4,7 +4,7 @@ using DotKEGG;
 public class InfoHumanDb {
     public void GetHumanGeneInfo() {
         // Get KEGG gene info using the human organism code
-        printInfo(KeggInfo.ForOrganism("hsa"));
+        printInfo(KeggInfo.ForOrganism(new OrganismCode("hsa")));
 
         // Get KEGG gene info using the human T number
         printInfo(KeggInfo.ForGenome(new TNumber(01001)));

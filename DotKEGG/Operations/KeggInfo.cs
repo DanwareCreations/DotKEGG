@@ -38,28 +38,25 @@ namespace DotKEGG {
         public static InfoResults ForDatabase(KeggCompositeDb db) => KeggRestApi.GetInfo(db.Name);
 
         /// <summary>
-        /// Returns the current info for the KEGG genes database with the given organism code.
+        /// Returns the current info for the KEGG genes database whose organism has the given code.
         /// </summary>
-        /// <param name="organismCode">The organism code of the KEGG organism</param>
+        /// <param name="organism">The organism code of the organism.</param>
         /// <returns>Current info for the given KEGG genes database.</returns>
-        /// <exception cref="ArgumentNullException"><paramref name="organismCode"/> is <see langword="null"/>.</exception>
-        /// <exception cref="ArgumentException"><paramref name="organismCode"/> is empty or not a valid KEGG Organism code.</exception>
+        /// <exception cref="ArgumentNullException"><paramref name="organism"/> is <see langword="null"/>.</exception>
         /// <example>
         /// <token>InfoHumanDbExample</token>
         /// </example>
-        public static InfoResults ForOrganism(string organismCode) {
+        public static InfoResults ForOrganism(OrganismCode organism) {
             // If the provided organism code is null or empty then throw an Exception
-            if (organismCode == null)
-                throw new ArgumentNullException(nameof(organismCode), $"Cannot invoke the KEGG info operation without a database name!");
-            if (organismCode == string.Empty)
-                throw new ArgumentException($"Cannot invoke the KEGG info operation without a database name!", nameof(organismCode));
+            if (organism == null)
+                throw new ArgumentNullException(nameof(organism), $"Cannot invoke the KEGG info operation for a genes database without an organism code!");
 
             // Try to get KEGG info
             try {
-                return KeggRestApi.GetInfo(organismCode);
+                return KeggRestApi.GetInfo(organism.Code);
             }
             catch (WebException) {
-                throw new ArgumentException($"{organismCode} is not a valid organism code!", nameof(organismCode));
+                throw new ArgumentException($"{organism} is not a valid organism code!", nameof(organism));
             }
         }
 

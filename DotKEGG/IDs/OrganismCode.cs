@@ -14,7 +14,13 @@ namespace DotKEGG {
         /// Creates a new organism code from the provided three- or four-letter KEGG organism code.
         /// </summary>
         /// <param name="code">The organism's three- or four-letter code.</param>
+        /// <exception cref="ArgumentNullException"><paramref name="code"/> is <see langword="null"/>.</exception>
+        /// <exception cref="ArgumentException"><paramref name="code"/> is an empty string.</exception>
         public OrganismCode(string code) {
+            if (code == null)
+                throw new ArgumentNullException(nameof(code), $"Cannot create an {nameof(OrganismCode)} from a null string!");
+            if (code == string.Empty)
+                throw new ArgumentException($"Cannot create an {nameof(OrganismCode)} from an empty string!");
             Code = code;
         }
         /// <summary>
