@@ -64,24 +64,24 @@ namespace DotKEGG {
         }
 
         /// <summary>
-        /// Returns the current info for the KEGG genes database whose genome has the given T number.
+        /// Returns the current info for the KEGG genes database whose genome has the given T Number.
         /// </summary>
-        /// <param name="keggId">The T number of the KEGG genome</param>
+        /// <param name="keggId">The KEGG ID of the genome</param>
         /// <returns>Current info for the given KEGG genes database.</returns>
         /// <exception cref="ArgumentNullException"><paramref name="keggId"/> is <see langword="null"/>.</exception>
         /// <example>
         /// <token>InfoHumanDbExample</token>
         /// </example>
-        public static InfoResults ForOrganism(TNumber keggId) {
+        public static InfoResults ForGenome(TNumber keggId) {
             if (keggId == null)
-                throw new ArgumentNullException(nameof(keggId), $"Cannot invoke the KEGG info operation without a database name!");
+                throw new ArgumentNullException(nameof(keggId), $"Cannot invoke the KEGG info operation for a genes database without a genome ID!");
 
             // Try to get KEGG info
             try {
                 return KeggRestApi.GetInfo(keggId.ShortForm());
             }
             catch (WebException) {
-                throw new ArgumentException($"{keggId} is not a valid T number!", nameof(keggId));
+                throw new ArgumentException($"'{keggId.ShortForm()}' is not a valid T number!", nameof(keggId));
             }
         }
 

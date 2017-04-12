@@ -7,7 +7,7 @@ public class InfoHumanDb {
         printInfo(KeggInfo.ForOrganism("hsa"));
 
         // Get KEGG gene info using the human T number
-        printInfo(KeggInfo.ForOrganism(new TNumber(01001)));
+        printInfo(KeggInfo.ForGenome(new TNumber(01001)));
     }
     private void printInfo(InfoResults info) {
         Console.WriteLine("KEGG human Info:");
