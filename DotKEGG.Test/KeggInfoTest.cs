@@ -8,9 +8,9 @@ namespace DotKEGG.Test {
     [TestFixture(Author = "Dan Vicarel", TestOf =typeof(KeggInfo), Description = "Checks that correct values are returned from the info operation")]
     internal class KeggInfoTest {
 
-        private static string _versionStr = "Release";
-        private static string _org = "Kanehisa Laboratories";
-        private static uint _minEntries = 500;
+        private static string s_versionStr = "Release";
+        private static string s_org = "Kanehisa Laboratories";
+        private static uint s_minEntries = 500;
 
         [Test(Author = "Dan Vicarel", TestOf = typeof(KeggInfo), Description = "Checks that correct values are returned from the info operation for simple databases")]
         [TestCaseSource(nameof(SimpleDbTestCases))]
@@ -21,7 +21,7 @@ namespace DotKEGG.Test {
 
             Assert.AreEqual(1, info.NumEntries.Count);
             Assert.AreEqual(info.Name, info.NumEntries[0].Key);
-            Assert.GreaterOrEqual(info.NumEntries[0].Value, _minEntries);
+            Assert.GreaterOrEqual(info.NumEntries[0].Value, s_minEntries);
         }
 
         [Test(Author = "Dan Vicarel", TestOf = typeof(KeggInfo), Description = "Checks that correct values are returned from the info operation for composite databases")]
@@ -33,7 +33,7 @@ namespace DotKEGG.Test {
             Assert.GreaterOrEqual(info.NumEntries.Count, 1);
             foreach (var pair in info.NumEntries) {
                 Assert.AreNotEqual(info.Name, pair.Key);
-                Assert.GreaterOrEqual(pair.Value, _minEntries);
+                Assert.GreaterOrEqual(pair.Value, s_minEntries);
             }
         }
 
@@ -98,12 +98,10 @@ namespace DotKEGG.Test {
                 KeggInfo.ForOrganism(new TNumber(00007)), "Escherichia coli K-12 MG1655 KEGG Genes Database", "T00007", "eco");
         }
         public static IEnumerable KeggDbTestCase() {
-            var herp = new[] { new string('h', 'i') };
             yield return new TestCaseData(
                 KeggInfo.ForKegg(), "Kyoto Encyclopedia of Genes and Genomes", "kegg", "kegg" );
         }
         public static IEnumerable OtherDbTestCase() {
-            var herp = new[] { new string('h', 'i') };
             yield return new TestCaseData(
                 KeggInfo.ForDatabase(GenesDb.Instance), "KEGG Genes Database", "genes", "genes");
 
@@ -138,7 +136,7 @@ namespace DotKEGG.Test {
 
         [Test(Author = "Dan Vicarel", TestOf = typeof(KeggInfo), Description = "Checks that the info operation fails for an invalid T number")]
         public void InfoInvalidTNumberTest() {
-            TNumber t = new TNumber(uint.MaxValue);
+            var t = new TNumber(uint.MaxValue);
             Assert.Throws<ArgumentException>(() =>
                 KeggInfo.ForOrganism(t));
         }
@@ -147,8 +145,8 @@ namespace DotKEGG.Test {
             Assert.AreEqual(info.FullName, fullName);
             Assert.AreEqual(info.Name, name);
             Assert.AreEqual(info.Abbreviation, abbrev);
-            Assert.AreEqual(_versionStr, info.Version.Substring(0, _versionStr.Length));
-            Assert.True(info.Organization.Contains(_org), $"The database's organization did not contain the string \"{_org}\"");
+            Assert.AreEqual(s_versionStr, info.Version.Substring(0, s_versionStr.Length));
+            Assert.True(info.Organization.Contains(s_org), $"The database's organization did not contain the string \"{s_org}\"");
         }
 
     }
