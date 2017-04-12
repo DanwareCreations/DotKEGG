@@ -92,10 +92,10 @@ namespace DotKEGG.Test {
                 KeggInfo.ForOrganism("eco"), "Escherichia coli K-12 MG1655 KEGG Genes Database", "T00007", "eco");
 
             yield return new TestCaseData(
-                KeggInfo.ForOrganism(new TNumber(01001)), "Homo sapiens (human) KEGG Genes Database", "T01001", "hsa");
+                KeggInfo.ForGenome(new TNumber(01001)), "Homo sapiens (human) KEGG Genes Database", "T01001", "hsa");
 
             yield return new TestCaseData(
-                KeggInfo.ForOrganism(new TNumber(00007)), "Escherichia coli K-12 MG1655 KEGG Genes Database", "T00007", "eco");
+                KeggInfo.ForGenome(new TNumber(00007)), "Escherichia coli K-12 MG1655 KEGG Genes Database", "T00007", "eco");
         }
         public static IEnumerable KeggDbTestCase() {
             yield return new TestCaseData(
@@ -131,14 +131,14 @@ namespace DotKEGG.Test {
         public void InfoNoTNumberTest() {
             TNumber nullT = null;
             Assert.Throws<ArgumentNullException>(() =>
-                KeggInfo.ForOrganism(nullT));
+                KeggInfo.ForGenome(nullT));
         }
 
         [Test(Author = "Dan Vicarel", TestOf = typeof(KeggInfo), Description = "Checks that the info operation fails for an invalid T number")]
         public void InfoInvalidTNumberTest() {
             var t = new TNumber(uint.MaxValue);
             Assert.Throws<ArgumentException>(() =>
-                KeggInfo.ForOrganism(t));
+                KeggInfo.ForGenome(t));
         }
 
         private static void baseInfoTest(InfoResults info, string fullName, string name, string abbrev) {
