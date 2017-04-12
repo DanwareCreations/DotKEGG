@@ -86,10 +86,10 @@ namespace DotKEGG.Test {
         }
         public static IEnumerable OrganismDbTestCases() {
             yield return new TestCaseData(
-                KeggInfo.ForOrganism("hsa"), "Homo sapiens (human) KEGG Genes Database", "T01001", "hsa");
+                KeggInfo.ForOrganism(new OrganismCode("hsa")), "Homo sapiens (human) KEGG Genes Database", "T01001", "hsa");
 
             yield return new TestCaseData(
-                KeggInfo.ForOrganism("eco"), "Escherichia coli K-12 MG1655 KEGG Genes Database", "T00007", "eco");
+                KeggInfo.ForOrganism(new OrganismCode("eco")), "Escherichia coli K-12 MG1655 KEGG Genes Database", "T00007", "eco");
 
             yield return new TestCaseData(
                 KeggInfo.ForOrganism(new TNumber(01001)), "Homo sapiens (human) KEGG Genes Database", "T01001", "hsa");
@@ -114,17 +114,17 @@ namespace DotKEGG.Test {
             // Null strings should throw an Exception
             string nullStr = null;
             Assert.Throws<ArgumentNullException>(() =>
-                KeggInfo.ForOrganism(nullStr));
+                KeggInfo.ForOrganism(new OrganismCode(nullStr)));
 
             // Empty strings should throw an Exception also
             Assert.Throws<ArgumentException>(() =>
-                KeggInfo.ForOrganism(string.Empty));
+                KeggInfo.ForOrganism(new OrganismCode(string.Empty)));
         }
 
         [Test(Author = "Dan Vicarel", TestOf = typeof(KeggInfo), Description = "Checks that the info operation fails for an invalid organism code")]
         public void InfoInvalidOrganismCodeTest() {
             Assert.Throws<ArgumentException>(() =>
-                KeggInfo.ForOrganism("derp"));
+                KeggInfo.ForOrganism(new OrganismCode("derp")));
         }
 
         [Test(Author = "Dan Vicarel", TestOf = typeof(KeggInfo), Description = "Checks that the info operation fails for null T numbers")]
