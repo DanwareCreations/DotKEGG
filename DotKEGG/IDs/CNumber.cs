@@ -1,7 +1,7 @@
 ﻿namespace DotKEGG {
 
     /// <summary>
-    /// Represents an identifier in the <token>CompoundDbLink</token> database.
+    /// Represents an identifier in the COMPOUND database.
     /// </summary>
     /// <inheritdoc/>
     public sealed class CNumber : KeggId {

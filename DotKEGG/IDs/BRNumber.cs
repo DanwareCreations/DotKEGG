@@ -1,7 +1,7 @@
 ﻿namespace DotKEGG {
 
     /// <summary>
-    /// Represents an identifier in the <token>BriteDbLink</token> database.
+    /// Represents an identifier in the KEGG BRITE database.
     /// </summary>
     /// <inheritdoc/>
     public sealed class BRNumber : KeggId {

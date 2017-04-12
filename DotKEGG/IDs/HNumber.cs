@@ -1,7 +1,7 @@
 ﻿namespace DotKEGG {
 
     /// <summary>
-    /// Represents an identifier in the <token>DiseaseDbLink</token> database.
+    /// Represents an identifier in the DISEASE database.
     /// </summary>
     /// <inheritdoc/>
     public sealed class HNumber : KeggId {
