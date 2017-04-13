@@ -41,7 +41,7 @@ namespace DotKEGG {
         }
         /// <inheritdoc/>
         public override bool Equals(object obj) {
-            KeggCompositeDb kdb = obj as KeggCompositeDb;
+            var kdb = obj as KeggCompositeDb;
             if (kdb == null)
                 return false;
 
@@ -75,13 +75,9 @@ namespace DotKEGG {
         }
 
         /// <inheritdoc/>
-        public override int GetHashCode() {
-            return Name.GetHashCode();
-        }
+        public override int GetHashCode() => Name.GetHashCode();
         /// <inheritdoc/>
-        public override string ToString() {
-            return Name;
-        }
+        public override string ToString() => Name;
 
     }
 
