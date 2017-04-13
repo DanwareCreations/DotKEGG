@@ -68,7 +68,7 @@ namespace DotKEGG {
         public static bool operator ==(OrganismCode a, OrganismCode b) {
             if (ReferenceEquals(a, null))
                 return ReferenceEquals(b, null);
-            return a.Code == b.Code;
+            return a.Equals(b);
         }
         /// <summary>
         /// Determines whether two <see cref="OrganismCode"/>s represent different organisms.
@@ -81,7 +81,7 @@ namespace DotKEGG {
         public static bool operator !=(OrganismCode a, OrganismCode b) {
             if (ReferenceEquals(a, null))
                 return !ReferenceEquals(b, null);
-            return a.Code != b.Code;
+            return !a.Equals(b);
         }
 
         /// <inheritdoc/>
