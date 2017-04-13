@@ -16,6 +16,63 @@ namespace DotKEGG.Test {
             Assert.AreEqual(db.Name, db.ToString());
         }
 
+        [Test(Author = "Dan Vicarel", TestOf = typeof(KeggCompositeDb), Description = "Checks that database Instances can be compared for equality.")]
+        public void DbEqualityTest() {
+            KeggCompositeDb a = EnzymeDb.Instance;
+            KeggCompositeDb b = EnzymeDb.Instance;
+
+            Assert.True(a.Equals(b));
+            Assert.True(b.Equals(a));
+            Assert.True(a == b);
+            Assert.False(a != b);
+            Assert.True(Equals(a, b));
+
+            object objA = a;
+            object objB = b;
+            Assert.True(objA.Equals(b));
+            Assert.True(b.Equals(objA));
+            Assert.True(Equals(objA, b));
+            Assert.True(objB.Equals(a));
+            Assert.True(a.Equals(objB));
+            Assert.True(Equals(objB, a));
+            Assert.True(objB.Equals(objA));
+            Assert.True(objA.Equals(objB));
+            Assert.True(Equals(objB, objA));
+        }
+
+        [Test(Author = "Dan Vicarel", TestOf = typeof(KeggCompositeDb), Description = "Checks that database Instances can be compared for inequality.")]
+        public void DbInequalityTest() {
+            KeggCompositeDb a = EnzymeDb.Instance;
+            KeggCompositeDb b = LigandDb.Instance;
+
+            Assert.False(a.Equals(b));
+            Assert.False(b.Equals(a));
+            Assert.False(a == b);
+            Assert.True(a != b);
+            Assert.False(Equals(a, b));
+
+            object objA = a;
+            object objB = b;
+            Assert.False(objA.Equals(b));
+            Assert.False(b.Equals(objA));
+            Assert.False(Equals(objA, b));
+            Assert.False(objB.Equals(a));
+            Assert.False(a.Equals(objB));
+            Assert.False(Equals(objB, a));
+            Assert.False(objB.Equals(objA));
+            Assert.False(objA.Equals(objB));
+            Assert.False(Equals(objB, objA));
+        }
+
+        [Test(Author = "Dan Vicarel", TestOf = typeof(KeggCompositeDb), Description = "Checks that database Instances are not equal to null.")]
+        public void DbNullInequalityTest() {
+            KeggCompositeDb a = GenesDb.Instance;
+
+            Assert.False(a.Equals(null));
+            Assert.False(a == null);
+            Assert.True(a != null);
+        }
+
         [Test(Author = "Dan Vicarel", TestOf = typeof(KeggCompositeDb), Description = "Checks that all composite databases have unique HashCodes")]
         public void CompositeDbUniqueHashCodeTest() {
             var hashCodes = new List<int>(4) {
@@ -27,7 +84,7 @@ namespace DotKEGG.Test {
             Assert.AreEqual(hashCodes.Count, hashCodes.Distinct().Count(), $"There is at least one duplicate {nameof(KeggCompositeDb)} hash code!");
         }
 
-        [Test(Author = "Dan Vicarel", TestOf = typeof(KeggDb), Description = "Checks that all composite databases can return strongly typed KEGG ID objects")]
+        [Test(Author = "Dan Vicarel", TestOf = typeof(KeggCompositeDb), Description = "Checks that all composite databases can return strongly typed KEGG ID objects")]
         public void CompositeDbGetStrongTypedEntriesTest() {
             // Create KEGG ID objects for each auxiliary database of each composite database
             TNumber t1 = GenomesDb.Genome(01001u);
