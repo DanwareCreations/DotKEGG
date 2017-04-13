@@ -101,6 +101,13 @@ namespace DotKEGG.Test {
             Assert.AreEqual(hashCodes.Count, hashCodes.Distinct().Count(), $"There is at least one duplicate {nameof(KeggId)} hash code!");
         }
 
+        [Test(Author = "Dan Vicarel", TestOf = typeof(KeggId), Description = "Checks that we can get the organism code associated with a genome")]
+        [Ignore("The GetOrganismCode() function has not been implemented yet.")]
+        public void GetOrganismCodeTest() {
+            OrganismCode code = s_genome.GetOrganismCode();
+            Assert.AreEqual("hsa", code.Code);
+        }
+
         private static IEnumerable<TestCaseData> idInstanceTestCases() {
             yield return new TestCaseData(s_path, 00010u, "map00010", "path:map00010", PathwayDb.Instance);
             yield return new TestCaseData(s_brite, 08303u, "BR08303", "br:BR08303", BriteDb.Instance);
