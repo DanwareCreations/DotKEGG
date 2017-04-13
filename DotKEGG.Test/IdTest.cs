@@ -1,5 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
 
 using NUnit.Framework;
@@ -92,7 +91,7 @@ namespace DotKEGG.Test {
 
         [Test(Author = "Dan Vicarel", TestOf = typeof(KeggId), Description = "Checks that all IDs have unique HashCodes")]
         public void IdUniqueHashCodeTest() {
-            var hashCodes = new List<int>(13) {
+            int[] hashCodes = new int[13] {
                  s_path.GetHashCode(),
                  s_brite.GetHashCode(),
                  s_module.GetHashCode(),
@@ -107,7 +106,7 @@ namespace DotKEGG.Test {
                  s_disease.GetHashCode(),
                  s_environ.GetHashCode(),
             };
-            Assert.AreEqual(hashCodes.Count, hashCodes.Distinct().Count(), $"There is at least one duplicate {nameof(KeggId)} hash code!");
+            Assert.AreEqual(hashCodes.Length, hashCodes.Distinct().Count(), $"There is at least one duplicate {nameof(KeggId)} hash code!");
         }
 
         [Test(Author = "Dan Vicarel", TestOf = typeof(KeggId), Description = "Checks that we can get the organism code associated with a genome")]

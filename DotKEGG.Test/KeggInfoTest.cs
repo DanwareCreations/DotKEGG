@@ -38,75 +38,37 @@ namespace DotKEGG.Test {
         }
 
         public static IEnumerable<TestCaseData> CompositeDbTestCases() {
-            yield return new TestCaseData(
-                KeggInfo.ForDatabase(GenomesDb.Instance), "KEGG Genomes Database", "genomes", "gn");
-
-            yield return new TestCaseData(
-                KeggInfo.ForDatabase(LigandDb.Instance), "KEGG Ligand Database", "ligand", "ligand");
+            yield return new TestCaseData(KeggInfo.ForDatabase(GenomesDb.Instance), "KEGG Genomes Database", "genomes", "gn");
+            yield return new TestCaseData(KeggInfo.ForDatabase(LigandDb.Instance), "KEGG Ligand Database", "ligand", "ligand");
         }
         public static IEnumerable<TestCaseData> SimpleDbTestCases() {
-            yield return new TestCaseData(
-                KeggInfo.ForDatabase(PathwayDb.Instance), "KEGG Pathway Database", "pathway", "path");
-
-            yield return new TestCaseData(
-                KeggInfo.ForDatabase(BriteDb.Instance), "KEGG Brite Database", "brite", "br");
-
-            yield return new TestCaseData(
-                KeggInfo.ForDatabase(ModuleDb.Instance), "KEGG Module Database", "module", "md");
-
-            yield return new TestCaseData(
-                KeggInfo.ForDatabase(OrthologyDb.Instance), "KEGG Orthology Database", "orthology", "ko");
-
-            yield return new TestCaseData(
-                KeggInfo.ForDatabase(GenomeDb.Instance), "KEGG Genome Database", "genome", "genome");
-
-            yield return new TestCaseData(
-                KeggInfo.ForDatabase(CompoundDb.Instance), "KEGG Compound Database", "compound", "cpd");
-
-            yield return new TestCaseData(
-                KeggInfo.ForDatabase(GlycanDb.Instance), "KEGG Glycan Database", "glycan", "gl");
-
-            yield return new TestCaseData(
-                KeggInfo.ForDatabase(ReactionDb.Instance), "KEGG Reaction Database", "reaction", "rn");
-
-            yield return new TestCaseData(
-                KeggInfo.ForDatabase(ReactionClassDb.Instance), "KEGG Reaction Class Database", "rclass", "rc");
-
-            yield return new TestCaseData(
-                KeggInfo.ForDatabase(DiseaseDb.Instance), "KEGG Disease Database", "disease", "ds");
-
-            yield return new TestCaseData(
-                KeggInfo.ForDatabase(DrugDb.Instance), "KEGG Drug Database", "drug", "dr");
-
-            yield return new TestCaseData(
-                KeggInfo.ForDatabase(DrugGroupDb.Instance), "KEGG Drug Group Database", "dgroup", "dg");
-
-            yield return new TestCaseData(
-                KeggInfo.ForDatabase(EnvironDb.Instance), "KEGG Environ Database", "environ", "ev");
+            yield return new TestCaseData(KeggInfo.ForDatabase(PathwayDb.Instance), "KEGG Pathway Database", "pathway", "path");
+            yield return new TestCaseData(KeggInfo.ForDatabase(BriteDb.Instance), "KEGG Brite Database", "brite", "br");
+            yield return new TestCaseData(KeggInfo.ForDatabase(ModuleDb.Instance), "KEGG Module Database", "module", "md");
+            yield return new TestCaseData(KeggInfo.ForDatabase(OrthologyDb.Instance), "KEGG Orthology Database", "orthology", "ko");
+            yield return new TestCaseData(KeggInfo.ForDatabase(GenomeDb.Instance), "KEGG Genome Database", "genome", "genome");
+            yield return new TestCaseData(KeggInfo.ForDatabase(CompoundDb.Instance), "KEGG Compound Database", "compound", "cpd");
+            yield return new TestCaseData(KeggInfo.ForDatabase(GlycanDb.Instance), "KEGG Glycan Database", "glycan", "gl");
+            yield return new TestCaseData(KeggInfo.ForDatabase(ReactionDb.Instance), "KEGG Reaction Database", "reaction", "rn");
+            yield return new TestCaseData(KeggInfo.ForDatabase(ReactionClassDb.Instance), "KEGG Reaction Class Database", "rclass", "rc");
+            yield return new TestCaseData(KeggInfo.ForDatabase(DiseaseDb.Instance), "KEGG Disease Database", "disease", "ds");
+            yield return new TestCaseData(KeggInfo.ForDatabase(DrugDb.Instance), "KEGG Drug Database", "drug", "dr");
+            yield return new TestCaseData(KeggInfo.ForDatabase(DrugGroupDb.Instance), "KEGG Drug Group Database", "dgroup", "dg");
+            yield return new TestCaseData(KeggInfo.ForDatabase(EnvironDb.Instance), "KEGG Environ Database", "environ", "ev");
         }
         public static IEnumerable<TestCaseData> OrganismDbTestCases() {
-            yield return new TestCaseData(
-                KeggInfo.ForOrganism(new OrganismCode("hsa")), "Homo sapiens (human) KEGG Genes Database", "T01001", "hsa");
-
-            yield return new TestCaseData(
-                KeggInfo.ForOrganism(new OrganismCode("eco")), "Escherichia coli K-12 MG1655 KEGG Genes Database", "T00007", "eco");
-
-            yield return new TestCaseData(
-                KeggInfo.ForGenome(new TNumber(01001)), "Homo sapiens (human) KEGG Genes Database", "T01001", "hsa");
-
-            yield return new TestCaseData(
-                KeggInfo.ForGenome(new TNumber(00007)), "Escherichia coli K-12 MG1655 KEGG Genes Database", "T00007", "eco");
+            yield return new TestCaseData(KeggInfo.ForOrganism(new OrganismCode("hsa")), "Homo sapiens (human) KEGG Genes Database", "T01001", "hsa");
+            yield return new TestCaseData(KeggInfo.ForOrganism(new OrganismCode("eco")), "Escherichia coli K-12 MG1655 KEGG Genes Database", "T00007", "eco");
+            yield return new TestCaseData(KeggInfo.ForGenome(new TNumber(01001)), "Homo sapiens (human) KEGG Genes Database", "T01001", "hsa");
+            yield return new TestCaseData(KeggInfo.ForGenome(new TNumber(00007)), "Escherichia coli K-12 MG1655 KEGG Genes Database", "T00007", "eco");
         }
         public static IEnumerable<TestCaseData> KeggDbTestCase() {
             yield return new TestCaseData(
                 KeggInfo.ForKegg(), "Kyoto Encyclopedia of Genes and Genomes", "kegg", "kegg" );
         }
         public static IEnumerable<TestCaseData> OtherDbTestCase() {
-            yield return new TestCaseData(
-                KeggInfo.ForDatabase(GenesDb.Instance), "KEGG Genes Database", "genes", "genes");
-
-            yield return new TestCaseData(
-                KeggInfo.ForDatabase(EnzymeDb.Instance), "KEGG Enzyme Database", "enzyme", "ec");
+            yield return new TestCaseData(KeggInfo.ForDatabase(GenesDb.Instance), "KEGG Genes Database", "genes", "genes");
+            yield return new TestCaseData(KeggInfo.ForDatabase(EnzymeDb.Instance), "KEGG Enzyme Database", "enzyme", "ec");
         }
 
         [Test(Author = "Dan Vicarel", TestOf = typeof(KeggInfo), Description = "Checks that the info operation fails for null/empty organism codes")]

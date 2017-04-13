@@ -77,7 +77,7 @@ namespace DotKEGG.Test {
 
         [Test(Author = "Dan Vicarel", TestOf = typeof(KeggDb), Description = "Checks that all databases have unique HashCodes")]
         public void DbUniqueHashCodeTest() {
-            var hashCodes = new List<int>(13) {
+            int[] hashCodes = new int[13] {
                  PathwayDb.Instance.GetHashCode(),
                  BriteDb.Instance.GetHashCode(),
                  ModuleDb.Instance.GetHashCode(),
@@ -92,7 +92,7 @@ namespace DotKEGG.Test {
                  DiseaseDb.Instance.GetHashCode(),
                  EnvironDb.Instance.GetHashCode(),
             };
-            Assert.AreEqual(hashCodes.Count, hashCodes.Distinct().Count(), $"There is at least one duplicate {nameof(KeggDb)} hash code!");
+            Assert.AreEqual(hashCodes.Length, hashCodes.Distinct().Count(), $"There is at least one duplicate {nameof(KeggDb)} hash code!");
         }
 
         [Test(Author = "Dan Vicarel", TestOf = typeof(KeggDb), Description = "Checks that all databases can return strongly typed KEGG ID objects")]
@@ -127,44 +127,19 @@ namespace DotKEGG.Test {
         }
 
         public static IEnumerable<TestCaseData> DbInstanceTestCases() {
-            yield return new TestCaseData(
-                PathwayDb.Instance, "pathway", "path", "map", 00010u);
-
-            yield return new TestCaseData(
-                BriteDb.Instance, "brite", "br", "BR", 08303u);
-
-            yield return new TestCaseData(
-                ModuleDb.Instance, "module", "md", "M", 00010u);
-
-            yield return new TestCaseData(
-                OrthologyDb.Instance, "orthology", "ko", "K", 00873u);
-
-            yield return new TestCaseData(
-                GenomeDb.Instance, "genome", "genome", "T", 01001u);
-
-            yield return new TestCaseData(
-                CompoundDb.Instance, "compound", "cpd", "C", 00031u);
-
-            yield return new TestCaseData(
-                GlycanDb.Instance, "glycan", "gl", "G", 00197u);
-
-            yield return new TestCaseData(
-                ReactionDb.Instance, "reaction", "rn", "R", 00259u);
-
-            yield return new TestCaseData(
-                ReactionClassDb.Instance, "rclass", "rc", "RC", 00064u);
-
-            yield return new TestCaseData(
-                DiseaseDb.Instance, "disease", "ds", "H", 00118u);
-
-            yield return new TestCaseData(
-                DrugDb.Instance, "drug", "dr", "D", 01441u);
-
-            yield return new TestCaseData(
-                DrugGroupDb.Instance, "dgroup", "dg", "DG", 01918u);
-
-            yield return new TestCaseData(
-                EnvironDb.Instance, "environ", "ev", "E", 00270u);
+            yield return new TestCaseData(PathwayDb.Instance, "pathway", "path", "map", 00010u);
+            yield return new TestCaseData(BriteDb.Instance, "brite", "br", "BR", 08303u);
+            yield return new TestCaseData(ModuleDb.Instance, "module", "md", "M", 00010u);
+            yield return new TestCaseData(OrthologyDb.Instance, "orthology", "ko", "K", 00873u);
+            yield return new TestCaseData(GenomeDb.Instance, "genome", "genome", "T", 01001u);
+            yield return new TestCaseData(CompoundDb.Instance, "compound", "cpd", "C", 00031u);
+            yield return new TestCaseData(GlycanDb.Instance, "glycan", "gl", "G", 00197u);
+            yield return new TestCaseData(ReactionDb.Instance, "reaction", "rn", "R", 00259u);
+            yield return new TestCaseData(ReactionClassDb.Instance, "rclass", "rc", "RC", 00064u);
+            yield return new TestCaseData(DiseaseDb.Instance, "disease", "ds", "H", 00118u);
+            yield return new TestCaseData(DrugDb.Instance, "drug", "dr", "D", 01441u);
+            yield return new TestCaseData(DrugGroupDb.Instance, "dgroup", "dg", "DG", 01918u);
+            yield return new TestCaseData(EnvironDb.Instance, "environ", "ev", "E", 00270u);
         }
 
     }

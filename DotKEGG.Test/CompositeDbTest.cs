@@ -75,13 +75,13 @@ namespace DotKEGG.Test {
 
         [Test(Author = "Dan Vicarel", TestOf = typeof(KeggCompositeDb), Description = "Checks that all composite databases have unique HashCodes")]
         public void CompositeDbUniqueHashCodeTest() {
-            var hashCodes = new List<int>(4) {
+            int[] hashCodes = new int[4] {
                  GenomesDb.Instance.GetHashCode(),
                  GenesDb.Instance.GetHashCode(),
                  LigandDb.Instance.GetHashCode(),
                  EnzymeDb.Instance.GetHashCode(),
             };
-            Assert.AreEqual(hashCodes.Count, hashCodes.Distinct().Count(), $"There is at least one duplicate {nameof(KeggCompositeDb)} hash code!");
+            Assert.AreEqual(hashCodes.Length, hashCodes.Distinct().Count(), $"There is at least one duplicate {nameof(KeggCompositeDb)} hash code!");
         }
 
         [Test(Author = "Dan Vicarel", TestOf = typeof(KeggCompositeDb), Description = "Checks that all composite databases can return strongly typed KEGG ID objects")]
@@ -118,17 +118,10 @@ namespace DotKEGG.Test {
         }
 
         public static IEnumerable<TestCaseData> CompositeDbInstanceTestCases() {
-            yield return new TestCaseData(
-                GenomesDb.Instance, "genomes", "gn");
-
-            yield return new TestCaseData(
-                GenesDb.Instance, "genes", "genes");
-
-            yield return new TestCaseData(
-                LigandDb.Instance, "ligand", "ligand");
-
-            yield return new TestCaseData(
-                EnzymeDb.Instance, "enzyme", "ec");
+            yield return new TestCaseData(GenomesDb.Instance, "genomes", "gn");
+            yield return new TestCaseData(GenesDb.Instance, "genes", "genes");
+            yield return new TestCaseData(LigandDb.Instance, "ligand", "ligand");
+            yield return new TestCaseData(EnzymeDb.Instance, "enzyme", "ec");
         }
 
     }
