@@ -18,6 +18,63 @@ namespace DotKEGG.Test {
             Assert.NotNull(db.Entry(entryNum));
         }
 
+        [Test(Author = "Dan Vicarel", TestOf = typeof(KeggDb), Description = "Checks that database Instances can be compared for equality.")]
+        public void DbEqualityTest() {
+            KeggDb a = BriteDb.Instance;
+            KeggDb b = BriteDb.Instance;
+
+            Assert.True(a.Equals(b));
+            Assert.True(b.Equals(a));
+            Assert.True(a == b);
+            Assert.False(a != b);
+            Assert.True(Equals(a, b));
+
+            object objA = a;
+            object objB = b;
+            Assert.True(objA.Equals(b));
+            Assert.True(b.Equals(objA));
+            Assert.True(Equals(objA, b));
+            Assert.True(objB.Equals(a));
+            Assert.True(a.Equals(objB));
+            Assert.True(Equals(objB, a));
+            Assert.True(objB.Equals(objA));
+            Assert.True(objA.Equals(objB));
+            Assert.True(Equals(objB, objA));
+        }
+
+        [Test(Author = "Dan Vicarel", TestOf = typeof(KeggDb), Description = "Checks that database Instances can be compared for inequality.")]
+        public void DbInequalityTest() {
+            KeggDb a = BriteDb.Instance;
+            KeggDb b = GlycanDb.Instance;
+
+            Assert.False(a.Equals(b));
+            Assert.False(b.Equals(a));
+            Assert.False(a == b);
+            Assert.True(a != b);
+            Assert.False(Equals(a, b));
+
+            object objA = a;
+            object objB = b;
+            Assert.False(objA.Equals(b));
+            Assert.False(b.Equals(objA));
+            Assert.False(Equals(objA, b));
+            Assert.False(objB.Equals(a));
+            Assert.False(a.Equals(objB));
+            Assert.False(Equals(objB, a));
+            Assert.False(objB.Equals(objA));
+            Assert.False(objA.Equals(objB));
+            Assert.False(Equals(objB, objA));
+        }
+
+        [Test(Author = "Dan Vicarel", TestOf = typeof(KeggDb), Description = "Checks that database Instances are not equal to null.")]
+        public void DbNullInequalityTest() {
+            KeggDb a = DiseaseDb.Instance;
+
+            Assert.False(a.Equals(null));
+            Assert.False(a == null);
+            Assert.True(a != null);
+        }
+
         [Test(Author = "Dan Vicarel", TestOf = typeof(KeggDb), Description = "Checks that all databases have unique HashCodes")]
         public void DbUniqueHashCodeTest() {
             var hashCodes = new List<int>(13) {
