@@ -1,5 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
 
 using NUnit.Framework;
@@ -61,7 +60,7 @@ namespace DotKEGG.Test {
             Assert.NotNull(k);
         }
 
-        public static IEnumerable CompositeDbInstanceTestCases() {
+        public static IEnumerable<TestCaseData> CompositeDbInstanceTestCases() {
             yield return new TestCaseData(
                 GenomesDb.Instance, "genomes", "gn");
 

@@ -1,5 +1,5 @@
 ﻿using System;
-using System.Collections;
+using System.Collections.Generic;
 
 using NUnit.Framework;
 
@@ -37,14 +37,14 @@ namespace DotKEGG.Test {
             }
         }
 
-        public static IEnumerable CompositeDbTestCases() {
+        public static IEnumerable<TestCaseData> CompositeDbTestCases() {
             yield return new TestCaseData(
                 KeggInfo.ForDatabase(GenomesDb.Instance), "KEGG Genomes Database", "genomes", "gn");
 
             yield return new TestCaseData(
                 KeggInfo.ForDatabase(LigandDb.Instance), "KEGG Ligand Database", "ligand", "ligand");
         }
-        public static IEnumerable SimpleDbTestCases() {
+        public static IEnumerable<TestCaseData> SimpleDbTestCases() {
             yield return new TestCaseData(
                 KeggInfo.ForDatabase(PathwayDb.Instance), "KEGG Pathway Database", "pathway", "path");
 
@@ -84,7 +84,7 @@ namespace DotKEGG.Test {
             yield return new TestCaseData(
                 KeggInfo.ForDatabase(EnvironDb.Instance), "KEGG Environ Database", "environ", "ev");
         }
-        public static IEnumerable OrganismDbTestCases() {
+        public static IEnumerable<TestCaseData> OrganismDbTestCases() {
             yield return new TestCaseData(
                 KeggInfo.ForOrganism(new OrganismCode("hsa")), "Homo sapiens (human) KEGG Genes Database", "T01001", "hsa");
 
@@ -97,11 +97,11 @@ namespace DotKEGG.Test {
             yield return new TestCaseData(
                 KeggInfo.ForGenome(new TNumber(00007)), "Escherichia coli K-12 MG1655 KEGG Genes Database", "T00007", "eco");
         }
-        public static IEnumerable KeggDbTestCase() {
+        public static IEnumerable<TestCaseData> KeggDbTestCase() {
             yield return new TestCaseData(
                 KeggInfo.ForKegg(), "Kyoto Encyclopedia of Genes and Genomes", "kegg", "kegg" );
         }
-        public static IEnumerable OtherDbTestCase() {
+        public static IEnumerable<TestCaseData> OtherDbTestCase() {
             yield return new TestCaseData(
                 KeggInfo.ForDatabase(GenesDb.Instance), "KEGG Genes Database", "genes", "genes");
 

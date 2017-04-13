@@ -1,5 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
 
 using NUnit.Framework;
@@ -9,7 +8,7 @@ namespace DotKEGG.Test {
     [TestFixture(Author = "Dan Vicarel", TestOf = typeof(KeggDb), Description = "Tests basic functionality of database classes")]
     internal class DbTest {
 
-        [Test(Author = "Dan Vicarel", TestOf = typeof(KeggDb), Description = "Checks that all database Instances have appropriate values")]
+        [Test(Author = "Dan Vicarel", TestOf = typeof(KeggDb), Description = "Checks that database Instances have appropriate values")]
         [TestCaseSource(nameof(DbInstanceTestCases))]
         public void DbInstanceTest(KeggDb db, string name, string abbrev, string prefix, uint entryNum) {
             Assert.AreEqual(name, db.Name);
@@ -70,7 +69,7 @@ namespace DotKEGG.Test {
             Assert.NotNull(e);
         }
 
-        public static IEnumerable DbInstanceTestCases() {
+        public static IEnumerable<TestCaseData> DbInstanceTestCases() {
             yield return new TestCaseData(
                 PathwayDb.Instance, "pathway", "path", "map", 00010u);
 
