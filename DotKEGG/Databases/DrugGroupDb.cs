@@ -6,7 +6,7 @@
     /// <inheritdoc/>
     public sealed class DrugGroupDb : KeggDb {
 
-        private static DrugGroupDb _instance = new DrugGroupDb();
+        private static DrugGroupDb s_instance = new DrugGroupDb();
 
         private DrugGroupDb() {
             Name = "dgroup";
@@ -17,21 +17,17 @@
         /// <summary>
         /// <token>DbInstanceSummary</token>
         /// </summary>
-        public static DrugGroupDb Instance => _instance;
+        public static DrugGroupDb Instance => s_instance;
 
         /// <summary>
         /// Returns the <token>DrugGroupDbLink</token> database entry with the given <token>DrugGroupDbPrefix</token> number.
         /// </summary>
         /// <param name="number">The <token>DrugGroupDbPrefix</token> number of the <token>DrugGroupDbLink</token> database entry.</param>
         /// <returns>A lightweight object representing the <token>DrugGroupDbLink</token> database entry with the given <token>DrugGroupDbPrefix</token> number.</returns>
-        public static DGNumber DrugGroup(uint number) {
-            return new DGNumber(number);
-        }
+        public static DGNumber DrugGroup(uint number) => new DGNumber(number);
 
         /// <inheritdoc/>
-        public override KeggId Entry(uint number) {
-            return new DGNumber(number);
-        }
+        public override KeggId Entry(uint number) => new DGNumber(number);
 
     }
 

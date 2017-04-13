@@ -9,7 +9,7 @@
     /// <inheritdoc/>
     public sealed class CompoundDb : KeggDb {
 
-        private static CompoundDb _instance = new CompoundDb();
+        private static CompoundDb s_instance = new CompoundDb();
 
         private CompoundDb() {
             Name = "compound";
@@ -20,17 +20,13 @@
         /// <summary>
         /// <token>DbInstanceSummary</token>
         /// </summary>
-        public static CompoundDb Instance => _instance;
+        public static CompoundDb Instance => s_instance;
 
         /// <include file='../../DotKEGG.Docs/IncludeFiles/Databases/KeggDb.xml' path='content/item[@name="CompoundDbEntryComments"]/*'/>
-        public static CNumber Compound(uint number) {
-            return new CNumber(number);
-        }
+        public static CNumber Compound(uint number) => new CNumber(number);
 
         /// <inheritdoc/>
-        public override KeggId Entry(uint number) {
-            return new CNumber(number);
-        }
+        public override KeggId Entry(uint number) => new CNumber(number);
 
     }
 

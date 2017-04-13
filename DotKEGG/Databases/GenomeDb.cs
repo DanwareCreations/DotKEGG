@@ -7,7 +7,7 @@ namespace DotKEGG {
     /// </summary>
     public sealed class GenomeDb: KeggDb {
 
-        private static GenomeDb _instance = new GenomeDb();
+        private static GenomeDb s_instance = new GenomeDb();
 
         private GenomeDb() {
             Name = "genome";
@@ -18,17 +18,13 @@ namespace DotKEGG {
         /// <summary>
         /// <token>DbInstanceSummary</token>
         /// </summary>
-        public static GenomeDb Instance => _instance;
+        public static GenomeDb Instance => s_instance;
 
         /// <include file='../../DotKEGG.Docs/IncludeFiles/Databases/KeggDb.xml' path='content/item[@name="GenomeDbEntryComments"]/*'/>
-        public static TNumber Genome(uint number) {
-            return new TNumber(number);
-        }
+        public static TNumber Genome(uint number) => new TNumber(number);
 
         /// <inheritdoc/>
-        public override KeggId Entry(uint number) {
-            return new TNumber(number);
-        }
+        public override KeggId Entry(uint number) => new TNumber(number);
 
     }
 
