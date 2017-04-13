@@ -81,6 +81,15 @@ namespace DotKEGG.Test {
             Assert.False(Equals(objB, objA));
         }
 
+        [Test(Author = "Dan Vicarel", TestOf = typeof(KeggId), Description = "Checks that ID Instances are not equal to null.")]
+        public void IdNullInequalityTest() {
+            KeggId a = s_disease;
+
+            Assert.False(a.Equals(null));
+            Assert.False(a == null);
+            Assert.True(a != null);
+        }
+
         [Test(Author = "Dan Vicarel", TestOf = typeof(KeggId), Description = "Checks that all IDs have unique HashCodes")]
         public void IdUniqueHashCodeTest() {
             var hashCodes = new List<int>(13) {
