@@ -72,7 +72,7 @@ namespace DotKEGG {
         public static bool operator ==(KeggDb a, KeggDb b) {
             if (ReferenceEquals(a, null))
                 return ReferenceEquals(b, null);
-            return a.Name == b.Name;
+            return a.Equals(b);
         }
         /// <summary>
         /// Determines whether two <see cref="KeggDb"/>s represent different KEGG databases.
@@ -85,7 +85,7 @@ namespace DotKEGG {
         public static bool operator !=(KeggDb a, KeggDb b) {
             if (ReferenceEquals(a, null))
                 return !ReferenceEquals(b, null);
-            return a.Name != b.Name;
+            return !a.Equals(b);
         }
         
         /// <inheritdoc/>
