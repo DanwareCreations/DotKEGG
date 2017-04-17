@@ -3,6 +3,10 @@
     /// <summary>
     /// Represents the <token>OrthologyDbLink</token> database.
     /// </summary>
+    /// <seealso cref="KNumber"/>
+    /// <seealso cref="ECNumber"/>
+    /// <seealso cref="KeggDb"/>
+    /// <seealso cref="KeggId"/>
     /// <inheritdoc/>
     public sealed class OrthologyDb : KeggDb {
 

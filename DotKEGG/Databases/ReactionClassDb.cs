@@ -3,6 +3,11 @@
     /// <summary>
     /// Represents the <token>ReactionClassDbLink</token> database.
     /// </summary>
+    /// <seealso cref="RCNumber"/>
+    /// <seealso cref="LigandDb"/>
+    /// <seealso cref="KeggId"/>
+    /// <seealso cref="KeggDb"/>
+    /// <seealso cref="KeggCompositeDb"/>
     /// <inheritdoc/>
     public sealed class ReactionClassDb : KeggDb {
 

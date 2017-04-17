@@ -3,6 +3,11 @@
     /// <summary>
     /// Represents the <token>GlycanDbLink</token> database.
     /// </summary>
+    /// <seealso cref="GNumber"/>
+    /// <seealso cref="LigandDb"/>
+    /// <seealso cref="KeggId"/>
+    /// <seealso cref="KeggDb"/>
+    /// <seealso cref="KeggCompositeDb"/>
     /// <inheritdoc/>
     public sealed class GlycanDb: KeggDb {
 

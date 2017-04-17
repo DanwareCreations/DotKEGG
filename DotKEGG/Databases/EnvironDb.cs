@@ -3,6 +3,9 @@
     /// <summary>
     /// Represents the <token>EnvironDbLink</token> database.
     /// </summary>
+    /// <seealso cref="ENumber"/>
+    /// <seealso cref="KeggDb"/>
+    /// <seealso cref="KeggId"/>
     /// <inheritdoc/>
     public sealed class EnvironDb : KeggDb {
 

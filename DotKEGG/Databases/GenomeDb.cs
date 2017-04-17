@@ -5,6 +5,13 @@ namespace DotKEGG {
     /// <summary>
     /// Represents the <token>GenomeDbLink</token> database.
     /// </summary>
+    /// <seealso cref="TNumber"/>
+    /// <seealso cref="OrganismCode"/>
+    /// <seealso cref="GenesDb"/>
+    /// <seealso cref="GenomesDb"/>
+    /// <seealso cref="KeggId"/>
+    /// <seealso cref="KeggDb"/>
+    /// <seealso cref="KeggCompositeDb"/>
     public sealed class GenomeDb: KeggDb {
 
         private static GenomeDb s_instance = new GenomeDb();

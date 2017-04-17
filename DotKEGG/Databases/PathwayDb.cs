@@ -1,10 +1,11 @@
-﻿using System.Collections.Generic;
-
-namespace DotKEGG {
+﻿namespace DotKEGG {
 
     /// <summary>
     /// Represents the <token>PathwayDbLink</token> database.
     /// </summary>
+    /// <seealso cref="MapNumber"/>
+    /// <seealso cref="KeggDb"/>
+    /// <seealso cref="KeggId"/>
     /// <inheritdoc/>
     public sealed class PathwayDb : KeggDb {
 
