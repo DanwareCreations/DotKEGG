@@ -3,6 +3,9 @@
     /// <summary>
     /// Represents an identifier in the ORTHOLOGY database.
     /// </summary>
+    /// <seealso cref="OrthologyDb"/>
+    /// <seealso cref="KeggId"/>
+    /// <seealso cref="KeggDb"/>
     /// <inheritdoc/>
     public sealed class KNumber : KeggId {
 

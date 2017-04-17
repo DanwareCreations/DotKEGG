@@ -1,5 +1,10 @@
 ﻿namespace DotKEGG {
 
+    /// <seealso cref="KeggConvert"/>
+    /// <seealso cref="KeggGet"/>
+    /// <seealso cref="KeggInfo"/>
+    /// <seealso cref="KeggLink"/>
+    /// <seealso cref="KeggList"/>
     public static class KeggFind {
         public static string[] Pathway(params string[] keywords) =>
             KeggRestApi.GetText(OpStrings.Find, DbStrings.Pathway, string.Join("+", keywords));

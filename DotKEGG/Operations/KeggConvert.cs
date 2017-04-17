@@ -2,7 +2,12 @@
 using System.Collections.Generic;
 
 namespace DotKEGG {
-
+    
+    /// <seealso cref="KeggFind"/>
+    /// <seealso cref="KeggGet"/>
+    /// <seealso cref="KeggInfo"/>
+    /// <seealso cref="KeggLink"/>
+    /// <seealso cref="KeggList"/>
     public static class KeggConvert {
         
         public static string[] FromKeggOrganism(string organismCode, OutsideGeneDb geneDb) =>

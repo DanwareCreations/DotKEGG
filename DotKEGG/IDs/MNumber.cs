@@ -3,6 +3,9 @@
     /// <summary>
     /// Represents an identifier in the MODULE database.
     /// </summary>
+    /// <seealso cref="ModuleDb"/>
+    /// <seealso cref="KeggId"/>
+    /// <seealso cref="KeggDb"/>
     /// <inheritdoc/>
     public sealed class MNumber : KeggId {
 

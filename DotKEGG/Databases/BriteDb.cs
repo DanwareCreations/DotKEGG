@@ -3,6 +3,9 @@
     /// <summary>
     /// Represents the <token>BriteDbLink</token> database.
     /// </summary>
+    /// <seealso cref="BRNumber"/>
+    /// <seealso cref="KeggDb"/>
+    /// <seealso cref="KeggId"/>
     /// <inheritdoc/>
     public sealed class BriteDb : KeggDb {
 

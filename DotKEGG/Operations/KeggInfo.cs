@@ -9,6 +9,12 @@ namespace DotKEGG {
     /// <example>
     /// <include file='../DotKEGG.Docs/IncludeFiles/Operations/Info.xml' path='content/item[@name="InfoExamples"]/*'/>
     /// </example>
+    /// <seealso cref="InfoResults"/>
+    /// <seealso cref="KeggConvert"/>
+    /// <seealso cref="KeggFind"/>
+    /// <seealso cref="KeggGet"/>
+    /// <seealso cref="KeggLink"/>
+    /// <seealso cref="KeggList"/>
     public static class KeggInfo {
 
         /// <summary>

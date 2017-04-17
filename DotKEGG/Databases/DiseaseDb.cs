@@ -3,6 +3,9 @@
     /// <summary>
     /// Represents the <token>DiseaseDbLink</token> database.
     /// </summary>
+    /// <seealso cref="HNumber"/>
+    /// <seealso cref="KeggDb"/>
+    /// <seealso cref="KeggId"/>
     /// <inheritdoc/>
     public sealed class DiseaseDb : KeggDb {
 

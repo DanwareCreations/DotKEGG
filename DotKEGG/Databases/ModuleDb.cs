@@ -3,6 +3,9 @@
     /// <summary>
     /// Represents the <token>ModuleDbLink</token> database.
     /// </summary>
+    /// <seealso cref="MNumber"/>
+    /// <seealso cref="KeggDb"/>
+    /// <seealso cref="KeggId"/>
     /// <inheritdoc/>
     public sealed class ModuleDb : KeggDb {
 

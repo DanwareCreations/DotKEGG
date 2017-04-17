@@ -3,6 +3,9 @@
     /// <summary>
     /// Represents an identifier in the KEGG BRITE database.
     /// </summary>
+    /// <seealso cref="BriteDb"/>
+    /// <seealso cref="KeggId"/>
+    /// <seealso cref="KeggDb"/>
     /// <inheritdoc/>
     public sealed class BRNumber : KeggId {
 

@@ -9,6 +9,8 @@ namespace DotKEGG {
     /// <include file='../../DotKEGG.Docs/IncludeFiles/Ids/KeggId.xml' path='content/item[@name="KeggIdTerminology"]'/>
     /// </remarks>
     /// <threadsafety static="true" instance="true"/>
+    /// <seealso cref="KeggDb"/>
+    /// <seealso cref="KeggCompositeDb"/>
     public abstract class KeggId : IEquatable<KeggId> {
 
         /// <summary>

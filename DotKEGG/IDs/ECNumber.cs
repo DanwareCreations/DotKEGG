@@ -1,5 +1,12 @@
 ﻿namespace DotKEGG {
 
+    /// <seealso cref="KNumber"/>
+    /// <seealso cref="RNumber"/>
+    /// <seealso cref="OrthologyDb"/>
+    /// <seealso cref="ReactionDb"/>
+    /// <seealso cref="EnzymeDb"/>
+    /// <seealso cref="LigandDb"/>
+    /// <seealso cref="KeggCompositeDb"/>
     public sealed class ECNumber {
 
         public enum Class {

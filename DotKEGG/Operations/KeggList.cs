@@ -3,6 +3,11 @@ using System.Collections.Generic;
 
 namespace DotKEGG {
 
+    /// <seealso cref="KeggConvert"/>
+    /// <seealso cref="KeggFind"/>
+    /// <seealso cref="KeggGet"/>
+    /// <seealso cref="KeggInfo"/>
+    /// <seealso cref="KeggLink"/>
     public static class KeggList {
 
         public static string[] Pathway() => KeggRestApi.GetText(OpStrings.List, DbStrings.Pathway);

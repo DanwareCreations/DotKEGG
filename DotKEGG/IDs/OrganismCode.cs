@@ -5,6 +5,11 @@ namespace DotKEGG {
     /// <summary>
     /// Represents the code for an organism in the GENOME database.
     /// </summary>
+    /// <seealso cref="TNumber"/>
+    /// <seealso cref="GenomeDb"/>
+    /// <seealso cref="GenomesDb"/>
+    /// <seealso cref="KeggDb"/>
+    /// <seealso cref="KeggCompositeDb"/>
     /// <inheritdoc/>
     public class OrganismCode : IEquatable<OrganismCode> {
 

@@ -3,6 +3,11 @@
     /// <summary>
     /// Represents an identifier in the GLYCAN database.
     /// </summary>
+    /// <seealso cref="GlycanDb"/>
+    /// <seealso cref="LigandDb"/>
+    /// <seealso cref="KeggId"/>
+    /// <seealso cref="KeggDb"/>
+    /// <seealso cref="KeggCompositeDb"/>
     /// <inheritdoc/>
     public sealed class GNumber : KeggId {
 

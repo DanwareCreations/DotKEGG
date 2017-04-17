@@ -6,6 +6,11 @@
     /// <remarks>
     /// <include file='../../DotKEGG.Docs/IncludeFiles/Databases/KeggDb.xml' path='content/item[@name="CompoundVsComposite"]/*'/>
     /// </remarks>
+    /// <seealso cref="CNumber"/>
+    /// <seealso cref="LigandDb"/>
+    /// <seealso cref="KeggId"/>
+    /// <seealso cref="KeggDb"/>
+    /// <seealso cref="KeggCompositeDb"/>
     /// <inheritdoc/>
     public sealed class CompoundDb : KeggDb {
 

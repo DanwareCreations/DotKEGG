@@ -5,6 +5,8 @@ namespace DotKEGG {
     /// <summary>
     /// Represents a simple KEGG database.  This is an <see langword="abstract"/> class.
     /// </summary>
+    /// <seealso cref="KeggId"/>
+    /// <seealso cref="KeggCompositeDb"/>
     /// <threadsafety static="true" instance="true"/>
     public abstract class KeggDb : IEquatable<KeggDb> {
 

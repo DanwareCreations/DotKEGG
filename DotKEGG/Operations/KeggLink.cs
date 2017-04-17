@@ -1,5 +1,10 @@
 ﻿namespace DotKEGG {
 
+    /// <seealso cref="KeggConvert"/>
+    /// <seealso cref="KeggFind"/>
+    /// <seealso cref="KeggGet"/>
+    /// <seealso cref="KeggInfo"/>
+    /// <seealso cref="KeggList"/>
     public static class KeggLink {
 
         public static string[] Link(Database targetDb, Database sourceDb) =>
