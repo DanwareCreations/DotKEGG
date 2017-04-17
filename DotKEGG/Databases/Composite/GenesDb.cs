@@ -6,7 +6,7 @@
     /// <inheritdoc/>
     public sealed class GenesDb : KeggCompositeDb {
 
-        private static GenesDb _instance = new GenesDb();
+        private static GenesDb s_instance = new GenesDb();
 
         private GenesDb() {
             Name = "genes";
@@ -16,12 +16,10 @@
         /// <summary>
         /// <token>CompositeDbInstanceSummary</token>
         /// </summary>
-        public static GenesDb Instance => _instance;
+        public static GenesDb Instance => s_instance;
 
         /// <include file='../../../DotKEGG.Docs/IncludeFiles/Databases/KeggDb.xml' path='content/item[@name="GenomeDbEntryComments"]/*'/>
-        public static TNumber Genome(uint number) {
-            return new TNumber(number);
-        }
+        public static TNumber Genome(uint number) => new TNumber(number);
 
     }
 
