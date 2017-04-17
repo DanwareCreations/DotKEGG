@@ -10,15 +10,32 @@ namespace DotKEGG {
 
         public static string[] GetText(params string[] parameters) {
             string uri = string.Join("/", parameters);
-            string response = s_web.DownloadString(uri);
-            string[] ids = response.Split('\n').Select(row => row.Split('\t')[0]).ToArray();
-            return ids;
+
+            try {
+                string response = s_web.DownloadString(uri);
+                string[] ids = response.Split('\n').Select(row => row.Split('\t')[0]).ToArray();
+                return ids;
+            }
+            catch (Exception e) {
+                throw new ArgumentException($"KEGG operation could not be completed!  This may be due to Internet connectivity issues, or to invalid query parameters.", e);
+            }
         }
 
-        public static string[] GetDBGET(params string[] parameters) {
-            string uri = "get/" + string.Join("/", parameters);
-            string response = s_web.DownloadString(uri);
-            return response.Split(new string[1] { "///" }, StringSplitOptions.None);
+        /// <summary>
+        /// Gets current info for the provided database
+        /// </summary>
+        /// <param name="database">The name of the database to get info for.</param>
+        /// <returns></returns>
+        public static InfoResults GetInfo(string database) {
+            string uri = $"info/{database}";
+
+            try {
+                string response = s_web.DownloadString(uri);
+                return new InfoResults(response);
+            }
+            catch (Exception e) {
+                throw new ArgumentException($"KEGG Info operation could not be completed!  This may be due to Internet connectivity issues, or to invalid query parameters.", e);
+            }
         }
 
     }
