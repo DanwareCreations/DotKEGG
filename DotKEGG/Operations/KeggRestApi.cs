@@ -15,12 +15,6 @@ namespace DotKEGG {
             return ids;
         }
 
-        public static InfoResults GetInfo(params string[] parameters) {
-            string uri = "info/" + string.Join("/", parameters);
-            string response = s_web.DownloadString(uri);
-            return new InfoResults(response);
-        }
-
         public static string[] GetDBGET(params string[] parameters) {
             string uri = "get/" + string.Join("/", parameters);
             string response = s_web.DownloadString(uri);
