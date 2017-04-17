@@ -1,6 +1,4 @@
-﻿using System;
-
-namespace DotKEGG {
+﻿namespace DotKEGG {
 
     public sealed class ECNumber {
 
@@ -25,27 +23,21 @@ namespace DotKEGG {
         public uint Id3 { get; }
         public uint SerialId { get; }
 
-        public static ECNumber OxidoReductase(uint id2, uint id3, uint serialId) {
-            return new ECNumber(Class.OxidoReductase, id2, id3, serialId);
-        }
-        public static ECNumber Transferase(uint id2, uint id3, uint serialId) {
-            return new ECNumber(Class.Transferase, id2, id3, serialId);
-        }
-        public static ECNumber Hydrolase(uint id2, uint id3, uint serialId) {
-            return new ECNumber(Class.Hydrolase, id2, id3, serialId);
-        }
-        public static ECNumber Lyase(uint id2, uint id3, uint serialId) {
-            return new ECNumber(Class.Lyase, id2, id3, serialId);
-        }
-        public static ECNumber Isomerase(uint id2, uint id3, uint serialId) {
-            return new ECNumber(Class.Isomerase, id2, id3, serialId);
-        }
-        public static ECNumber Ligase(uint id2, uint id3, uint serialId) {
-            return new ECNumber(Class.Ligase, id2, id3, serialId);
-        }
+        public static ECNumber OxidoReductase(uint id2, uint id3, uint serialId) =>
+            new ECNumber(Class.OxidoReductase, id2, id3, serialId);
+        public static ECNumber Transferase(uint id2, uint id3, uint serialId) =>
+            new ECNumber(Class.Transferase, id2, id3, serialId);
+        public static ECNumber Hydrolase(uint id2, uint id3, uint serialId) =>
+            new ECNumber(Class.Hydrolase, id2, id3, serialId);
+        public static ECNumber Lyase(uint id2, uint id3, uint serialId) =>
+            new ECNumber(Class.Lyase, id2, id3, serialId);
+        public static ECNumber Isomerase(uint id2, uint id3, uint serialId) =>
+            new ECNumber(Class.Isomerase, id2, id3, serialId);
+        public static ECNumber Ligase(uint id2, uint id3, uint serialId) =>
+            new ECNumber(Class.Ligase, id2, id3, serialId);
 
         public override bool Equals(object obj) {
-            ECNumber ec = obj as ECNumber;
+            var ec = obj as ECNumber;
             if (ec == null)
                 return false;
             return (
@@ -88,9 +80,7 @@ namespace DotKEGG {
 
             return hash;
         }
-        public override string ToString() {
-            return $"{(int)EcClass}.{Id2}.{Id3}.{SerialId}";
-        }
+        public override string ToString() => $"{(int)EcClass}.{Id2}.{Id3}.{SerialId}";
 
     }
 
