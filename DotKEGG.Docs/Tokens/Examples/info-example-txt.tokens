@@ -1,22 +1,17 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <content xml:space="preserve" xmlns:ddue="http://ddue.schemas.microsoft.com/authoring/2003/5" xmlns:xlink="http://www.w3.org/1999/xlink">
-  <item id="InfoDbExample"><para>
-      The following example returns info for the <token>CompoundDbLink</token> database
-      using <see cref="KeggInfo"/>, and prints its various members to the console.
-</para>
-<code language="cs" source="Operations/InfoDb.cs"/></item>
   <item id="InfoCompositeDbExample"><para>
   The following example returns info for the <token>LigandDbLink</token> composite database, and prints its various members to the console.
 </para>
-<code language="cs" source="Operations/InfoCompositeDb.cs"/></item>
+<code language="cs" source="Operations/InfoCompositeDb.cs" /></item>
+  <item id="InfoDbExample"><para>
+      The following example returns info for the <token>CompoundDbLink</token> database, and prints its various members to the console.
+</para>
+<code language="cs" source="Operations/InfoDb.cs" /></item>
   <item id="InfoHumanDbExample"><para>
   The following example shows two methods of returning info from the KEGG gene database for humans.
   The first method uses the human organism code, "<token>HumanOrganismCode</token>".
-  The second method uses the human T number, i.e., the human KEGG ID for the <token>GenomeDbLink</token> database.
+  The second method uses the human T number, i.e., the KEGG ID for the human <token>GenomeDbLink</token> database.
 </para>
-<code language="cs" source="Operations/InfoHumanDb.cs"/></item>
-  <item id="InfoKeggDbExample"><para>
-  The following example returns info for the entire KEGG database, and prints its various members to the console.
-</para>
-<code language="cs" source="Operations/InfoKeggDb.cs"/></item>
+<code language="cs" source="Operations/InfoHumanDb.cs" /></item>
 </content>
