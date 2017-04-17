@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 
 using NUnit.Framework;
@@ -10,6 +11,12 @@ namespace DotKEGG.Test {
 
         private static OrganismCode s_human = new OrganismCode("hsa");
         private static OrganismCode s_ecoli = new OrganismCode("eco");
+        
+        [Test(Author = "Dan Vicarel", TestOf = typeof(OrganismCode), Description = "Checks that OrganismCode Instances cannot be constructed with invalid codes.")]
+        public void OrganismCodeInvalidCodesTest() {
+            Assert.Throws<ArgumentNullException>(() => new OrganismCode(null));
+            Assert.Throws<ArgumentException>(() => new OrganismCode(string.Empty));
+        }
 
         [Test(Author = "Dan Vicarel", TestOf = typeof(OrganismCode), Description = "Checks that OrganismCode Instances have appropriate values")]
         [TestCaseSource(nameof(organismCodeInstanceTestCases))]
