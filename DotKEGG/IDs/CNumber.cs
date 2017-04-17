@@ -3,6 +3,11 @@
     /// <summary>
     /// Represents an identifier in the COMPOUND database.
     /// </summary>
+    /// <seealso cref="CompoundDb"/>
+    /// <seealso cref="LigandDb"/>
+    /// <seealso cref="KeggId"/>
+    /// <seealso cref="KeggDb"/>
+    /// <seealso cref="KeggCompositeDb"/>
     /// <inheritdoc/>
     public sealed class CNumber : KeggId {
 

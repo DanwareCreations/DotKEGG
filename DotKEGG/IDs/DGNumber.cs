@@ -3,6 +3,9 @@
     /// <summary>
     /// Represents an identifier in the DGROUP database.
     /// </summary>
+    /// <seealso cref="DrugGroupDb"/>
+    /// <seealso cref="KeggId"/>
+    /// <seealso cref="KeggDb"/>
     /// <inheritdoc/>
     public sealed class DGNumber : KeggId {
 

@@ -3,6 +3,9 @@
     /// <summary>
     /// Represents an identifier in the ENVIRON database.
     /// </summary>
+    /// <seealso cref="EnvironDb"/>
+    /// <seealso cref="KeggId"/>
+    /// <seealso cref="KeggDb"/>
     /// <inheritdoc/>
     public sealed class ENumber : KeggId {
 

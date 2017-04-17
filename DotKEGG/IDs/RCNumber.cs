@@ -3,6 +3,11 @@
     /// <summary>
     /// Represents an identifier in the RCLASS database.
     /// </summary>
+    /// <seealso cref="ReactionClassDb"/>
+    /// <seealso cref="LigandDb"/>
+    /// <seealso cref="KeggId"/>
+    /// <seealso cref="KeggDb"/>
+    /// <seealso cref="KeggCompositeDb"/>
     /// <inheritdoc/>
     public sealed class RCNumber : KeggId {
 

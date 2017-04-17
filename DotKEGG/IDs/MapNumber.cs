@@ -3,6 +3,9 @@
     /// <summary>
     /// Represents an identifier in the PATHWAY database.
     /// </summary>
+    /// <seealso cref="PathwayDb"/>
+    /// <seealso cref="KeggId"/>
+    /// <seealso cref="KeggDb"/>
     /// <inheritdoc/>
     public sealed class MapNumber : KeggId {
 

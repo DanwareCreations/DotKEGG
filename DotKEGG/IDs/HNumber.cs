@@ -3,6 +3,9 @@
     /// <summary>
     /// Represents an identifier in the DISEASE database.
     /// </summary>
+    /// <seealso cref="DiseaseDb"/>
+    /// <seealso cref="KeggId"/>
+    /// <seealso cref="KeggDb"/>
     /// <inheritdoc/>
     public sealed class HNumber : KeggId {
 
