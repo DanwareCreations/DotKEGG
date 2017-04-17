@@ -3,6 +3,13 @@
     /// <summary>
     /// Represents the <token>GenomesDbLink</token> composite database.
     /// </summary>
+    /// <seealso cref="TNumber"/>
+    /// <seealso cref="OrganismCode"/>
+    /// <seealso cref="GenesDb"/>
+    /// <seealso cref="GenomeDb"/>
+    /// <seealso cref="KeggId"/>
+    /// <seealso cref="KeggDb"/>
+    /// <seealso cref="KeggCompositeDb"/>
     /// <inheritdoc/>
     public sealed class GenomesDb : KeggCompositeDb {
 

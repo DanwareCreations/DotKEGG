@@ -3,6 +3,19 @@
     /// <summary>
     /// Represents the <token>LigandDbLink</token> composite database.
     /// </summary>
+    /// <seealso cref="CNumber"/>
+    /// <seealso cref="ECNumber"/>
+    /// <seealso cref="GNumber"/>
+    /// <seealso cref="RNumber"/>
+    /// <seealso cref="RCNumber"/>
+    /// <seealso cref="CompoundDb"/>
+    /// <seealso cref="EnzymeDb"/>
+    /// <seealso cref="GlycanDb"/>
+    /// <seealso cref="ReactionDb"/>
+    /// <seealso cref="ReactionClassDb"/>
+    /// <seealso cref="KeggId"/>
+    /// <seealso cref="KeggDb"/>
+    /// <seealso cref="KeggCompositeDb"/>
     /// <inheritdoc/>
     public sealed class LigandDb : KeggCompositeDb {
 

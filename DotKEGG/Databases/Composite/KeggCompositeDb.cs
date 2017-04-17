@@ -8,6 +8,8 @@ namespace DotKEGG {
     /// <remarks>
     /// <include file='../../../DotKEGG.Docs/IncludeFiles/Databases/KeggDb.xml' path='content/item[@name="CompoundVsComposite"]/*'/>
     /// </remarks>
+    /// <seealso cref="KeggId"/>
+    /// <seealso cref="KeggDb"/>
     /// <threadsafety static="true" instance="true"/>
     public abstract class KeggCompositeDb : IEquatable<KeggCompositeDb> {
 

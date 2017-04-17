@@ -1,8 +1,16 @@
 ﻿namespace DotKEGG {
-    
+
     /// <summary>
     /// Represents the <token>EnzymeDbLink</token> composite database.
     /// </summary>
+    /// <seealso cref="ECNumber"/>
+    /// <seealso cref="KNumber"/>
+    /// <seealso cref="RNumber"/>
+    /// <seealso cref="OrthologyDb"/>
+    /// <seealso cref="ReactionDb"/>
+    /// <seealso cref="KeggId"/>
+    /// <seealso cref="KeggDb"/>
+    /// <seealso cref="KeggCompositeDb"/>
     /// <inheritdoc/>
     public sealed class EnzymeDb : KeggCompositeDb {
 
