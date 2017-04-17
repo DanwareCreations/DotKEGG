@@ -36,7 +36,6 @@
   <ItemGroup>
     <Compile Include="Databases\DbEntryComparison.cs" />
     <Compile Include="Operations\InfoHumanDb.cs" />
-    <Compile Include="Operations\InfoKeggDb.cs" />
     <Compile Include="Operations\InfoCompositeDb.cs" />
     <Compile Include="Operations\InfoDb.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

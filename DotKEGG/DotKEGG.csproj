@@ -54,7 +54,6 @@
     <Compile Include="KeggStrings.cs" />
     <Compile Include="Operations\KeggRestApi.cs" />
     <Compile Include="Operations\KeggList.cs" />
-    <Compile Include="Operations\KeggInfo.cs" />
     <Compile Include="IDs\DGNumber.cs" />
     <Compile Include="IDs\ENumber.cs" />
     <Compile Include="Databases\EnvironDb.cs" />

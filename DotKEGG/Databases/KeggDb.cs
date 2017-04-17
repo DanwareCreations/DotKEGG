@@ -41,7 +41,16 @@ namespace DotKEGG {
         /// <include file='../../DotKEGG.Docs/IncludeFiles/Databases/KeggDb.xml' path='content/item[@name="DbEntryComparison"]'/>
         /// </remarks>
         public abstract KeggId Entry(uint number);
-        
+
+        /// <summary>
+        /// Returns current info for the KEGG database.
+        /// </summary>
+        /// <returns>Current info for the KEGG database.</returns>
+        /// <example>
+        /// <token>InfoDbExample</token>
+        /// </example>
+        public InfoResults Info() => KeggRestApi.GetInfo(Name);
+
         /// <inheritdoc/>
         public override bool Equals(object obj) {
             var kdb = obj as KeggDb;

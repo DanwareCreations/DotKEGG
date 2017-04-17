@@ -29,6 +29,21 @@ namespace DotKEGG {
         public string Abbreviation { get; protected set; }
 
         /// <summary>
+        /// Returns current info for the KEGG composite database.
+        /// </summary>
+        /// <returns>Current info for the KEGG composite database.</returns>
+        /// <remarks>
+        /// A composite database is actually a wrapper for several "auxiliary" databases.
+        /// For example, the KEGG <token>GenomesDbLink</token> database is actually made up of the genome, egenome, and mgenome databases.
+        /// Getting info for a composite database like <token>GenomesDbLink</token> will return info about 
+        /// all of that database's auxiliary databases.
+        /// </remarks>
+        /// <example>
+        /// <token>InfoCompositeDbExample</token>
+        /// </example>
+        public InfoResults Info() => KeggRestApi.GetInfo(Name);
+
+        /// <summary>
         /// Determines whether this instance and another specified <see cref="KeggCompositeDb"/> represent the same KEGG composite database.
         /// </summary>
         /// <param name="other">The composite database to compare to this instance.</param>
