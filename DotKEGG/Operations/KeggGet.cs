@@ -2,6 +2,11 @@
 
 namespace DotKEGG {
 
+    /// <seealso cref="KeggConvert"/>
+    /// <seealso cref="KeggFind"/>
+    /// <seealso cref="KeggInfo"/>
+    /// <seealso cref="KeggLink"/>
+    /// <seealso cref="KeggList"/>
     public static class KeggGet {
 
         public static string[] Get(params KeggId[] entries) {
