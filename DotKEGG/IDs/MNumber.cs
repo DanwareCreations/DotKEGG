@@ -13,10 +13,7 @@
         /// Creates a new KEGG Module identifier (a.k.a., MNumber) with the provided number.
         /// </summary>
         /// <param name="number">The identifier's 5-digit number.</param>
-        public MNumber(uint number) {
-            Number = number;
-            _db = ModuleDb.Instance;
-        }
+        public MNumber(uint number) : base(ModuleDb.Instance, number) { }
 
     }
 

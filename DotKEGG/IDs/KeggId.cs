@@ -16,7 +16,12 @@ namespace DotKEGG {
         /// <summary>
         /// The KEGG database to which this identifier belongs.
         /// </summary>
-        protected KeggDb _db;
+        private KeggDb _db;
+
+        protected KeggId(KeggDb database, uint number) {
+            _db = database;
+            Number = number;
+        }
 
         /// <summary>
         /// The 5-digit number of the KEGG ID.

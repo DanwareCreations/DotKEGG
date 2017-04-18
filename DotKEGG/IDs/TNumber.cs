@@ -21,10 +21,7 @@ namespace DotKEGG {
         /// Creates a new KEGG Genome identifier (a.k.a., TNumber) with the provided number.
         /// </summary>
         /// <param name="number">The identifier's 5-digit number.</param>
-        public TNumber(uint number) {
-            Number = number;
-            _db = GenomeDb.Instance;
-        }
+        public TNumber(uint number) : base(GenomeDb.Instance, number) { }
 
         /// <summary>
         /// Returns the <see cref="OrganismCode"/> of the KEGG Organism that is associated with this genome.

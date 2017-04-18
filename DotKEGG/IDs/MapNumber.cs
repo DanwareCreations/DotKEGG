@@ -13,10 +13,7 @@
         /// Creates a new KEGG Pathway identifier (a.k.a., MapNumber) with the provided number.
         /// </summary>
         /// <param name="number">The identifier's 5-digit number.</param>
-        public MapNumber(uint number) {
-            Number = number;
-            _db = PathwayDb.Instance;
-        }
+        public MapNumber(uint number) : base(PathwayDb.Instance, number) { }
 
     }
 

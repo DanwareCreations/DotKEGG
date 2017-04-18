@@ -15,10 +15,7 @@
         /// Creates a new KEGG Reaction Class identifier (a.k.a., RCNumber) with the provided number.
         /// </summary>
         /// <param name="number">The identifier's 5-digit number.</param>
-        public RCNumber(uint number) {
-            Number = number;
-            _db = ReactionClassDb.Instance;
-        }
+        public RCNumber(uint number) : base(ReactionClassDb.Instance, number) { }
 
     }
 

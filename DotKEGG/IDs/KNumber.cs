@@ -13,10 +13,7 @@
         /// Creates a new KEGG Orthology identifier (a.k.a., KNumber) with the provided number.
         /// </summary>
         /// <param name="number">The identifier's 5-digit number.</param>
-        public KNumber(uint number) {
-            Number = number;
-            _db = OrthologyDb.Instance;
-        }
+        public KNumber(uint number) : base(OrthologyDb.Instance, number) { }
 
     }
 

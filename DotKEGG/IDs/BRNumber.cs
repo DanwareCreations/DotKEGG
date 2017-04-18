@@ -13,10 +13,7 @@
         /// Creates a new KEGG Brite identifier (a.k.a., BRNumber) with the provided number.
         /// </summary>
         /// <param name="number">The identifier's 5-digit number.</param>
-        public BRNumber(uint number) {
-            Number = number;
-            _db = BriteDb.Instance;
-        }
+        public BRNumber(uint number) : base(BriteDb.Instance, number) { }
 
     }
 
