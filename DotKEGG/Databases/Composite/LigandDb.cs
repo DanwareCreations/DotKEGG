@@ -21,10 +21,7 @@
 
         private static LigandDb s_instance = new LigandDb();
 
-        private LigandDb() {
-            Name = "ligand";
-            Abbreviation = "ligand";
-        }
+        private LigandDb() : base("ligand", "ligand") { }
 
         /// <summary>
         /// <token>CompositeDbInstanceSummary</token>

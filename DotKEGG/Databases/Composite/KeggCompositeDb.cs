@@ -13,6 +13,11 @@ namespace DotKEGG {
     /// <threadsafety static="true" instance="true"/>
     public abstract class KeggCompositeDb : IEquatable<KeggCompositeDb> {
 
+        protected KeggCompositeDb(string name, string abbrev) {
+            Name = name;
+            Abbreviation = abbrev;
+        }
+
         /// <summary>
         /// The name of the composite database.
         /// </summary>

@@ -17,10 +17,7 @@
 
         private static GenesDb s_instance = new GenesDb();
 
-        private GenesDb() {
-            Name = "genes";
-            Abbreviation = "genes";
-        }
+        private GenesDb() : base("genes", "genes") { }
 
         /// <summary>
         /// <token>CompositeDbInstanceSummary</token>

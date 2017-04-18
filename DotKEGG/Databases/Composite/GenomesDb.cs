@@ -15,10 +15,7 @@
 
         private static GenomesDb s_instance = new GenomesDb();
 
-        private GenomesDb() {
-            Name = "genomes";
-            Abbreviation = "gn";
-        }
+        private GenomesDb() : base("genomes", "gn") { }
 
         /// <summary>
         /// <token>CompositeDbInstanceSummary</token>

@@ -16,10 +16,7 @@
 
         private static EnzymeDb s_instance = new EnzymeDb();
 
-        private EnzymeDb() {
-            Name = "enzyme";
-            Abbreviation = "ec";
-        }
+        private EnzymeDb() : base("enzyme", "ec") { }
 
         /// <summary>
         /// <token>CompositeDbInstanceSummary</token>
