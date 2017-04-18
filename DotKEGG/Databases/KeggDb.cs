@@ -10,6 +10,12 @@ namespace DotKEGG {
     /// <threadsafety static="true" instance="true"/>
     public abstract class KeggDb : IEquatable<KeggDb> {
 
+        protected KeggDb(string name, string abbrev, string prefix) {
+            Name = name;
+            Abbreviation = abbrev;
+            Prefix = prefix;
+        }
+
         /// <summary>
         /// The name of the database.
         /// </summary>

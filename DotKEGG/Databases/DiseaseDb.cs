@@ -11,11 +11,7 @@
 
         private static DiseaseDb s_instance = new DiseaseDb();
 
-        private DiseaseDb() {
-            Name = "disease";
-            Abbreviation = "ds";
-            Prefix = "H";
-        }
+        private DiseaseDb() : base("disease", "ds", "H") { }
 
         /// <summary>
         /// <token>DbInstanceSummary</token>

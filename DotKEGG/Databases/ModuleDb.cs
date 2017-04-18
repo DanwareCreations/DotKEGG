@@ -11,11 +11,7 @@
 
         private static ModuleDb s_instance = new ModuleDb();
 
-        private ModuleDb() {
-            Name = "module";
-            Abbreviation = "md";
-            Prefix = "M";
-        }
+        private ModuleDb() : base("module", "md", "M") { }
 
         /// <summary>
         /// <token>DbInstanceSummary</token>

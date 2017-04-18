@@ -17,11 +17,7 @@ namespace DotKEGG {
 
         private static GenomeDb s_instance = new GenomeDb();
 
-        private GenomeDb() {
-            Name = "genome";
-            Abbreviation = "genome";
-            Prefix = "T";
-        }
+        private GenomeDb() : base("genome", "genome", "T") { }
 
         /// <summary>
         /// <token>DbInstanceSummary</token>

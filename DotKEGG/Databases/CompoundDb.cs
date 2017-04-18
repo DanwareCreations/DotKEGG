@@ -15,12 +15,8 @@
     public sealed class CompoundDb : KeggDb {
 
         private static CompoundDb s_instance = new CompoundDb();
-
-        private CompoundDb() {
-            Name = "compound";
-            Abbreviation = "cpd";
-            Prefix = "C";
-        }
+        
+        private CompoundDb() : base("compound", "cpd", "C") { }
 
         /// <summary>
         /// <token>DbInstanceSummary</token>

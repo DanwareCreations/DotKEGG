@@ -11,11 +11,7 @@
 
         private static BriteDb s_instance = new BriteDb();
 
-        private BriteDb() {
-            Name = "brite";
-            Abbreviation = "br";
-            Prefix = "BR";
-        }
+        private BriteDb() : base("brite", "br", "BR") { }
 
         /// <summary>
         /// <token>DbInstanceSummary</token>

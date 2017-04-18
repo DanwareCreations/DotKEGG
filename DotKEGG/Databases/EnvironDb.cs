@@ -11,11 +11,7 @@
 
         private static EnvironDb s_instance = new EnvironDb();
 
-        private EnvironDb() {
-            Name = "environ";
-            Abbreviation = "ev";
-            Prefix = "E";
-        }
+        private EnvironDb() : base("environ", "ev", "E") { }
 
         /// <summary>
         /// <token>DbInstanceSummary</token>

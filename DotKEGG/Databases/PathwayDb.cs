@@ -11,11 +11,7 @@
 
         private static PathwayDb s_instance = new PathwayDb();
 
-        private PathwayDb() {
-            Name = "pathway";
-            Abbreviation = "path";
-            Prefix = "map";
-        }
+        private PathwayDb() : base("pathway", "path", "map") { }
 
         /// <summary>
         /// <token>DbInstanceSummary</token>

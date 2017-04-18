@@ -11,11 +11,7 @@
 
         private static DrugGroupDb s_instance = new DrugGroupDb();
 
-        private DrugGroupDb() {
-            Name = "dgroup";
-            Abbreviation = "dg";
-            Prefix = "DG";
-        }
+        private DrugGroupDb() : base("dgroup", "dg", "DG") { }
 
         /// <summary>
         /// <token>DbInstanceSummary</token>

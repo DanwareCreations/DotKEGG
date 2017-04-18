@@ -13,11 +13,7 @@
 
         private static ReactionDb s_instance = new ReactionDb();
 
-        private ReactionDb() {
-            Name = "reaction";
-            Abbreviation = "rn";
-            Prefix = "R";
-        }
+        private ReactionDb() : base("reaction", "rn", "R") { }
 
         /// <summary>
         /// <token>DbInstanceSummary</token>

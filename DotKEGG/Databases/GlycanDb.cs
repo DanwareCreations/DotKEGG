@@ -13,11 +13,7 @@
 
         private static GlycanDb s_instance = new GlycanDb();
 
-        private GlycanDb() {
-            Name = "glycan";
-            Abbreviation = "gl";
-            Prefix = "G";
-        }
+        private GlycanDb() : base("glycan", "gl", "G") { }
 
         /// <summary>
         /// <token>DbInstanceSummary</token>

@@ -13,11 +13,7 @@
 
         private static ReactionClassDb s_instance = new ReactionClassDb();
 
-        private ReactionClassDb() {
-            Name = "rclass";
-            Abbreviation = "rc";
-            Prefix = "RC";
-        }
+        private ReactionClassDb() : base("rclass", "rc", "RC") { }
 
         /// <summary>
         /// <token>DbInstanceSummary</token>

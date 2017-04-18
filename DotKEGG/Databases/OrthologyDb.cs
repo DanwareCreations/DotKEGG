@@ -12,11 +12,7 @@
 
         private static OrthologyDb s_instance = new OrthologyDb();
 
-        private OrthologyDb() {
-            Name = "orthology";
-            Abbreviation = "ko";
-            Prefix = "K";
-        }
+        private OrthologyDb() : base("orthology", "ko", "K") { }
 
         /// <summary>
         /// <token>DbInstanceSummary</token>
