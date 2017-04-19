@@ -5,7 +5,12 @@ using System.Linq;
 
 namespace DotKEGG {
 
-    internal static class KeggRestApi {
+#if DEBUG
+    public static class KeggRestApi
+#else
+    internal static class KeggRestApi
+#endif
+    {
 
         private static WebClient s_web = new WebClient() { BaseAddress = "http://rest.kegg.jp/" };
 
