@@ -1,4 +1,5 @@
 ﻿using System;
+using System.IO;
 using System.Net;
 using System.Linq;
 
@@ -18,6 +19,18 @@ namespace DotKEGG {
             }
             catch (Exception e) {
                 throw new ArgumentException($"KEGG operation could not be completed!  This may be due to Internet connectivity issues, or to invalid query parameters.", e);
+            }
+        }
+
+        public static KeggReader OpenRead<T>(params string[] parameters) {
+            string uri = string.Join("/", parameters);
+
+            try {
+                Stream strm = s_web.OpenRead(uri);
+                return new KeggReader(strm);
+            }
+            catch (Exception e) {
+                throw new ArgumentException($"Could not open a stream reader for the KEGG operation.  This may be due to Internet connectivity issues, or to invalid query parameters.", e);
             }
         }
 
