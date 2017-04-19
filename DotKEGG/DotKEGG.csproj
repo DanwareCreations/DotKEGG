@@ -37,6 +37,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ECEnzymeClass.cs" />
     <Compile Include="IDs\BRNumber.cs" />
     <Compile Include="IDs\OrganismCode.cs" />
     <Compile Include="InfoResults.cs" />

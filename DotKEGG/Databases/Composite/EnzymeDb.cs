@@ -28,7 +28,7 @@
         /// <include file='../../../DotKEGG.Docs/IncludeFiles/Databases/KeggDb.xml' path='content/item[@name="OrthologyDbEntryComments"]/*'/>
         public static KNumber Orthology(uint number) => new KNumber(number);
         /// <include file='../../../DotKEGG.Docs/IncludeFiles/Databases/KeggDb.xml' path='content/item[@name="EnzymeDbEntryComments"]/*'/>
-        public static ECNumber Enzyme(ECNumber.Class ecClass, uint id2, uint id3, uint serialId) =>
+        public static ECNumber Enzyme(ECEnzymeClass ecClass, uint id2, uint id3, uint serialId) =>
             new ECNumber(ecClass, id2, id3, serialId);
 
     }
