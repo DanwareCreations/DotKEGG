@@ -50,6 +50,8 @@
   </Choose>
   <ItemGroup>
     <Compile Include="CompositeDbTest.cs" />
+    <Compile Include="KeggReaderGenericTest.cs" />
+    <Compile Include="KeggReaderTest.cs" />
     <Compile Include="OrganismCodeTest.cs" />
     <Compile Include="IdTest.cs" />
     <Compile Include="DbTest.cs" />
