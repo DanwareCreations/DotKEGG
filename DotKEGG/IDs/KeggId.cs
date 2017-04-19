@@ -18,6 +18,11 @@ namespace DotKEGG {
         /// </summary>
         private KeggDb _db;
 
+        /// <summary>
+        /// Initializes a new instance of the <see cref="KeggId"/> class.
+        /// </summary>
+        /// <param name="database">The KEGG database to which this ID's entry belongs.</param>
+        /// <param name="number">The 5-digit number of the KEGG ID.</param>
         protected KeggId(KeggDb database, uint number) {
             _db = database;
             Number = number;

@@ -10,6 +10,12 @@ namespace DotKEGG {
     /// <threadsafety static="true" instance="true"/>
     public abstract class KeggDb : IEquatable<KeggDb> {
 
+        /// <summary>
+        /// Initializes a new instance of the <see cref="KeggDb"/> class.
+        /// </summary>
+        /// <param name="name">The name of the KEGG database.</param>
+        /// <param name="abbrev">The abbreviation of the KEGG database.</param>
+        /// <param name="prefix">The prefix for KEGG IDs in the KEGG database.</param>
         protected KeggDb(string name, string abbrev, string prefix) {
             Name = name;
             Abbreviation = abbrev;
