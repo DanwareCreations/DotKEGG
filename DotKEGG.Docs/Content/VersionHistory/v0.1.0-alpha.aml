@@ -1,21 +1,28 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<topic id="257afbcb-3fba-41f9-b7ea-b0ff40928339" revisionNumber="1">
-	<developerConceptualDocument xmlns="http://ddue.schemas.microsoft.com/authoring/2003/5" xmlns:xlink="http://www.w3.org/1999/xlink">
-		<introduction>
-			<para>Version 0.1.0-alpha was released on 3/20/2017.
-			</para>
-		</introduction>
+<topic id="257afbcb-3fba-41f9-b7ea-b0ff40928339" revisionNumber="2">
+  <developerConceptualDocument xmlns="http://ddue.schemas.microsoft.com/authoring/2003/5" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <introduction>
+      <para>Version 0.1.0-alpha was released on 3/20/2017.
+      </para>
+    </introduction>
 
-		<section>
-			<title>Changes in This Release</title>
-			<content>
-        <para>This was the initial project release.</para>
-			</content>
-		</section>
+    <section>
+      <title>Changes in This Release</title>
+      <content>
+        <para>
+          This was the initial project release.  Check out the
+          <externalLink>
+            <linkText>release page</linkText>
+            <linkUri>https://github.com/DanwareCreations/DotKEGG/releases/tag/v0.1.0-alpha</linkUri>
+          </externalLink>
+          on GitHub for more information.
+        </para>
+      </content>
+    </section>
 
-		<relatedTopics>
-			<link xlink:href="bff6fc53-a0cb-4309-bca0-da8d3998f6ee" />
-		</relatedTopics>
+    <relatedTopics>
+      <link xlink:href="bff6fc53-a0cb-4309-bca0-da8d3998f6ee" />
+    </relatedTopics>
 
-	</developerConceptualDocument>
+  </developerConceptualDocument>
 </topic>

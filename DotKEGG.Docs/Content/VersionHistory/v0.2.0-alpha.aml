@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<topic id="c139f603-c943-4b15-871c-8e951bb4a4b0" revisionNumber="1">
+<topic id="c139f603-c943-4b15-871c-8e951bb4a4b0" revisionNumber="2">
   <developerConceptualDocument xmlns="http://ddue.schemas.microsoft.com/authoring/2003/5" xmlns:xlink="http://www.w3.org/1999/xlink">
     <introduction>
       <para>
@@ -10,7 +10,15 @@
     <section>
       <title>Changes in This Release</title>
       <content>
-        <para>This release added unit tests, and complete API reference documentation, for the KeggInfo operation and all database classes.</para>
+        <para>
+          This release added unit tests, and complete API reference documentation, for the <codeEntityReference>T:DotKEGG.KeggInfo</codeEntityReference> 
+          operation and all database classes.  Check out the 
+          <externalLink>
+            <linkText>release page</linkText>
+            <linkUri>https://github.com/DanwareCreations/DotKEGG/releases/tag/v0.2.0-alpha</linkUri>
+          </externalLink>
+          on GitHub for more information.
+        </para>
       </content>
     </section>
 
