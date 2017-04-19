@@ -5,7 +5,7 @@
     /// </summary>
     /// <seealso cref="KNumber"/>
     /// <seealso cref="RNumber"/>
-    /// <seealso cref="Class"/>
+    /// <seealso cref="ECEnzymeClass"/>
     /// <seealso cref="OrthologyDb"/>
     /// <seealso cref="ReactionDb"/>
     /// <seealso cref="EnzymeDb"/>
@@ -14,45 +14,13 @@
     public sealed class ECNumber {
 
         /// <summary>
-        /// Specifies the Enzyme Commission class of an enzyme, i.e., the first number in its EC Number.
-        /// </summary>
-        /// <seealso cref="ECNumber"/>
-        /// <seealso cref="EnzymeDb"/>
-        public enum Class {
-            /// <summary>
-            /// Catalyze oxidation/reduction reactions; transfer of H and O atoms or electrons from one substance to another.
-            /// </summary>
-            OxidoReductase = 1,
-            /// <summary>
-            /// Catalyze transfer of methyl-, acyl- amino-, or phosphate groups from one substance to another.
-            /// </summary>
-            Transferase = 2,
-            /// <summary>
-            /// Catalyze formation of two products from a substrate by hydrolysis.
-            /// </summary>
-            Hydrolase = 3,
-            /// <summary>
-            /// Catalyze non-hydrolytic addition or removal of groups from substrates.  C-C, C-N, C-O, or C-S bonds may be cleaved.
-            /// </summary>
-            Lyase = 4,
-            /// <summary>
-            /// Catalyze intramolecular rearrangements, i.e., isomerization changes within a single molecule.
-            /// </summary>
-            Isomerase = 5,
-            /// <summary>
-            /// Join together two molecules by synthesis of new C-O, C-S, C-N, or C-C bonds with simultaneous breakdown of ATP.
-            /// </summary>
-            Ligase = 6,
-        }
-
-        /// <summary>
         /// Initializes a new instance of the <see cref="ECNumber"/> class with the specified IDs.
         /// </summary>
         /// <param name="ecClass">The Enzyme Commission class of the enzyme, corresponding to the first number in its EC number.</param>
         /// <param name="id2">The second number in the enzyme's Enzyme Commission number.</param>
         /// <param name="id3">The third number in the enzyme's Enzyme Commission number.</param>
         /// <param name="serialId">The fourth number in the enzyme's Enzyme Commission number, also known as its serial ID.</param>
-        public ECNumber(Class ecClass, uint id2, uint id3, uint serialId) {
+        public ECNumber(ECEnzymeClass ecClass, uint id2, uint id3, uint serialId) {
             EcClass = ecClass;
             Id2 = id2;
             Id3 = id3;
@@ -62,7 +30,7 @@
         /// <summary>
         /// The Enzyme Commission class of the enzyme, corresponding to the first number in its EC number.
         /// </summary>
-        public Class EcClass { get; }
+        public ECEnzymeClass EcClass { get; }
         /// <summary>
         /// The second number in the enzyme's Enzyme Commission number.
         /// </summary>
@@ -77,53 +45,53 @@
         public uint SerialId { get; }
 
         /// <summary>
-        /// Initializes a new <see cref="ECNumber"/> instance, using <see cref="Class.OxidoReductase"/> for the class ID.
+        /// Initializes a new <see cref="ECNumber"/> instance, using <see cref="ECEnzymeClass.OxidoReductase"/> for the class ID.
         /// </summary>
         /// <param name="id2">The second number in the enzyme's Enzyme Commission number.</param>
         /// <param name="id3">The third number in the enzyme's Enzyme Commission number.</param>
         /// <param name="serialId">The fourth number in the enzyme's Enzyme Commission number, also known as its serial ID.</param>
-        /// <returns>A new <see cref="ECNumber"/> object of the <see cref="Class.OxidoReductase"/> EC class, with the specified ID numbers.</returns>
-        public static ECNumber OxidoReductase(uint id2, uint id3, uint serialId) => new ECNumber(Class.OxidoReductase, id2, id3, serialId);
+        /// <returns>A new <see cref="ECNumber"/> object of the <see cref="ECEnzymeClass.OxidoReductase"/> EC class, with the specified ID numbers.</returns>
+        public static ECNumber OxidoReductase(uint id2, uint id3, uint serialId) => new ECNumber(ECEnzymeClass.OxidoReductase, id2, id3, serialId);
         /// <summary>
-        /// Initializes a new <see cref="ECNumber"/> instance, using <see cref="Class.Transferase"/> for the class ID.
+        /// Initializes a new <see cref="ECNumber"/> instance, using <see cref="ECEnzymeClass.Transferase"/> for the class ID.
         /// </summary>
         /// <param name="id2">The second number in the enzyme's Enzyme Commission number.</param>
         /// <param name="id3">The third number in the enzyme's Enzyme Commission number.</param>
         /// <param name="serialId">The fourth number in the enzyme's Enzyme Commission number, also known as its serial ID.</param>
-        /// <returns>A new <see cref="ECNumber"/> object of the <see cref="Class.Transferase"/> EC class, with the specified ID numbers.</returns>
-        public static ECNumber Transferase(uint id2, uint id3, uint serialId) => new ECNumber(Class.Transferase, id2, id3, serialId);
+        /// <returns>A new <see cref="ECNumber"/> object of the <see cref="ECEnzymeClass.Transferase"/> EC class, with the specified ID numbers.</returns>
+        public static ECNumber Transferase(uint id2, uint id3, uint serialId) => new ECNumber(ECEnzymeClass.Transferase, id2, id3, serialId);
         /// <summary>
-        /// Initializes a new <see cref="ECNumber"/> instance, using <see cref="Class.Hydrolase"/> for the class ID.
+        /// Initializes a new <see cref="ECNumber"/> instance, using <see cref="ECEnzymeClass.Hydrolase"/> for the class ID.
         /// </summary>
         /// <param name="id2">The second number in the enzyme's Enzyme Commission number.</param>
         /// <param name="id3">The third number in the enzyme's Enzyme Commission number.</param>
         /// <param name="serialId">The fourth number in the enzyme's Enzyme Commission number, also known as its serial ID.</param>
-        /// <returns>A new <see cref="ECNumber"/> object of the <see cref="Class.Hydrolase"/> EC class, with the specified ID numbers.</returns>
-        public static ECNumber Hydrolase(uint id2, uint id3, uint serialId) => new ECNumber(Class.Hydrolase, id2, id3, serialId);
+        /// <returns>A new <see cref="ECNumber"/> object of the <see cref="ECEnzymeClass.Hydrolase"/> EC class, with the specified ID numbers.</returns>
+        public static ECNumber Hydrolase(uint id2, uint id3, uint serialId) => new ECNumber(ECEnzymeClass.Hydrolase, id2, id3, serialId);
         /// <summary>
-        /// Initializes a new <see cref="ECNumber"/> instance, using <see cref="Class.Lyase"/> for the class ID.
+        /// Initializes a new <see cref="ECNumber"/> instance, using <see cref="ECEnzymeClass.Lyase"/> for the class ID.
         /// </summary>
         /// <param name="id2">The second number in the enzyme's Enzyme Commission number.</param>
         /// <param name="id3">The third number in the enzyme's Enzyme Commission number.</param>
         /// <param name="serialId">The fourth number in the enzyme's Enzyme Commission number, also known as its serial ID.</param>
-        /// <returns>A new <see cref="ECNumber"/> object of the <see cref="Class.Lyase"/> EC class, with the specified ID numbers.</returns>
-        public static ECNumber Lyase(uint id2, uint id3, uint serialId) => new ECNumber(Class.Lyase, id2, id3, serialId);
+        /// <returns>A new <see cref="ECNumber"/> object of the <see cref="ECEnzymeClass.Lyase"/> EC class, with the specified ID numbers.</returns>
+        public static ECNumber Lyase(uint id2, uint id3, uint serialId) => new ECNumber(ECEnzymeClass.Lyase, id2, id3, serialId);
         /// <summary>
-        /// Initializes a new <see cref="ECNumber"/> instance, using <see cref="Class.Isomerase"/> for the class ID.
+        /// Initializes a new <see cref="ECNumber"/> instance, using <see cref="ECEnzymeClass.Isomerase"/> for the class ID.
         /// </summary>
         /// <param name="id2">The second number in the enzyme's Enzyme Commission number.</param>
         /// <param name="id3">The third number in the enzyme's Enzyme Commission number.</param>
         /// <param name="serialId">The fourth number in the enzyme's Enzyme Commission number, also known as its serial ID.</param>
-        /// <returns>A new <see cref="ECNumber"/> object of the <see cref="Class.Isomerase"/> EC class, with the specified ID numbers.</returns>
-        public static ECNumber Isomerase(uint id2, uint id3, uint serialId) => new ECNumber(Class.Isomerase, id2, id3, serialId);
+        /// <returns>A new <see cref="ECNumber"/> object of the <see cref="ECEnzymeClass.Isomerase"/> EC class, with the specified ID numbers.</returns>
+        public static ECNumber Isomerase(uint id2, uint id3, uint serialId) => new ECNumber(ECEnzymeClass.Isomerase, id2, id3, serialId);
         /// <summary>
-        /// Initializes a new <see cref="ECNumber"/> instance, using <see cref="Class.Ligase"/> for the class ID.
+        /// Initializes a new <see cref="ECNumber"/> instance, using <see cref="ECEnzymeClass.Ligase"/> for the class ID.
         /// </summary>
         /// <param name="id2">The second number in the enzyme's Enzyme Commission number.</param>
         /// <param name="id3">The third number in the enzyme's Enzyme Commission number.</param>
         /// <param name="serialId">The fourth number in the enzyme's Enzyme Commission number, also known as its serial ID.</param>
-        /// <returns>A new <see cref="ECNumber"/> object of the <see cref="Class.Ligase"/> EC class, with the specified ID numbers.</returns>
-        public static ECNumber Ligase(uint id2, uint id3, uint serialId) => new ECNumber(Class.Ligase, id2, id3, serialId);
+        /// <returns>A new <see cref="ECNumber"/> object of the <see cref="ECEnzymeClass.Ligase"/> EC class, with the specified ID numbers.</returns>
+        public static ECNumber Ligase(uint id2, uint id3, uint serialId) => new ECNumber(ECEnzymeClass.Ligase, id2, id3, serialId);
 
         /// <inheritdoc/>
         public override bool Equals(object obj) {

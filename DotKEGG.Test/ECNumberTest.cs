@@ -8,16 +8,16 @@ namespace DotKEGG.Test {
     [TestFixture(Author = "Dan Vicarel", TestOf = typeof(ECNumber), Description = "Tests basic functionality of EC Numbers")]
     internal class ECNumberTest {
 
-        private static ECNumber s_oxidoreductase = LigandDb.Enzyme(ECNumber.Class.OxidoReductase, 2u, 1u, 12u);
-        private static ECNumber s_transferase = LigandDb.Enzyme(ECNumber.Class.Transferase, 3u, 2u, 13u);
-        private static ECNumber s_hydrolase = LigandDb.Enzyme(ECNumber.Class.Hydrolase, 4u, 11u, 4u);
-        private static ECNumber s_lyase = LigandDb.Enzyme(ECNumber.Class.Lyase, 6u, 1u, 1u);
-        private static ECNumber s_isomerase = LigandDb.Enzyme(ECNumber.Class.Isomerase, 5u, 3u, 4u);
-        private static ECNumber s_ligase = LigandDb.Enzyme(ECNumber.Class.Ligase, 4u, 1u, 1u);
+        private static ECNumber s_oxidoreductase = LigandDb.Enzyme(ECEnzymeClass.OxidoReductase, 2u, 1u, 12u);
+        private static ECNumber s_transferase = LigandDb.Enzyme(ECEnzymeClass.Transferase, 3u, 2u, 13u);
+        private static ECNumber s_hydrolase = LigandDb.Enzyme(ECEnzymeClass.Hydrolase, 4u, 11u, 4u);
+        private static ECNumber s_lyase = LigandDb.Enzyme(ECEnzymeClass.Lyase, 6u, 1u, 1u);
+        private static ECNumber s_isomerase = LigandDb.Enzyme(ECEnzymeClass.Isomerase, 5u, 3u, 4u);
+        private static ECNumber s_ligase = LigandDb.Enzyme(ECEnzymeClass.Ligase, 4u, 1u, 1u);
 
         [Test(Author = "Dan Vicarel", TestOf = typeof(ECNumber), Description = "Checks that EC Number Instances have appropriate values")]
         [TestCaseSource(nameof(ecNumberInstanceTestCases))]
-        public void ECNumberInstanceTest(ECNumber ec, ECNumber.Class classId, uint id2, uint id3, uint serialId, string ecStr) {
+        public void ECNumberInstanceTest(ECNumber ec, ECEnzymeClass classId, uint id2, uint id3, uint serialId, string ecStr) {
             Assert.AreEqual(classId, ec.EcClass);
             Assert.AreEqual(id2, ec.Id2);
             Assert.AreEqual(id3, ec.Id3);
@@ -27,7 +27,7 @@ namespace DotKEGG.Test {
 
         [Test(Author = "Dan Vicarel", TestOf = typeof(ECNumber), Description = "Checks that EC Number Instances have appropriate values")]
         [TestCaseSource(nameof(ecNumberInstanceTestCases))]
-        public void ECNumberFactoryTest(ECNumber ec, ECNumber.Class classId, uint id2, uint id3, uint serialId, string ecStr) {
+        public void ECNumberFactoryTest(ECNumber ec, ECEnzymeClass classId, uint id2, uint id3, uint serialId, string ecStr) {
             // Construct some EC Numbers using the EC Class-specific factory methods
             var oxidoreductase = ECNumber.OxidoReductase(2u, 1u, 12u);
             var transferase = ECNumber.Transferase(3u, 2u, 13u);
@@ -116,12 +116,12 @@ namespace DotKEGG.Test {
         }
 
         private static IEnumerable<TestCaseData> ecNumberInstanceTestCases() {
-            yield return new TestCaseData(s_oxidoreductase, ECNumber.Class.OxidoReductase, 2u, 1u, 12u, "1.2.1.12");
-            yield return new TestCaseData(s_transferase, ECNumber.Class.Transferase, 3u, 2u, 13u, "2.3.2.13");
-            yield return new TestCaseData(s_hydrolase, ECNumber.Class.Hydrolase, 4u, 11u, 4u, "3.4.11.4");
-            yield return new TestCaseData(s_lyase, ECNumber.Class.Lyase, 6u, 1u, 1u, "4.6.1.1");
-            yield return new TestCaseData(s_isomerase, ECNumber.Class.Isomerase, 5u, 3u, 4u, "5.5.3.4");
-            yield return new TestCaseData(s_ligase, ECNumber.Class.Ligase, 4u, 1u, 1u, "6.4.1.1");
+            yield return new TestCaseData(s_oxidoreductase, ECEnzymeClass.OxidoReductase, 2u, 1u, 12u, "1.2.1.12");
+            yield return new TestCaseData(s_transferase, ECEnzymeClass.Transferase, 3u, 2u, 13u, "2.3.2.13");
+            yield return new TestCaseData(s_hydrolase, ECEnzymeClass.Hydrolase, 4u, 11u, 4u, "3.4.11.4");
+            yield return new TestCaseData(s_lyase, ECEnzymeClass.Lyase, 6u, 1u, 1u, "4.6.1.1");
+            yield return new TestCaseData(s_isomerase, ECEnzymeClass.Isomerase, 5u, 3u, 4u, "5.5.3.4");
+            yield return new TestCaseData(s_ligase, ECEnzymeClass.Ligase, 4u, 1u, 1u, "6.4.1.1");
     }
 
     }
