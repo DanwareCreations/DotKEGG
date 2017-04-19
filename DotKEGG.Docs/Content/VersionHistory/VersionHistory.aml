@@ -13,8 +13,7 @@
       <content>
         <para>
           Be aware that breaking changes may have been made since the last release you were using.
-          Please review the release notes from all releases after it to the latest to find changes that may require you to
-          update your project such as modifications to build component and plug-in configurations.
+          Please review the release notes of all releases after it to find any changes that may require you to update your project.
         </para>
 
         <list class="bullet">
