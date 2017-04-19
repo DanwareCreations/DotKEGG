@@ -1,0 +1,62 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<topic id="88579416-a034-4264-bf9b-80355237b15c" revisionNumber="1">
+  <developerConceptualDocument xmlns="http://ddue.schemas.microsoft.com/authoring/2003/5" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <introduction>
+      <para>
+        Version 0.4.0-alpha was released on 4/19/2017.
+      </para>
+    </introduction>
+
+    <section>
+      <title>Changes in This Release</title>
+      <content>
+        <para>
+          A high-level list of changes made to the DotKEGG API, and/or its documentation, in this release is presented below.
+          For a detailed list of all issues that were closed, please visit the
+          <externalLink>
+            <linkText>release page</linkText>
+            <linkUri>https://github.com/DanwareCreations/DotKEGG/releases/tag/v0.4.0-alpha</linkUri>
+          </externalLink>
+          on GitHub.
+        </para>
+        <list class="bullet">
+          <listItem>
+            <para>
+              Added SeeAlso links to most type documentation topics
+            </para>
+          </listItem>
+          <listItem>
+            <para>
+              Added an <codeEntityReference>T:DotKEGG.OrganismCode</codeEntityReference> class to wrap an organism code string
+            </para>
+          </listItem>
+          <listItem>
+            <para>
+              Added a <codeEntityReference>T:DotKEGG.KeggReader</codeEntityReference> class to permit working with KEGG operation results like a Stream
+            </para>
+          </listItem>
+          <listItem>
+            <para>
+              The Info operation is now performed through an <codeEntityReference linkText="instance method">M:DotKEGG.KeggDb.Info</codeEntityReference> instance method on KeggDb objects
+            </para>
+          </listItem>
+          <listItem>
+            <para>
+              Added many new unit tests for these new types/methods, bringing the total number of active unit tests to 106!
+            </para>
+          </listItem>
+          <listItem>
+            <para>
+              The ECNumber.Class enumeration is now called <codeEntityReference>T:DotKEGG.ECEnzymeClass</codeEntityReference> and is directly inside the DotKEGG namespace
+            </para>
+          </listItem>
+        </list>
+      </content>
+    </section>
+
+    <relatedTopics>
+      <link xlink:href="bff6fc53-a0cb-4309-bca0-da8d3998f6ee" />
+    </relatedTopics>
+
+  </developerConceptualDocument>
+</topic>
