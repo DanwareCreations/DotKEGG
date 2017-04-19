@@ -13,7 +13,7 @@ namespace DotKEGG.Test {
         private static OrganismCode s_ecoli = new OrganismCode("eco");
         
         [Test(Author = "Dan Vicarel", TestOf = typeof(OrganismCode), Description = "Checks that OrganismCode Instances cannot be constructed with invalid codes.")]
-        public void OrganismCodeInvalidCodesTest() {
+        public void OrganismCodeConstructorTest() {
             Assert.Throws<ArgumentNullException>(() => new OrganismCode(null));
             Assert.Throws<ArgumentException>(() => new OrganismCode(string.Empty));
         }
