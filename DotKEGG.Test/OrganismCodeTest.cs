@@ -6,7 +6,7 @@ using NUnit.Framework;
 
 namespace DotKEGG.Test {
 
-    [TestFixture(Author = "Dan Vicarel", TestOf = typeof(OrganismCode), Description = "Tests basic functionality of ID classes")]
+    [TestFixture(Author = "Dan Vicarel", TestOf = typeof(OrganismCode), Description = "Tests basic functionality of organism codes")]
     internal class OrganismCodeTest {
 
         private static OrganismCode s_human = new OrganismCode("hsa");
@@ -82,7 +82,7 @@ namespace DotKEGG.Test {
             Assert.True(a != null);
         }
 
-        [Test(Author = "Dan Vicarel", TestOf = typeof(OrganismCode), Description = "Checks that all OrganismCodes have unique HashCodes")]
+        [Test(Author = "Dan Vicarel", TestOf = typeof(OrganismCode), Description = "Checks that all OrganismCode Instances have unique HashCodes")]
         public void OrganismCodeUniqueHashCodeTest() {
             int[] hashCodes = new int[2] {
                  s_human.GetHashCode(),
