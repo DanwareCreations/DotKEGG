@@ -46,6 +46,7 @@
     <Compile Include="Databases\Composite\KeggCompositeDb.cs" />
     <Compile Include="Databases\Composite\EnzymeDb.cs" />
     <Compile Include="IDs\ECNumber.cs" />
+    <Compile Include="KeggReader.cs" />
     <Compile Include="Operations\KeggEnums.cs" />
     <Compile Include="KeggStrings.cs" />
     <Compile Include="Operations\KeggRestApi.cs" />
