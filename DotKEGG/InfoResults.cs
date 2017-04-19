@@ -7,7 +7,7 @@ using System.Collections.ObjectModel;
 namespace DotKEGG {
 
     /// <summary>
-    /// Represents the current statistics of a given database, as returned by the <see cref="KeggInfo"/> operation.
+    /// Represents the current statistics of a given database, as returned by the KEGG Info operation.
     /// </summary>
     /// <remarks>
     /// <include file='../DotKEGG.Docs/IncludeFiles/Operations/Info.xml' path='content/item[@name="InfoResponseSyntax"]/*'/>
