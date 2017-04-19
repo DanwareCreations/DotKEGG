@@ -38,19 +38,29 @@ namespace DotKEGG {
             return idFromLine(line);
         }
         public int ReadBlock(KeggId[] buffer, int index, int count) {
+            // Validate parameters
             if (_disposed)
                 throw new InvalidOperationException("Cannot read KEGG IDs from a reader that has been disposed!");
+            if (buffer == null)
+                throw new ArgumentNullException(nameof(buffer), "Cannot read a block of KEGG IDs into a null buffer!");
+            if (index < 0)
+                throw new ArgumentOutOfRangeException(nameof(index), index, "Cannot save a block of KEGG IDs at a negative buffer index!");
+            if (count < 0)
+                throw new ArgumentOutOfRangeException(nameof(count), count, "Cannot read a negative number of KEGG IDs!");
+            if (buffer.Length - index < count)
+                throw new ArgumentException($"There is not enough room in {nameof(buffer)} for the requested number of KEGG IDs.");
 
-            int num;
-            for (num = 0; num < count; ++num) {
-                if (!_reader.EndOfStream) {
-                    string line = _reader.ReadLine();
-                    KeggId kid = idFromLine(line);
-                    buffer[index + num] = kid;
-                }
+            // Parse KEGG IDs from the requested number of lines from the Stream
+            int numSaved;
+            for (numSaved = 0; numSaved < count; ++numSaved) {
+                if (_reader.EndOfStream)
+                    break;
+                string line = _reader.ReadLine();
+                KeggId kid = idFromLine(line);
+                buffer[index + numSaved] = kid;
             }
 
-            return num;
+            return numSaved;
         }
         public KeggId[] ReadToEnd() {
             if (_disposed)
