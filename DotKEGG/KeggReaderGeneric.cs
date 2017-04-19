@@ -10,7 +10,11 @@ namespace DotKEGG {
     /// <inheritdoc/>
     public sealed class KeggReader<ID> : KeggReader where ID : KeggId {
 
+#if DEBUG
+        public KeggReader(Stream input) : base(input) { }
+#else
         internal KeggReader(Stream input) : base(input) { }
+#endif
 
         /// <summary>
         /// Reads a line of characters from the current stream and returns the data as a strongly-typed <see cref="KeggId"/>.
