@@ -30,18 +30,12 @@
         public uint Id3 { get; }
         public uint SerialId { get; }
 
-        public static ECNumber OxidoReductase(uint id2, uint id3, uint serialId) =>
-            new ECNumber(Class.OxidoReductase, id2, id3, serialId);
-        public static ECNumber Transferase(uint id2, uint id3, uint serialId) =>
-            new ECNumber(Class.Transferase, id2, id3, serialId);
-        public static ECNumber Hydrolase(uint id2, uint id3, uint serialId) =>
-            new ECNumber(Class.Hydrolase, id2, id3, serialId);
-        public static ECNumber Lyase(uint id2, uint id3, uint serialId) =>
-            new ECNumber(Class.Lyase, id2, id3, serialId);
-        public static ECNumber Isomerase(uint id2, uint id3, uint serialId) =>
-            new ECNumber(Class.Isomerase, id2, id3, serialId);
-        public static ECNumber Ligase(uint id2, uint id3, uint serialId) =>
-            new ECNumber(Class.Ligase, id2, id3, serialId);
+        public static ECNumber OxidoReductase(uint id2, uint id3, uint serialId) => new ECNumber(Class.OxidoReductase, id2, id3, serialId);
+        public static ECNumber Transferase(uint id2, uint id3, uint serialId) => new ECNumber(Class.Transferase, id2, id3, serialId);
+        public static ECNumber Hydrolase(uint id2, uint id3, uint serialId) => new ECNumber(Class.Hydrolase, id2, id3, serialId);
+        public static ECNumber Lyase(uint id2, uint id3, uint serialId) => new ECNumber(Class.Lyase, id2, id3, serialId);
+        public static ECNumber Isomerase(uint id2, uint id3, uint serialId) => new ECNumber(Class.Isomerase, id2, id3, serialId);
+        public static ECNumber Ligase(uint id2, uint id3, uint serialId) => new ECNumber(Class.Ligase, id2, id3, serialId);
 
         public override bool Equals(object obj) {
             var ec = obj as ECNumber;
@@ -64,15 +58,15 @@
                 other.SerialId == SerialId
             );
         }
-        public static bool operator ==(ECNumber left, ECNumber right) {
-            if (ReferenceEquals(left, null))
-                return ReferenceEquals(right, null);
-            return left.Equals(right);
+        public static bool operator ==(ECNumber a, ECNumber b) {
+            if (ReferenceEquals(a, null))
+                return ReferenceEquals(b, null);
+            return a.Equals(b);
         }
-        public static bool operator !=(ECNumber left, ECNumber right) {
-            if (ReferenceEquals(left, null))
-                return !ReferenceEquals(right, null);
-            return !left.Equals(right);
+        public static bool operator !=(ECNumber a, ECNumber b) {
+            if (ReferenceEquals(a, null))
+                return !ReferenceEquals(b, null);
+            return !a.Equals(b);
         }
 
         public override int GetHashCode() {
