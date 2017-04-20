@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<topic id="bff6fc53-a0cb-4309-bca0-da8d3998f6ee" revisionNumber="1">
+<topic id="bff6fc53-a0cb-4309-bca0-da8d3998f6ee" revisionNumber="2">
   <developerConceptualDocument xmlns="http://ddue.schemas.microsoft.com/authoring/2003/5" xmlns:xlink="http://www.w3.org/1999/xlink">
     <introduction>
       <para>
@@ -13,11 +13,13 @@
       <content>
         <para>
           Be aware that breaking changes may have been made since the last release you were using.
-          Please review the release notes from all releases after it to the latest to find changes that may require you to
-          update your project such as modifications to build component and plug-in configurations.
+          Please review the release notes of all releases after it to find any changes that may require you to update your project.
         </para>
 
         <list class="bullet">
+          <listItem>
+            <para><link xlink:href="88579416-a034-4264-bf9b-80355237b15c" /></para>
+          </listItem>
           <listItem>
             <para><link xlink:href="78d5843f-dec8-4441-b0a4-647be77d9a90" /></para>
           </listItem>
