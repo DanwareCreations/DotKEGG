@@ -52,16 +52,16 @@ Resources:
           Sid: 1
           Effect: Allow
           Principal:
-            AWS: !Join [ "", [ "arn:aws:iam::cloudfront:user/CloudFront Origin Access Identity ", !Ref OriginAccessIdentityId ] ]
+            AWS: !Sub "arn:aws:iam::cloudfront:user/CloudFront Origin Access Identity ${OriginAccessIdentityId}"
           Action: s3:GetObject
-          Resource: !Join [ "", [ "arn:aws:s3:::", !Ref ComDocsBucket, "/*" ] ]
+          Resource: !Sub "arn:aws:s3:::${ComDocsBucket}/*"
         - # Only allow the CloudFront origin access identity to view the host bucket.  This way, we get 404 (not found) error instead of 403 (access denied) when users try to get non-existent objects in host bucket.
           Sid: 2
           Effect: Allow
           Principal:
-            AWS: !Join [ "", [ "arn:aws:iam::cloudfront:user/CloudFront Origin Access Identity ", !Ref OriginAccessIdentityId ] ]
+            AWS: !Sub "arn:aws:iam::cloudfront:user/CloudFront Origin Access Identity ${OriginAccessIdentityId}"
           Action: s3:ListBucket
-          Resource: !Join [ "", [ "arn:aws:s3:::", !Ref ComDocsBucket ] ]
+          Resource: !Sub "arn:aws:s3:::${ComDocsBucket}"
 
   # CloudFront Distribution for the documentation site
   DocsDistribution:
@@ -99,13 +99,13 @@ Resources:
           Id: dotkegg-docs-bucket
           OriginPath: !Ref WebsiteOriginPath
           S3OriginConfig:
-            OriginAccessIdentity: !Join [ "", [ "origin-access-identity/cloudfront/", !Ref OriginAccessIdentityId ] ]
+            OriginAccessIdentity: !Sub "origin-access-identity/cloudfront/${OriginAccessIdentityId}"
         PriceClass: PriceClass_All
         Restrictions:
           GeoRestriction:
             RestrictionType: none
         ViewerCertificate:
-          AcmCertificateArn: !Join [ "", [ "arn:aws:acm:us-east-1:", !Ref "AWS::AccountId", ":certificate/", !Ref AcmCertificateId ] ]
+          AcmCertificateArn: !Sub "arn:aws:acm:us-east-1:${AWS::AccountId}:certificate/${AcmCertificateId}"
           SslSupportMethod: sni-only
         WebACLId: !Ref WebAcl
   WebAcl:
