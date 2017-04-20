@@ -5,7 +5,7 @@ using System.Runtime.InteropServices;
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
 [assembly: AssemblyTitle("DotKEGG")]
-[assembly: AssemblyDescription("A .NET wrapper for the Kyoto Encyclopedia of Genes and Genomes REST API")]
+[assembly: AssemblyDescription("A .NET wrapper for the KEGG API")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("Danware Creations, LLC")]
 [assembly: AssemblyProduct("DotKEGG")]
@@ -33,4 +33,4 @@ using System.Runtime.InteropServices;
 // [assembly: AssemblyVersion("1.0.*")]
 [assembly: AssemblyVersion("0.4.0.0")]
 [assembly: AssemblyInformationalVersion("0.4.0-alpha")]
-[assembly: AssemblyFileVersion("1.1.0.0")]
+[assembly: AssemblyFileVersion("2.0.0.0")]
