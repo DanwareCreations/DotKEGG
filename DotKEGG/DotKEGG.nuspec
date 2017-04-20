@@ -13,7 +13,7 @@
     <!-- Short summary -->
     <summary>$description$</summary>
     <!-- Long description -->
-    <description>Developed for those proud few who develop bioinformatics software using the .NET Framework!  DotKEGG provides types and methods for safely querying the KEGG database, without having to build HTTP headers and URIs for its REST API yourself.</description>
+    <description>Built for those proud few who develop bioinformatics software targeting the .NET Framework, DotKEGG provides types and methods for you to easily query the KEGG database, without having to build HTTP headers or URIs for its REST API yourself.</description>
     <releaseNotes>
       - Added SeeAlso links to most type documentation topics
       - Added an OrganismCode class to wrap an organism code string
