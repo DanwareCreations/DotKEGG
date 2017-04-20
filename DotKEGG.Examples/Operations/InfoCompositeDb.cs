@@ -1,9 +1,11 @@
 ﻿using System;
+using System.Collections.Generic;
+
 using DotKEGG;
 
 public class InfoCompositeDb {
     public void GetLigandInfo() {
-        InfoResults info = KeggInfo.Database(LigandDb.Instance);    // Get KEGG LIGAND info
+        InfoResults info = LigandDb.Instance.Info();    // Get KEGG LIGAND info
 
         Console.WriteLine("KEGG LIGAND Info:");
         Console.WriteLine("\tName: {0}", info.Name);
@@ -12,7 +14,7 @@ public class InfoCompositeDb {
         Console.WriteLine("\tVersion: {0}", info.Version);
         Console.WriteLine("\tOrganization: {0}", info.Organization);
         Console.WriteLine("\tNumber of Entries in Auxiliary Databases:");
-        foreach (var pair in info.NumEntries)
+        foreach (KeyValuePair<string, uint> pair in info.NumEntries)
             Console.WriteLine("\t\t{0} - {1}", pair.Key, pair.Value);
     }
 }

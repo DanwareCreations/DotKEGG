@@ -1,8 +1,11 @@
 ﻿namespace DotKEGG {
 
     /// <summary>
-    /// Represents an identifier in the <token>OrthologyDbLink</token> database.
+    /// Represents an identifier in the ORTHOLOGY database.
     /// </summary>
+    /// <seealso cref="OrthologyDb"/>
+    /// <seealso cref="KeggId"/>
+    /// <seealso cref="KeggDb"/>
     /// <inheritdoc/>
     public sealed class KNumber : KeggId {
 
@@ -10,10 +13,7 @@
         /// Creates a new KEGG Orthology identifier (a.k.a., KNumber) with the provided number.
         /// </summary>
         /// <param name="number">The identifier's 5-digit number.</param>
-        public KNumber(uint number) {
-            Number = number;
-            _db = OrthologyDb.Instance;
-        }
+        public KNumber(uint number) : base(OrthologyDb.Instance, number) { }
 
     }
 

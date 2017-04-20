@@ -1,35 +1,35 @@
 ﻿namespace DotKEGG {
-    
+
     /// <summary>
     /// Represents the <token>EnzymeDbLink</token> composite database.
     /// </summary>
+    /// <seealso cref="ECNumber"/>
+    /// <seealso cref="KNumber"/>
+    /// <seealso cref="RNumber"/>
+    /// <seealso cref="OrthologyDb"/>
+    /// <seealso cref="ReactionDb"/>
+    /// <seealso cref="KeggId"/>
+    /// <seealso cref="KeggDb"/>
+    /// <seealso cref="KeggCompositeDb"/>
     /// <inheritdoc/>
     public sealed class EnzymeDb : KeggCompositeDb {
 
-        private static EnzymeDb _instance = new EnzymeDb();
+        private static EnzymeDb s_instance = new EnzymeDb();
 
-        private EnzymeDb() {
-            Name = "enzyme";
-            Abbreviation = "ec";
-        }
+        private EnzymeDb() : base("enzyme", "ec") { }
 
         /// <summary>
         /// <token>CompositeDbInstanceSummary</token>
         /// </summary>
-        public static EnzymeDb Instance => _instance;
+        public static EnzymeDb Instance => s_instance;
 
         /// <include file='../../../DotKEGG.Docs/IncludeFiles/Databases/KeggDb.xml' path='content/item[@name="ReactionDbEntryComments"]/*'/>
-        public static RNumber Reaction(uint number) {
-            return new RNumber(number);
-        }
+        public static RNumber Reaction(uint number) => new RNumber(number);
         /// <include file='../../../DotKEGG.Docs/IncludeFiles/Databases/KeggDb.xml' path='content/item[@name="OrthologyDbEntryComments"]/*'/>
-        public static KNumber Orthology(uint number) {
-            return new KNumber(number);
-        }
+        public static KNumber Orthology(uint number) => new KNumber(number);
         /// <include file='../../../DotKEGG.Docs/IncludeFiles/Databases/KeggDb.xml' path='content/item[@name="EnzymeDbEntryComments"]/*'/>
-        public static ECNumber Enzyme(ECNumber.Class ecClass, uint id2, uint id3, uint serialId) {
-            return new ECNumber(ecClass, id2, id3, serialId);
-        }
+        public static ECNumber Enzyme(ECEnzymeClass ecClass, uint id2, uint id3, uint serialId) =>
+            new ECNumber(ecClass, id2, id3, serialId);
 
     }
 

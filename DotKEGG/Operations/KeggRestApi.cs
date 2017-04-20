@@ -1,30 +1,59 @@
 ﻿using System;
+using System.IO;
 using System.Net;
 using System.Linq;
 
 namespace DotKEGG {
 
-    internal static class KeggRestApi {
+#if DEBUG
+    public static class KeggRestApi
+#else
+    internal static class KeggRestApi
+#endif
+    {
 
-        private static WebClient _web = new WebClient();
+        private static WebClient s_web = new WebClient() { BaseAddress = "http://rest.kegg.jp/" };
 
         public static string[] GetText(params string[] parameters) {
-            string post = "http://rest.kegg.jp/" + string.Join("/", parameters);
-            string response = _web.DownloadString(post);
-            string[] ids = response.Split('\n').Select(row => row.Split('\t')[0]).ToArray();
-            return ids;
+            string uri = string.Join("/", parameters);
+
+            try {
+                string response = s_web.DownloadString(uri);
+                string[] ids = response.Split('\n').Select(row => row.Split('\t')[0]).ToArray();
+                return ids;
+            }
+            catch (Exception e) {
+                throw new ArgumentException($"KEGG operation could not be completed!  This may be due to Internet connectivity issues, or to invalid query parameters.", e);
+            }
         }
 
-        public static InfoResults GetInfo(params string[] parameters) {
-            string post = "http://rest.kegg.jp/info/" + string.Join("/", parameters);
-            string response = _web.DownloadString(post);
-            return new InfoResults(response);
+        public static KeggReader OpenRead<T>(params string[] parameters) {
+            string uri = string.Join("/", parameters);
+
+            try {
+                Stream strm = s_web.OpenRead(uri);
+                return new KeggReader(strm);
+            }
+            catch (Exception e) {
+                throw new ArgumentException($"Could not open a stream reader for the KEGG operation.  This may be due to Internet connectivity issues, or to invalid query parameters.", e);
+            }
         }
 
-        public static string[] GetDBGET(params string[] parameters) {
-            string post = "http://rest.kegg.jp/get/" + string.Join("/", parameters);
-            string response = _web.DownloadString(post);
-            return response.Split(new string[1] { "///" }, StringSplitOptions.None);
+        /// <summary>
+        /// Gets current info for the provided database
+        /// </summary>
+        /// <param name="database">The name of the database to get info for.</param>
+        /// <returns></returns>
+        public static InfoResults GetInfo(string database) {
+            string uri = $"info/{database}";
+
+            try {
+                string response = s_web.DownloadString(uri);
+                return new InfoResults(response);
+            }
+            catch (Exception e) {
+                throw new ArgumentException($"KEGG Info operation could not be completed!  This may be due to Internet connectivity issues, or to invalid query parameters.", e);
+            }
         }
 
     }

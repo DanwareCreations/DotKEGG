@@ -1,5 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
 
 using NUnit.Framework;
@@ -9,7 +8,7 @@ namespace DotKEGG.Test {
     [TestFixture(Author = "Dan Vicarel", TestOf = typeof(KeggDb), Description = "Tests basic functionality of database classes")]
     internal class DbTest {
 
-        [Test(Author = "Dan Vicarel", TestOf = typeof(KeggDb), Description = "Checks that all database Instances have appropriate values")]
+        [Test(Author = "Dan Vicarel", TestOf = typeof(KeggDb), Description = "Checks that database Instances have appropriate values")]
         [TestCaseSource(nameof(DbInstanceTestCases))]
         public void DbInstanceTest(KeggDb db, string name, string abbrev, string prefix, uint entryNum) {
             Assert.AreEqual(name, db.Name);
@@ -19,9 +18,66 @@ namespace DotKEGG.Test {
             Assert.NotNull(db.Entry(entryNum));
         }
 
+        [Test(Author = "Dan Vicarel", TestOf = typeof(KeggDb), Description = "Checks that database Instances can be compared for equality.")]
+        public void DbEqualityTest() {
+            KeggDb a = BriteDb.Instance;
+            KeggDb b = BriteDb.Instance;
+
+            Assert.True(a.Equals(b));
+            Assert.True(b.Equals(a));
+            Assert.True(a == b);
+            Assert.False(a != b);
+            Assert.True(Equals(a, b));
+
+            object objA = a;
+            object objB = b;
+            Assert.True(objA.Equals(b));
+            Assert.True(b.Equals(objA));
+            Assert.True(Equals(objA, b));
+            Assert.True(objB.Equals(a));
+            Assert.True(a.Equals(objB));
+            Assert.True(Equals(objB, a));
+            Assert.True(objB.Equals(objA));
+            Assert.True(objA.Equals(objB));
+            Assert.True(Equals(objB, objA));
+        }
+
+        [Test(Author = "Dan Vicarel", TestOf = typeof(KeggDb), Description = "Checks that database Instances can be compared for inequality.")]
+        public void DbInequalityTest() {
+            KeggDb a = BriteDb.Instance;
+            KeggDb b = GlycanDb.Instance;
+
+            Assert.False(a.Equals(b));
+            Assert.False(b.Equals(a));
+            Assert.False(a == b);
+            Assert.True(a != b);
+            Assert.False(Equals(a, b));
+
+            object objA = a;
+            object objB = b;
+            Assert.False(objA.Equals(b));
+            Assert.False(b.Equals(objA));
+            Assert.False(Equals(objA, b));
+            Assert.False(objB.Equals(a));
+            Assert.False(a.Equals(objB));
+            Assert.False(Equals(objB, a));
+            Assert.False(objB.Equals(objA));
+            Assert.False(objA.Equals(objB));
+            Assert.False(Equals(objB, objA));
+        }
+
+        [Test(Author = "Dan Vicarel", TestOf = typeof(KeggDb), Description = "Checks that database Instances are not equal to null.")]
+        public void DbNullInequalityTest() {
+            KeggDb a = DiseaseDb.Instance;
+
+            Assert.False(a.Equals(null));
+            Assert.False(a == null);
+            Assert.True(a != null);
+        }
+
         [Test(Author = "Dan Vicarel", TestOf = typeof(KeggDb), Description = "Checks that all databases have unique HashCodes")]
         public void DbUniqueHashCodeTest() {
-            var hashCodes = new List<int>(13) {
+            int[] hashCodes = new int[13] {
                  PathwayDb.Instance.GetHashCode(),
                  BriteDb.Instance.GetHashCode(),
                  ModuleDb.Instance.GetHashCode(),
@@ -36,7 +92,7 @@ namespace DotKEGG.Test {
                  DiseaseDb.Instance.GetHashCode(),
                  EnvironDb.Instance.GetHashCode(),
             };
-            Assert.AreEqual(hashCodes.Count, hashCodes.Distinct().Count(), $"There is at least one duplicate {nameof(KeggDb)} hash code!");
+            Assert.AreEqual(hashCodes.Length, hashCodes.Distinct().Count(), $"There is at least one duplicate {nameof(KeggDb)} hash code!");
         }
 
         [Test(Author = "Dan Vicarel", TestOf = typeof(KeggDb), Description = "Checks that all databases can return strongly typed KEGG ID objects")]
@@ -70,45 +126,20 @@ namespace DotKEGG.Test {
             Assert.NotNull(e);
         }
 
-        public static IEnumerable DbInstanceTestCases() {
-            yield return new TestCaseData(
-                PathwayDb.Instance, "pathway", "path", "map", 00010u);
-
-            yield return new TestCaseData(
-                BriteDb.Instance, "brite", "br", "BR", 08303u);
-
-            yield return new TestCaseData(
-                ModuleDb.Instance, "module", "md", "M", 00010u);
-
-            yield return new TestCaseData(
-                OrthologyDb.Instance, "orthology", "ko", "K", 00873u);
-
-            yield return new TestCaseData(
-                GenomeDb.Instance, "genome", "genome", "T", 01001u);
-
-            yield return new TestCaseData(
-                CompoundDb.Instance, "compound", "cpd", "C", 00031u);
-
-            yield return new TestCaseData(
-                GlycanDb.Instance, "glycan", "gl", "G", 00197u);
-
-            yield return new TestCaseData(
-                ReactionDb.Instance, "reaction", "rn", "R", 00259u);
-
-            yield return new TestCaseData(
-                ReactionClassDb.Instance, "rclass", "rc", "RC", 00064u);
-
-            yield return new TestCaseData(
-                DiseaseDb.Instance, "disease", "ds", "H", 00118u);
-
-            yield return new TestCaseData(
-                DrugDb.Instance, "drug", "dr", "D", 01441u);
-
-            yield return new TestCaseData(
-                DrugGroupDb.Instance, "dgroup", "dg", "DG", 01918u);
-
-            yield return new TestCaseData(
-                EnvironDb.Instance, "environ", "ev", "E", 00270u);
+        public static IEnumerable<TestCaseData> DbInstanceTestCases() {
+            yield return new TestCaseData(PathwayDb.Instance, "pathway", "path", "map", 00010u);
+            yield return new TestCaseData(BriteDb.Instance, "brite", "br", "BR", 08303u);
+            yield return new TestCaseData(ModuleDb.Instance, "module", "md", "M", 00010u);
+            yield return new TestCaseData(OrthologyDb.Instance, "orthology", "ko", "K", 00873u);
+            yield return new TestCaseData(GenomeDb.Instance, "genome", "genome", "T", 01001u);
+            yield return new TestCaseData(CompoundDb.Instance, "compound", "cpd", "C", 00031u);
+            yield return new TestCaseData(GlycanDb.Instance, "glycan", "gl", "G", 00197u);
+            yield return new TestCaseData(ReactionDb.Instance, "reaction", "rn", "R", 00259u);
+            yield return new TestCaseData(ReactionClassDb.Instance, "rclass", "rc", "RC", 00064u);
+            yield return new TestCaseData(DiseaseDb.Instance, "disease", "ds", "H", 00118u);
+            yield return new TestCaseData(DrugDb.Instance, "drug", "dr", "D", 01441u);
+            yield return new TestCaseData(DrugGroupDb.Instance, "dgroup", "dg", "DG", 01918u);
+            yield return new TestCaseData(EnvironDb.Instance, "environ", "ev", "E", 00270u);
         }
 
     }

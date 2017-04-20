@@ -3,31 +3,27 @@
     /// <summary>
     /// Represents the <token>OrthologyDbLink</token> database.
     /// </summary>
+    /// <seealso cref="KNumber"/>
+    /// <seealso cref="ECNumber"/>
+    /// <seealso cref="KeggDb"/>
+    /// <seealso cref="KeggId"/>
     /// <inheritdoc/>
     public sealed class OrthologyDb : KeggDb {
 
-        private static OrthologyDb _instance = new OrthologyDb();
+        private static OrthologyDb s_instance = new OrthologyDb();
 
-        private OrthologyDb() {
-            Name = "orthology";
-            Abbreviation = "ko";
-            Prefix = "K";
-        }
+        private OrthologyDb() : base("orthology", "ko", "K") { }
 
         /// <summary>
         /// <token>DbInstanceSummary</token>
         /// </summary>
-        public static OrthologyDb Instance => _instance;
+        public static OrthologyDb Instance => s_instance;
 
         /// <include file='../../DotKEGG.Docs/IncludeFiles/Databases/KeggDb.xml' path='content/item[@name="OrthologyDbEntryComments"]/*'/>
-        public static KNumber Orthology(uint number) {
-            return new KNumber(number);
-        }
+        public static KNumber Orthology(uint number) => new KNumber(number);
 
         /// <inheritdoc/>
-        public override KeggId Entry(uint number) {
-            return new KNumber(number);
-        }
+        public override KeggId Entry(uint number) => new KNumber(number);
 
     }
 

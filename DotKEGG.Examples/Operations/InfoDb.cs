@@ -3,7 +3,7 @@ using DotKEGG;
 
 public class InfoDb {
     public void GetCompoundInfo() {
-        InfoResults info = KeggInfo.Database(CompoundDb.Instance);      // Get KEGG COMPOUND info
+        InfoResults info = CompoundDb.Instance.Info();      // Get KEGG COMPOUND info
 
         Console.WriteLine("KEGG COMPOUND Info:");
         Console.WriteLine("\tName: {0}", info.Name);

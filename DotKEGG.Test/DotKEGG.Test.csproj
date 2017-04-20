@@ -38,10 +38,6 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="nunit.framework, Version=3.6.1.0, Culture=neutral, PublicKeyToken=2638cd05610744eb, processorArchitecture=MSIL">
-      <HintPath>$(SolutionDir)packages\NUnit.3.6.1\lib\net45\nunit.framework.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
     <Reference Include="System" />
   </ItemGroup>
   <Choose>
@@ -54,18 +50,28 @@
   </Choose>
   <ItemGroup>
     <Compile Include="CompositeDbTest.cs" />
+    <Compile Include="KeggReaderGenericTest.cs" />
+    <Compile Include="KeggReaderTest.cs" />
+    <Compile Include="ECNumberTest.cs" />
+    <Compile Include="OrganismCodeTest.cs" />
+    <Compile Include="IdTest.cs" />
     <Compile Include="DbTest.cs" />
     <Compile Include="KeggInfoTest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\DotKEGG\DotKEGG.csproj">
       <Project>{ee1ed93a-535a-49f6-bce2-d7072b53c2fe}</Project>
       <Name>DotKEGG</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="NUnit">
+      <Version>3.6.1</Version>
+    </PackageReference>
+    <PackageReference Include="NUnit3TestAdapter">
+      <Version>3.7.0</Version>
+    </PackageReference>
   </ItemGroup>
   <Choose>
     <When Condition="'$(VisualStudioVersion)' == '10.0' And '$(IsCodedUITest)' == 'True'">

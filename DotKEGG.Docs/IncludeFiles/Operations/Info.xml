@@ -201,11 +201,5 @@
       </item>
     </list>
   </item>
-  <item name="InfoExamples">
-    <token>InfoDbExample</token>
-    <token>InfoCompositeDbExample</token>
-    <token>InfoHumanDbExample</token>
-    <token>InfoKeggDbExample</token>
-  </item>
 
 </content>

@@ -5,16 +5,22 @@
       <HelpKeyword index="K" term="Welcome" />
     </HelpKeywords>
   </Topic>
-  <Topic id="2f59a56f-156f-40a5-aa42-07c09ee04774" visible="True" noFile="true" isSelected="true" apiParentMode="InsertAsChild" title="API Reference">
+  <Topic id="2f59a56f-156f-40a5-aa42-07c09ee04774" visible="True" noFile="true" apiParentMode="InsertAsChild" title="API Reference">
     <HelpKeywords>
       <HelpKeyword index="K" term="api" />
       <HelpKeyword index="K" term="reference" />
     </HelpKeywords>
   </Topic>
-  <Topic id="bff6fc53-a0cb-4309-bca0-da8d3998f6ee" visible="True" title="Version History">
+  <Topic id="bff6fc53-a0cb-4309-bca0-da8d3998f6ee" visible="True" isExpanded="true" title="Version History">
     <HelpKeywords>
       <HelpKeyword index="K" term="version, history" />
     </HelpKeywords>
+    <Topic id="88579416-a034-4264-bf9b-80355237b15c" visible="True" isSelected="true" title="Version 0.4.0-alpha">
+      <HelpKeywords>
+        <HelpKeyword index="K" term="version, 0.4.0" />
+        <HelpKeyword index="K" term="version, alpha" />
+      </HelpKeywords>
+    </Topic>
     <Topic id="78d5843f-dec8-4441-b0a4-647be77d9a90" visible="True" title="Version 0.3.0-alpha">
       <HelpKeywords>
         <HelpKeyword index="K" term="version, 0.3.0" />

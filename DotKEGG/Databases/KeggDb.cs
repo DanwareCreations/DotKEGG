@@ -5,8 +5,22 @@ namespace DotKEGG {
     /// <summary>
     /// Represents a simple KEGG database.  This is an <see langword="abstract"/> class.
     /// </summary>
+    /// <seealso cref="KeggId"/>
+    /// <seealso cref="KeggCompositeDb"/>
     /// <threadsafety static="true" instance="true"/>
     public abstract class KeggDb : IEquatable<KeggDb> {
+
+        /// <summary>
+        /// Initializes a new instance of the <see cref="KeggDb"/> class.
+        /// </summary>
+        /// <param name="name">The name of the KEGG database.</param>
+        /// <param name="abbrev">The abbreviation of the KEGG database.</param>
+        /// <param name="prefix">The prefix for KEGG IDs in the KEGG database.</param>
+        protected KeggDb(string name, string abbrev, string prefix) {
+            Name = name;
+            Abbreviation = abbrev;
+            Prefix = prefix;
+        }
 
         /// <summary>
         /// The name of the database.
@@ -39,10 +53,19 @@ namespace DotKEGG {
         /// <include file='../../DotKEGG.Docs/IncludeFiles/Databases/KeggDb.xml' path='content/item[@name="DbEntryComparison"]'/>
         /// </remarks>
         public abstract KeggId Entry(uint number);
-        
+
+        /// <summary>
+        /// Returns current info for the KEGG database.
+        /// </summary>
+        /// <returns>Current info for the KEGG database.</returns>
+        /// <example>
+        /// <token>InfoDbExample</token>
+        /// </example>
+        public InfoResults Info() => KeggRestApi.GetInfo(Name);
+
         /// <inheritdoc/>
         public override bool Equals(object obj) {
-            KeggDb kdb = obj as KeggDb;
+            var kdb = obj as KeggDb;
             if (kdb == null)
                 return false;
 
@@ -72,7 +95,7 @@ namespace DotKEGG {
         public static bool operator ==(KeggDb a, KeggDb b) {
             if (ReferenceEquals(a, null))
                 return ReferenceEquals(b, null);
-            return a.Name == b.Name;
+            return a.Equals(b);
         }
         /// <summary>
         /// Determines whether two <see cref="KeggDb"/>s represent different KEGG databases.
@@ -85,17 +108,13 @@ namespace DotKEGG {
         public static bool operator !=(KeggDb a, KeggDb b) {
             if (ReferenceEquals(a, null))
                 return !ReferenceEquals(b, null);
-            return a.Name != b.Name;
+            return !a.Equals(b);
         }
         
         /// <inheritdoc/>
-        public override int GetHashCode() {
-            return Name.GetHashCode();
-        }
+        public override int GetHashCode() => Name.GetHashCode();
         /// <inheritdoc/>
-        public override string ToString() {
-            return Name;
-        }
+        public override string ToString() => Name;
 
     }
 

@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<topic id="78d5843f-dec8-4441-b0a4-647be77d9a90" revisionNumber="1">
+<topic id="78d5843f-dec8-4441-b0a4-647be77d9a90" revisionNumber="2">
   <developerConceptualDocument xmlns="http://ddue.schemas.microsoft.com/authoring/2003/5" xmlns:xlink="http://www.w3.org/1999/xlink">
     <introduction>
       <para>
@@ -10,6 +10,15 @@
     <section>
       <title>Changes in This Release</title>
       <content>
+        <para>
+          A high-level list of changes made to the DotKEGG API, and/or its documentation, in this release is presented below.
+          Check out the 
+          <externalLink>
+            <linkText>release page</linkText>
+            <linkUri>https://github.com/DanwareCreations/DotKEGG/releases/tag/v0.3.0-alpha</linkUri>
+          </externalLink>
+          on GitHub for more information.
+        </para>
         <list class="bullet">
           <listItem>
             <para>Added API reference documentation for the <codeEntityReference>T:DotKEGG.KeggId</codeEntityReference> class and its derived classes.</para>

@@ -8,8 +8,20 @@ namespace DotKEGG {
     /// <remarks>
     /// <include file='../../../DotKEGG.Docs/IncludeFiles/Databases/KeggDb.xml' path='content/item[@name="CompoundVsComposite"]/*'/>
     /// </remarks>
+    /// <seealso cref="KeggId"/>
+    /// <seealso cref="KeggDb"/>
     /// <threadsafety static="true" instance="true"/>
     public abstract class KeggCompositeDb : IEquatable<KeggCompositeDb> {
+
+        /// <summary>
+        /// Initializes a new instance of the <see cref="KeggCompositeDb"/> class.
+        /// </summary>
+        /// <param name="name">The name of the KEGG composite database.</param>
+        /// <param name="abbrev">The abbreviation of the KEGG composite database.</param>
+        protected KeggCompositeDb(string name, string abbrev) {
+            Name = name;
+            Abbreviation = abbrev;
+        }
 
         /// <summary>
         /// The name of the composite database.
@@ -27,6 +39,21 @@ namespace DotKEGG {
         public string Abbreviation { get; protected set; }
 
         /// <summary>
+        /// Returns current info for the KEGG composite database.
+        /// </summary>
+        /// <returns>Current info for the KEGG composite database.</returns>
+        /// <remarks>
+        /// A composite database is actually a wrapper for several "auxiliary" databases.
+        /// For example, the KEGG <token>GenomesDbLink</token> database is actually made up of the genome, egenome, and mgenome databases.
+        /// Getting info for a composite database like <token>GenomesDbLink</token> will return info about 
+        /// all of that database's auxiliary databases.
+        /// </remarks>
+        /// <example>
+        /// <token>InfoCompositeDbExample</token>
+        /// </example>
+        public InfoResults Info() => KeggRestApi.GetInfo(Name);
+
+        /// <summary>
         /// Determines whether this instance and another specified <see cref="KeggCompositeDb"/> represent the same KEGG composite database.
         /// </summary>
         /// <param name="other">The composite database to compare to this instance.</param>
@@ -41,7 +68,7 @@ namespace DotKEGG {
         }
         /// <inheritdoc/>
         public override bool Equals(object obj) {
-            KeggCompositeDb kdb = obj as KeggCompositeDb;
+            var kdb = obj as KeggCompositeDb;
             if (kdb == null)
                 return false;
 
@@ -58,7 +85,7 @@ namespace DotKEGG {
         public static bool operator ==(KeggCompositeDb a, KeggCompositeDb b) {
             if (ReferenceEquals(a, null))
                 return ReferenceEquals(b, null);
-            return a.Name == b.Name;
+            return a.Equals(b);
         }
         /// <summary>
         /// Determines whether two <see cref="KeggCompositeDb"/>s represent different KEGG composite databases.
@@ -71,17 +98,13 @@ namespace DotKEGG {
         public static bool operator !=(KeggCompositeDb a, KeggCompositeDb b) {
             if (ReferenceEquals(a, null))
                 return !ReferenceEquals(b, null);
-            return a.Name != b.Name;
+            return !a.Equals(b);
         }
 
         /// <inheritdoc/>
-        public override int GetHashCode() {
-            return Name.GetHashCode();
-        }
+        public override int GetHashCode() => Name.GetHashCode();
         /// <inheritdoc/>
-        public override string ToString() {
-            return Name;
-        }
+        public override string ToString() => Name;
 
     }
 

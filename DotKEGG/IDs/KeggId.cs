@@ -9,12 +9,24 @@ namespace DotKEGG {
     /// <include file='../../DotKEGG.Docs/IncludeFiles/Ids/KeggId.xml' path='content/item[@name="KeggIdTerminology"]'/>
     /// </remarks>
     /// <threadsafety static="true" instance="true"/>
+    /// <seealso cref="KeggDb"/>
+    /// <seealso cref="KeggCompositeDb"/>
     public abstract class KeggId : IEquatable<KeggId> {
 
         /// <summary>
         /// The KEGG database to which this identifier belongs.
         /// </summary>
-        protected KeggDb _db;
+        private KeggDb _db;
+
+        /// <summary>
+        /// Initializes a new instance of the <see cref="KeggId"/> class.
+        /// </summary>
+        /// <param name="database">The KEGG database to which this ID's entry belongs.</param>
+        /// <param name="number">The 5-digit number of the KEGG ID.</param>
+        protected KeggId(KeggDb database, uint number) {
+            _db = database;
+            Number = number;
+        }
 
         /// <summary>
         /// The 5-digit number of the KEGG ID.
@@ -36,20 +48,16 @@ namespace DotKEGG {
         /// Returns a short string representation of the KEGG ID.
         /// </summary>
         /// <returns>A string representation of the KEGG ID in the form of a prefix followed by a five-digit number.  For example, "C00031".</returns>
-        public string ShortForm() {
-            return $"{_db.Prefix}{Number.ToString("00000")}";
-        }
+        public string ShortForm() => $"{_db.Prefix}{Number.ToString("00000")}";
         /// <summary>
         /// Returns a string representation of the KEGG ID in DBGET format.
         /// </summary>
         /// <returns>A DBGET string representation of the KEGG ID, which takes the form &lt;db&gt;:&lt;prefix&gt;&lt;number&gt;.  For example, "cpd:C00031".</returns>
-        public string DBGETForm() {
-            return $"{_db.Abbreviation}:{_db.Prefix}{Number.ToString("00000")}";
-        }
+        public string DBGETForm() => $"{_db.Abbreviation}:{_db.Prefix}{Number.ToString("00000")}";
         
         /// <inheritdoc/>
         public override bool Equals(object obj) {
-            KeggId kid = obj as KeggId;
+            var kid = obj as KeggId;
             if (kid == null)
                 return false;
             return (kid.Number == Number && kid._db == this._db);
@@ -106,9 +114,7 @@ namespace DotKEGG {
             return hash;
         }
         /// <inheritdoc/>
-        public override string ToString() {
-            return DBGETForm();
-        }
+        public override string ToString() => DBGETForm();
 
     }
 

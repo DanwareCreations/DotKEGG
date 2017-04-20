@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <topic id="27491f5b-67bd-4150-8316-b5651dc1acbf" revisionNumber="1">
-	<developerConceptualDocument xmlns="http://ddue.schemas.microsoft.com/authoring/2003/5" xmlns:xlink="http://www.w3.org/1999/xlink">
-		<introduction>
-			<para>Welcome to the DotKEGG documentation!  Choose a topic from the Table of Contents at the left to learn more.</para>
-		</introduction>
+  <developerConceptualDocument xmlns="http://ddue.schemas.microsoft.com/authoring/2003/5" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <introduction>
+      <para>Welcome to the DotKEGG documentation!  Choose a topic from the Table of Contents at the left to learn more.</para>
+    </introduction>
 
-		<relatedTopics>
-			<link xlink:href="bff6fc53-a0cb-4309-bca0-da8d3998f6ee" />
-		</relatedTopics>
-	</developerConceptualDocument>
+    <relatedTopics>
+      <link xlink:href="bff6fc53-a0cb-4309-bca0-da8d3998f6ee" />
+    </relatedTopics>
+  </developerConceptualDocument>
 </topic>
