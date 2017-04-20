@@ -23,6 +23,10 @@ Parameters:
     AllowedPattern: ^[0-9A-Z]{14}$
     Description: Id of the origin access identity that will be used by CloudFront to access the hosting S3 bucket.  This is the SHORT Id in the CloudFront console...
     ConstraintDescription: must contain exactly 14 numbers and/or uppercase letters.
+  WebsiteOriginPath:
+    Type: String
+    Default: /v1.0.0
+    Description: The path that CloudFront will use to location the documentation welcome page (index.html) in the origin S3 bucket.  The value must start with a slash mark (/) and cannot end with a slash mark.
         
 Resources:
   # S3 bucket for hosting the static documentation
@@ -93,7 +97,7 @@ Resources:
         -
           DomainName: !GetAtt ComDocsBucket.DomainName
           Id: dotkegg-docs-bucket
-          OriginPath: /Help
+          OriginPath: !Ref WebsiteOriginPath
           S3OriginConfig:
             OriginAccessIdentity: !Join [ "", [ "origin-access-identity/cloudfront/", !Ref OriginAccessIdentityId ] ]
         PriceClass: PriceClass_All
