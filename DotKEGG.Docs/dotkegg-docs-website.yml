@@ -33,7 +33,7 @@ Resources:
   ComDocsBucket:
     Type: AWS::S3::Bucket
     Properties:
-      AccessControl: PublicRead
+      AccessControl: Private
       BucketName: dotkegg-docs
       LoggingConfiguration:
         DestinationBucketName: danware-us-east-2-logs
@@ -121,7 +121,7 @@ Resources:
   NetBucket:
     Type: AWS::S3::Bucket
     Properties:
-      AccessControl: PublicRead
+      AccessControl: Private
       BucketName: dotkegg.net
       LoggingConfiguration:
         DestinationBucketName: danware-us-east-2-logs
@@ -133,7 +133,7 @@ Resources:
   NetWwwBucket:
     Type: AWS::S3::Bucket
     Properties:
-      AccessControl: PublicRead
+      AccessControl: Private
       BucketName: www.dotkegg.net
       LoggingConfiguration:
         DestinationBucketName: danware-us-east-2-logs
@@ -146,7 +146,7 @@ Resources:
   OrgBucket:
     Type: AWS::S3::Bucket
     Properties:
-      AccessControl: PublicRead
+      AccessControl: Private
       BucketName: dotkegg.org
       LoggingConfiguration:
         DestinationBucketName: danware-us-east-2-logs
@@ -158,7 +158,7 @@ Resources:
   OrgWwwBucket:
     Type: AWS::S3::Bucket
     Properties:
-      AccessControl: PublicRead
+      AccessControl: Private
       BucketName: www.dotkegg.org
       LoggingConfiguration:
         DestinationBucketName: danware-us-east-2-logs
@@ -171,7 +171,7 @@ Resources:
   ComBucket:
     Type: AWS::S3::Bucket
     Properties:
-      AccessControl: PublicRead
+      AccessControl: Private
       BucketName: dotkegg.com
       LoggingConfiguration:
         DestinationBucketName: danware-us-east-2-logs
@@ -183,7 +183,7 @@ Resources:
   ComWwwBucket:
     Type: AWS::S3::Bucket
     Properties:
-      AccessControl: PublicRead
+      AccessControl: Private
       BucketName: www.dotkegg.com
       LoggingConfiguration:
         DestinationBucketName: danware-us-east-2-logs
