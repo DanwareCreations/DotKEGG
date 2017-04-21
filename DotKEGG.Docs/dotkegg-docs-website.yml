@@ -129,7 +129,6 @@ Resources:
       WebsiteConfiguration:
         RedirectAllRequestsTo:
           HostName: www.danwarecreations.com/products/dotkegg/
-          Protocol: https
   NetWwwBucket:
     Type: AWS::S3::Bucket
     Properties:
@@ -141,7 +140,6 @@ Resources:
       WebsiteConfiguration:
         RedirectAllRequestsTo:
           HostName: www.danwarecreations.com/products/dotkegg/
-          Protocol: https
           
   OrgBucket:
     Type: AWS::S3::Bucket
@@ -154,7 +152,6 @@ Resources:
       WebsiteConfiguration:
         RedirectAllRequestsTo:
           HostName: www.danwarecreations.com/products/dotkegg/
-          Protocol: https
   OrgWwwBucket:
     Type: AWS::S3::Bucket
     Properties:
@@ -166,7 +163,6 @@ Resources:
       WebsiteConfiguration:
         RedirectAllRequestsTo:
           HostName: www.danwarecreations.com/products/dotkegg/
-          Protocol: https
           
   ComBucket:
     Type: AWS::S3::Bucket
@@ -179,7 +175,6 @@ Resources:
       WebsiteConfiguration:
         RedirectAllRequestsTo:
           HostName: www.danwarecreations.com/products/dotkegg/
-          Protocol: https
   ComWwwBucket:
     Type: AWS::S3::Bucket
     Properties:
@@ -191,7 +186,6 @@ Resources:
       WebsiteConfiguration:
         RedirectAllRequestsTo:
           HostName: www.danwarecreations.com/products/dotkegg/
-          Protocol: https
       
   # Route 53 Record Set Groups
   NetDnsRecords:
