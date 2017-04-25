@@ -106,6 +106,7 @@ Resources:
             RestrictionType: none
         ViewerCertificate:
           AcmCertificateArn: !Sub arn:aws:acm:us-east-1:${AWS::AccountId}:certificate/${AcmCertificateId}
+          MinimumProtocolVersion: TLSv1
           SslSupportMethod: sni-only
         WebACLId: !Ref WebAcl
   WebAcl:
