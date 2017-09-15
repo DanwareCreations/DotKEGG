@@ -7,7 +7,7 @@
     <authors>$author$</authors>
     <owners>$author$</owners>
     <licenseUrl>https://opensource.org/licenses/MIT</licenseUrl>
-    <projectUrl>https://www.danwarecreations.com/products/dotkegg/</projectUrl>
+    <projectUrl>https://github.com/DanwareCreations/DotKEGG</projectUrl>
     <iconUrl>https://kegg.wustl.edu/images/KEGG_database_logo.gif</iconUrl>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
     <!-- Short summary -->
