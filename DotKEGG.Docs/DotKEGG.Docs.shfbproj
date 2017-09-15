@@ -52,12 +52,13 @@
     <HelpTitle>DotKEGG</HelpTitle>
     <ContentPlacement>AboveNamespaces</ContentPlacement>
     <FeedbackEMailLinkText>Danware Support</FeedbackEMailLinkText>
-    <FeedbackEMailAddress>support%40danwarecreations.com</FeedbackEMailAddress>
+    <FeedbackEMailAddress>
+    </FeedbackEMailAddress>
     <NamespaceSummaries>
       <NamespaceSummaryItem name="(global)" isDocumented="False" xmlns="" />
       <NamespaceSummaryItem name="DotKEGG" isDocumented="True" xmlns="">The DotKEGG namespace contains all types needed to interact with the KEGG database.  This includes types representing the various databases, entries within those databases, and operations on those entries.</NamespaceSummaryItem>
     </NamespaceSummaries>
-    <CopyrightHref>https://www.danwarecreations.com/products/dotkegg</CopyrightHref>
+    <CopyrightHref>https://github.com/DanwareCreations/DotKEGG</CopyrightHref>
     <WarnOnMissingSourceContext>False</WarnOnMissingSourceContext>
     <SourceCodeBasePath>..\DotKEGG\</SourceCodeBasePath>
     <WebsiteSdkLinkType>Msdn</WebsiteSdkLinkType>
