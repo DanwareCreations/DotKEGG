@@ -8,8 +8,8 @@ Metadata:
       - 
         Parameters:
         - AcmCertificateId
-        - OriginAccessCanonicalUserId
-        
+        - OriginAccessIdentityId
+
 Parameters:
   AcmCertificateId:
     Type: String
