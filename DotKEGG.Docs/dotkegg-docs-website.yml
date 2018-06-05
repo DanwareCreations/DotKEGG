@@ -7,11 +7,25 @@ Metadata:
     ParameterGroups:
       - 
         Parameters:
+        - S3LogBucketName
+        - CloudFrontLogBucketDomainName
         - DistributionOriginPath
         - AcmCertificateId
         - OriginAccessIdentityId
 
 Parameters:
+  S3LogBucketName:
+    Type: String
+    Default: danware-us-east-2-bucket-logs
+    AllowedPattern: ^[a-z0-9.-]+$
+    Description: The name of an existing bucket to which the documentation-hosting and domain-redirect S3 buckets will store logs (must be in the same region).
+    ConstraintDescription: must contain only lowercase letters, numbers, periods (.), and dashes (-).
+  CloudFrontLogBucketDomainName:
+    Type: String
+    Default: danware-us-east-2-cloudfront-logs.s3-us-east-2.amazonaws.com
+    AllowedPattern: ^[a-z0-9.-]+$
+    Description: "The domain name (not simple name) of an existing bucket to which the image-distributing CloudFront distribution will store logs.  Valid bucket domain names are described here: https://docs.aws.amazon.com/general/latest/gr/rande.html#s3_region"
+    ConstraintDescription: must be a valid S3 bucket domain name (only lowercase letters, numbers, periods (.), dashes (-), no starting/ending dashes, etc.)
   DistributionOriginPath:
     Type: String
     Default: /v1.0.0
@@ -39,7 +53,7 @@ Resources:
       AccessControl: Private
       BucketName: dotkegg-docs
       LoggingConfiguration:
-        DestinationBucketName: danware-us-east-2-logs
+        DestinationBucketName: !Ref S3LogBucketName
         LogFilePrefix: docs/dotkegg/
       WebsiteConfiguration:
         #ErrorDocument: 
@@ -93,7 +107,7 @@ Resources:
         DefaultRootObject: index.html
         Enabled: true
         Logging:
-          Bucket: danware-us-east-2-logs.s3.amazonaws.com
+          Bucket: !Ref CloudFrontLogBucketDomainName
           IncludeCookies: true
           Prefix: cloudfront/docs/dotkegg/
         Origins:
@@ -105,8 +119,7 @@ Resources:
             OriginAccessIdentity: !Sub origin-access-identity/cloudfront/${OriginAccessIdentityId}
         PriceClass: PriceClass_All
         Restrictions:
-          GeoRestriction:
-            RestrictionType: none
+          GeoRestriction: { RestrictionType: none }
         ViewerCertificate:
           AcmCertificateArn: !Sub arn:aws:acm:us-east-1:${AWS::AccountId}:certificate/${AcmCertificateId}
           MinimumProtocolVersion: TLSv1
@@ -120,7 +133,6 @@ Resources:
       MetricName: DotKeggDocsDistribution
       Rules: []
 
-        
   # S3 buckets for web redirects
   NetBucket:
     Type: AWS::S3::Bucket
@@ -128,7 +140,7 @@ Resources:
       AccessControl: Private
       BucketName: dotkegg.net
       LoggingConfiguration:
-        DestinationBucketName: danware-us-east-2-logs
+        DestinationBucketName: !Ref S3LogBucketName
         LogFilePrefix: redirect/dotkegg.net/
       WebsiteConfiguration:
         RedirectAllRequestsTo:
@@ -139,7 +151,7 @@ Resources:
       AccessControl: Private
       BucketName: www.dotkegg.net
       LoggingConfiguration:
-        DestinationBucketName: danware-us-east-2-logs
+        DestinationBucketName: !Ref S3LogBucketName
         LogFilePrefix: redirect/www.dotkegg.net/
       WebsiteConfiguration:
         RedirectAllRequestsTo:
@@ -151,7 +163,7 @@ Resources:
       AccessControl: Private
       BucketName: dotkegg.org
       LoggingConfiguration:
-        DestinationBucketName: danware-us-east-2-logs
+        DestinationBucketName: !Ref S3LogBucketName
         LogFilePrefix: redirect/dotkegg.org/
       WebsiteConfiguration:
         RedirectAllRequestsTo:
@@ -162,7 +174,7 @@ Resources:
       AccessControl: Private
       BucketName: www.dotkegg.org
       LoggingConfiguration:
-        DestinationBucketName: danware-us-east-2-logs
+        DestinationBucketName: !Ref S3LogBucketName
         LogFilePrefix: redirect/www.dotkegg.org/
       WebsiteConfiguration:
         RedirectAllRequestsTo:
@@ -174,7 +186,7 @@ Resources:
       AccessControl: Private
       BucketName: dotkegg.com
       LoggingConfiguration:
-        DestinationBucketName: danware-us-east-2-logs
+        DestinationBucketName: !Ref S3LogBucketName
         LogFilePrefix: redirect/dotkegg.com/
       WebsiteConfiguration:
         RedirectAllRequestsTo:
@@ -185,7 +197,7 @@ Resources:
       AccessControl: Private
       BucketName: www.dotkegg.com
       LoggingConfiguration:
-        DestinationBucketName: danware-us-east-2-logs
+        DestinationBucketName: !Ref S3LogBucketName
         LogFilePrefix: redirect/www.dotkegg.com/
       WebsiteConfiguration:
         RedirectAllRequestsTo:
