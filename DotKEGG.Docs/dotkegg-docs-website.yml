@@ -7,10 +7,17 @@ Metadata:
     ParameterGroups:
       - 
         Parameters:
+        - DistributionOriginPath
         - AcmCertificateId
         - OriginAccessIdentityId
 
 Parameters:
+  DistributionOriginPath:
+    Type: String
+    Default: /v1.0.0
+    AllowedPattern: ^/[\w.-][\w./-]+[\w.-]$
+    Description: The path that CloudFront will use to request content from the documentation S3 bucket.  Must be a valid URL and that starts with a slash mark ("/") but does not end with a slash mark.
+    ConstraintDescription: must contain only valid URL characters, must start with a slash mark ("/"), and must not end with a slash mark.
   AcmCertificateId:
     Type: String
     Default: 11111111-1111-1111-1111-111111111111
@@ -23,11 +30,7 @@ Parameters:
     AllowedPattern: ^[0-9A-Z]{14}$
     Description: Id of the origin access identity that will be used by CloudFront to access the hosting S3 bucket.  This is the SHORT Id in the CloudFront console...
     ConstraintDescription: must contain exactly 14 numbers and/or uppercase letters.
-  WebsiteOriginPath:
-    Type: String
-    Default: /v1.0.0
-    Description: The path that CloudFront will use to location the documentation welcome page (index.html) in the origin S3 bucket.  The value must start with a slash mark (/) and cannot end with a slash mark.
-        
+
 Resources:
   # S3 bucket for hosting the static documentation
   ComDocsBucket:
@@ -97,7 +100,7 @@ Resources:
         -
           DomainName: !GetAtt ComDocsBucket.DomainName
           Id: dotkegg-docs-bucket
-          OriginPath: !Ref WebsiteOriginPath
+          OriginPath: !Ref DistributionOriginPath
           S3OriginConfig:
             OriginAccessIdentity: !Sub origin-access-identity/cloudfront/${OriginAccessIdentityId}
         PriceClass: PriceClass_All
